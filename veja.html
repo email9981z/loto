@@ -1,0 +1,785 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Estudo Secreto da Lotofácil — Método para Organizar Apostas</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --red:#b91c1c; --red-deep:#7f1d1d; --red-light:#fef2f2; --card-dark:#222236;
+    --ink:#1a1a2e; --yellow:#fbbf24; --yellow-dark:#d97706;
+    --text:#374151; --muted:#6b7280; --light:#9ca3af;
+    --line:#e5e7eb; --soft:#f9fafb; --white:#ffffff;
+    --green:#16a34a;
+    --font:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
+    --ease:cubic-bezier(.4,0,.2,1);
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{font-family:var(--font);color:var(--ink);background:var(--white);line-height:1.6;-webkit-font-smoothing:antialiased}
+  img{max-width:100%;display:block}
+
+  /* ─── Header ─── */
+  .top-bar{background:var(--red);color:#fff;text-align:center;padding:10px 16px;font-size:12px;font-weight:800;letter-spacing:.8px;text-transform:uppercase;animation:pulse-bg 3s ease-in-out infinite}
+  .top-bar b{color:var(--yellow)}
+
+  /* ─── Container ─── */
+  .wrap{width:min(100% - 32px,640px);margin:0 auto}
+
+  /* ─── Hero ─── */
+  .hero{padding:0;text-align:center;background:#fff;position:relative;overflow:visible;margin:0 0 0 0;border-bottom:1px solid var(--line)}
+  .hero::before{content:'';position:absolute;top:0;left:0;right:0;bottom:0;background:radial-gradient(ellipse 120% 80% at 50% 10%, rgba(251,191,36,.12) 0%, transparent 50%);pointer-events:none}
+  .hero-inner{position:relative;z-index:1;padding:32px 0 36px;max-width:640px;margin:0 auto}
+  .hero .tag{display:inline-flex;align-items:center;gap:6px;font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:1.2px;color:var(--red);border:1.5px solid var(--red);border-radius:20px;padding:6px 16px;margin-bottom:18px;background:rgba(185,28,28,.05)}
+  .hero .tag svg{width:14px;height:14px;stroke:var(--red);stroke-width:2;fill:none}
+  .hero h1{font-size:clamp(28px,8vw,36px);font-weight:900;line-height:1.12;letter-spacing:-.5px;color:var(--ink);margin-bottom:14px}
+  .hero h1 em{font-style:italic;color:var(--red)}
+  .hero p.sub{font-size:16px;color:var(--text);margin-bottom:20px;font-weight:400;line-height:1.6}
+  .hero p.sub b{color:var(--red);font-weight:700}
+  .hero .cta{max-width:380px;margin:0 auto}
+  .hero .cta{background:#fcc819;color:#000;font-weight:800;font-size:16.5px;padding:20px 32px;border-radius:999px;font-family:Helvetica,Arial,sans-serif;box-shadow:0 4px 0 rgba(0,0,0,.07);animation:pulse-cta 2s ease-in-out infinite}
+  .hero .cta:hover{background:#e3b000;box-shadow:0 6px 16px rgba(0,0,0,.16);transform:translateY(-1px)}
+  .hero .cta svg{stroke:#000;stroke-width:2.8}
+  .hero .guarantee-badge{color:var(--muted)}
+
+  @keyframes pulse-bg{0%,100%{background:#c02626}50%{background:#a01e1e}}
+  @keyframes pulse-bg-dark{0%,100%{background:#1e1e30}50%{background:#252540}}
+  @keyframes pulse-cta{0%,100%{box-shadow:0 4px 0 rgba(0,0,0,.07)}50%{box-shadow:0 4px 14px rgba(0,0,0,.22),0 0 0 10px rgba(252,200,25,.32)}}
+  /* ─── Social proof bar ─── */
+  .social-proof{display:flex;justify-content:center;align-items:center;gap:8px;margin-bottom:18px;font-size:13px;color:var(--muted)}
+  .social-proof .avatars{display:flex}
+  .social-proof .avatars span{width:28px;height:28px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:700;color:#fff;margin-left:-8px;border:2px solid #fff}
+  .social-proof .avatars span:first-child{margin-left:0}
+  .social-proof b{color:var(--ink)}
+
+  /* ─── Stats row ─── */
+  .hero-stats{display:flex;justify-content:center;gap:32px;margin-bottom:24px}
+  .hero-stats .stat{text-align:center}
+  .hero-stats .stat-num{font-size:24px;font-weight:900;color:var(--yellow)}
+  .hero-stats .stat-label{font-size:11px;color:#8b93a0;text-transform:uppercase;letter-spacing:.5px;margin-top:2px}
+
+  /* ─── CTA Button ─── */
+  .cta{display:flex;white-space:nowrap;align-items:center;justify-content:center;gap:10px;width:100%;padding:20px 32px;background:#fcc819;color:#000;font-size:16px;font-weight:800;letter-spacing:.3px;border:none;border-radius:999px;cursor:pointer;text-decoration:none;box-shadow:0 4px 0 rgba(0,0,0,.07);transition:all .2s var(--ease);line-height:1.3;font-family:Helvetica,Arial,sans-serif}
+  .cta:hover{background:#e3b000;box-shadow:0 6px 14px rgba(0,0,0,.14);transform:translateY(-1px)}
+  .cta:active{transform:translateY(2px);box-shadow:0 1px 0 rgba(0,0,0,.07)}
+  .cta svg{width:18px;height:18px;stroke:#000;stroke-width:2.8;fill:none}
+
+  /* ─── Guarantee badge ─── */
+  .guarantee-badge{display:flex;align-items:center;justify-content:center;gap:8px;margin-top:16px;font-size:13px;color:var(--muted)}
+  .guarantee-badge svg{width:18px;height:18px;stroke:var(--green);stroke-width:2;fill:none;flex-shrink:0}
+
+  /* ─── Problem ─── */
+  .problem{padding:28px 32px;background:var(--red-light);border-radius:12px;margin:32px 0;border-left:5px solid var(--red);box-shadow:0 3px 14px rgba(185,28,28,.1)}
+  .problem p{font-size:16px;color:var(--text);line-height:1.75}
+  .problem p b{color:var(--red)}
+
+  /* ─── Section titles ─── */
+  .section-title{text-align:center;font-size:22px;font-weight:800;letter-spacing:-.5px;margin-bottom:28px;color:var(--ink)}
+  .section-subtitle{text-align:center;font-size:14px;color:var(--muted);margin-top:-16px;margin-bottom:28px}
+
+  /* ─── What you get ─── */
+  .get-section{padding:40px 0;border-top:1px solid var(--line)}
+  .product-card{background:var(--card-dark);border:1px solid rgba(255,255,255,.06);border-radius:14px;padding:36px 28px;text-align:center;color:#fff;margin-bottom:28px}
+  .product-card .tag{font-size:10px;text-transform:uppercase;letter-spacing:2px;color:var(--yellow);font-weight:700;margin-bottom:10px;opacity:.9}
+  .product-card h3{font-size:22px;font-weight:800;margin-bottom:6px;letter-spacing:-.5px}
+  .product-card p{font-size:13px;color:#aab;margin-bottom:18px}
+
+  .module{display:flex;gap:14px;padding:16px 0;border-bottom:1px solid var(--line);align-items:flex-start}
+  .module:last-child{border-bottom:none}
+  .module-num{font-size:11px;font-weight:900;color:var(--red);background:var(--red-light);border:1px solid rgba(185,28,28,.2);border-radius:5px;padding:4px 8px;text-transform:uppercase;letter-spacing:.6px;flex-shrink:0;min-width:62px;text-align:center;margin-bottom:6px}
+  .module-icon{width:40px;height:40px;background:var(--ink);border-radius:10px;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+  .module-icon svg{width:20px;height:20px;stroke:#fff;stroke-width:1.8;fill:none;stroke-linecap:round;stroke-linejoin:round}
+  .module-text h4{font-size:15px;font-weight:700;margin-bottom:3px;color:var(--ink)}
+  .module-text p{font-size:13.5px;color:var(--muted);line-height:1.55}
+
+  /* ─── Bonus ─── */
+  .bonus{padding:24px 0;border-top:1px solid var(--line);margin-top:20px}
+  .bonus-title{font-size:11px;text-transform:uppercase;letter-spacing:1.5px;color:var(--red);font-weight:800;margin-bottom:14px;display:flex;align-items:center;gap:6px}
+  .bonus-item{display:flex;justify-content:space-between;align-items:center;font-size:14px;padding:8px 0;color:var(--text)}
+  .bonus-item .b-free{font-size:10px;font-weight:900;letter-spacing:.8px;color:#fff;background:var(--red);border-radius:4px;padding:3px 8px;flex-shrink:0;text-transform:uppercase;margin-right:8px;box-shadow:0 1px 4px rgba(185,28,28,.3)}
+  .bonus-item .b-icon{display:flex;align-items:center;flex-shrink:0}
+  .bonus-item .b-icon svg{width:16px;height:16px;stroke:var(--yellow-dark);stroke-width:2;fill:none}
+  .bonus-item .b-name{font-weight:600}
+  .bonus-item .b-value{color:var(--light);font-size:13px;text-decoration:line-through;flex-shrink:0}
+  .bonus-total{margin-top:14px;padding-top:14px;border-top:1px solid var(--line);font-size:13px;color:var(--text);text-align:center}
+  .bonus-total b{color:var(--green);font-weight:700}
+
+  /* ─── Price section ─── */
+  .price-section{padding:40px 0;background:var(--soft)}
+  .price-badge{background:var(--red);color:#fff;font-size:12px;font-weight:900;letter-spacing:1.5px;text-transform:uppercase;text-align:center;border-radius:6px;padding:9px 14px;margin-bottom:18px;box-shadow:0 3px 12px rgba(185,28,28,.35)}
+  .price-card{background:var(--white);border:3px solid var(--red);border-radius:16px;padding:32px 28px;margin-bottom:24px;box-shadow:0 4px 24px rgba(185,28,28,.18)}
+  .price-card .price-header{text-align:center;margin-bottom:12px}
+  .price-card .price-header .from{font-size:15px;color:var(--red);text-decoration:line-through;margin-bottom:2px;font-weight:700}
+  .price-card .price-header .to{font-size:40px;font-weight:900;color:var(--ink);line-height:1;letter-spacing:-1px}
+  .price-card .price-header .to span{font-size:22px;font-weight:700;color:var(--red)}
+  .price-card .price-label{font-size:11.5px;color:var(--muted);text-align:center;margin-bottom:14px}
+  .price-card .price-features{display:flex;justify-content:center;gap:16px;margin:14px 0 20px;font-size:12px;color:var(--muted);flex-wrap:wrap}
+  .price-card .price-features span{display:flex;align-items:center;gap:4px}
+  .price-card .price-features svg{width:14px;height:14px;stroke:var(--green);stroke-width:2.5;fill:none}
+
+  /* ─── Timer ─── */
+  .timer-block{text-align:center;margin-bottom:20px}
+  .timer-label{font-size:11px;text-transform:uppercase;letter-spacing:1px;color:var(--muted);margin-bottom:8px;font-weight:600}
+  .timer{display:flex;justify-content:center;gap:6px}
+  .timer div{background:var(--ink);color:#fff;padding:10px 14px;border-radius:8px;font-size:18px;font-weight:800;font-variant-numeric:tabular-nums;min-width:48px}
+  .timer .sep{background:none;color:var(--ink);padding:10px 2px;font-size:20px;font-weight:300}
+
+  /* ─── Trust row ─── */
+  .trust-row{display:flex;justify-content:center;gap:20px;flex-wrap:wrap;margin-top:16px}
+  .trust-item{display:flex;align-items:center;gap:6px;font-size:12px;color:var(--muted)}
+  .trust-item svg{width:16px;height:16px;stroke:var(--green);stroke-width:2;fill:none;flex-shrink:0}
+
+  /* ─── Testimonials ─── */
+  .testimonials{padding:44px 0;background:var(--soft);border-radius:0;margin:0 -16px;padding-left:16px;padding-right:16px}
+  .testi{background:var(--white);border:1px solid var(--line);border-radius:12px;padding:20px;margin-bottom:14px;box-shadow:0 2px 8px rgba(0,0,0,.04)}
+  .testi-head{display:flex;align-items:center;gap:12px;margin-bottom:10px}
+  .testi-avatar{width:40px;height:40px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:15px;font-weight:800;color:#fff;flex-shrink:0;letter-spacing:-.5px}
+  .testi-info .testi-name{font-size:14px;font-weight:700;color:var(--ink)}
+  .testi-info .testi-stars{color:var(--yellow-dark);font-size:13px;letter-spacing:1px;margin-top:1px}
+  .testi p{font-size:14px;color:var(--text);line-height:1.6;font-style:italic}
+  .testi .testi-verified{font-size:11px;color:var(--green);font-style:normal;display:flex;align-items:center;gap:4px;margin-top:8px;font-weight:600}
+  .testi .testi-verified svg{width:14px;height:14px;stroke:var(--green);stroke-width:2;fill:none}
+
+  /* ─── FAQ ─── */
+  .faq{padding:40px 0}
+  .faq-item{border:none;border-bottom:1px solid var(--line);margin-bottom:0;overflow:hidden;background:var(--white);border-radius:8px}
+  .faq-item:last-child{border-bottom:none}
+  .faq-q{display:flex;justify-content:space-between;align-items:center;padding:16px 20px;font-size:15px;font-weight:700;cursor:pointer;background:var(--white);border:none;width:100%;text-align:left;color:var(--ink);font-family:var(--font);transition:background .15s}
+  .faq-q:hover{background:var(--soft)}
+  .faq-q svg{width:20px;height:20px;stroke:var(--muted);stroke-width:2;fill:none;flex-shrink:0;transition:transform .2s}
+  .faq-item.open .faq-q svg{transform:rotate(45deg)}
+  .faq-a{max-height:0;overflow:hidden;transition:max-height .3s var(--ease)}
+  .faq-item.open .faq-a{max-height:200px}
+  .faq-a p{padding:0 20px 18px;font-size:14px;color:var(--text);line-height:1.6}
+
+  /* ─── Final CTA ─── */
+  .final-cta{padding:48px 0;text-align:center;background:var(--card-dark);color:#fff;border-radius:16px;margin:0 -16px;padding-left:16px;padding-right:16px;animation:pulse-bg-dark 4s ease-in-out infinite}
+  .final-cta h2{font-size:24px;font-weight:800;margin-bottom:12px;letter-spacing:-.5px}
+  .final-cta p{font-size:14.5px;color:#9ca3af;margin-bottom:28px;max-width:340px;margin-left:auto;margin-right:auto;line-height:1.65}
+  .final-cta .cta{background:#fcc819;color:#000;font-weight:800;border-radius:999px;font-family:Helvetica,Arial,sans-serif;box-shadow:0 4px 0 rgba(0,0,0,.07);animation:pulse-cta 2s ease-in-out infinite}
+  .final-cta .cta:hover{background:#e3b000;box-shadow:0 6px 16px rgba(0,0,0,.18)}
+  .final-cta .cta svg{stroke:#000;stroke-width:2.8}
+  .final-cta .guarantee-badge{color:#9ca3af}
+
+  /* ─── Notificação de compra recente ─── */
+  .purchase-toast{position:fixed;bottom:84px;left:16px;z-index:98;background:var(--white);border:1px solid var(--line);border-radius:12px;box-shadow:0 8px 24px rgba(0,0,0,.16);padding:12px 16px;display:flex;align-items:center;gap:10px;max-width:320px;transform:translateY(20px);opacity:0;visibility:hidden;transition:all .4s var(--ease);touch-action:pan-y}
+  .purchase-toast.show{transform:translateY(0);opacity:1;visibility:visible}
+  .purchase-toast.dragging{transition:none}
+  .purchase-toast.dismissed{opacity:0;visibility:hidden;transform:translateY(20px);pointer-events:none}
+  .purchase-toast .pt-avatar{width:36px;height:36px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:800;color:#fff;flex-shrink:0}
+  .purchase-toast .pt-text{font-size:12.5px;color:var(--text);line-height:1.4;flex:1}
+  .purchase-toast .pt-text b{color:var(--ink)}
+  .purchase-toast .pt-time{font-size:11px;color:var(--muted);margin-top:1px}
+  .purchase-toast .pt-close{width:22px;height:22px;border-radius:50%;border:none;background:var(--soft);color:var(--muted);display:flex;align-items:center;justify-content:center;cursor:pointer;flex-shrink:0;transition:background .15s, color .15s}
+  .purchase-toast .pt-close:hover{background:var(--line);color:var(--ink)}
+  .purchase-toast .pt-close svg{width:13px;height:13px;stroke:currentColor;stroke-width:2.5;fill:none}
+
+  /* ─── Sticky CTA ─── */
+  .sticky{position:fixed;bottom:0;left:0;right:0;padding:10px 16px;background:var(--card-dark);border-top:1px solid rgba(255,255,255,.08);z-index:99;transform:translateY(100%);transition:transform .3s var(--ease);box-shadow:0 -4px 20px rgba(0,0,0,.25)}
+  .sticky.visible{transform:translateY(0)}
+  .sticky .cta{padding:13px 24px;font-size:13.5px;min-height:44px;border-radius:999px;font-family:Helvetica,Arial,sans-serif}
+  .sticky-inner{max-width:640px;margin:0 auto;display:flex;align-items:center;gap:12px}
+  .sticky-price{font-size:13px;color:#aab;flex-shrink:0}
+  .sticky-price b{color:var(--ink);font-size:16px}
+
+  /* ─── Footer ─── */
+  .footer{padding:28px 16px;text-align:center;font-size:11px;color:var(--muted);line-height:1.7;padding-bottom:90px;border-top:1px solid var(--line)}
+  .footer .disclaimer{max-width:500px;margin:0 auto 12px;padding:14px;background:var(--soft);border-radius:8px;font-size:10px;color:var(--light);line-height:1.5;border:1px solid var(--line)}
+
+  /* ─── Mobile ─── */
+  @media(max-width:480px){
+    /* Top bar */
+    .top-bar{padding:9px 16px;font-size:11.5px;letter-spacing:.5px}
+    /* Hero fixes */
+    .hero{margin:0 0 28px 0}
+    .hero-inner{padding:28px 16px 28px}
+    .hero h1{font-size:23px;letter-spacing:-.3px;line-height:1.2}
+    .hero p.sub{font-size:14px;line-height:1.55}
+    .hero .tag{font-size:10px;padding:5px 14px}
+    .hero-headline{font-size:16px;margin-bottom:10px}
+    .hero .cta{font-size:15.5px;padding:18px 24px}
+    .offer-to{font-size:36px}
+    .hero-stats{gap:16px}
+    .hero-stats .stat-num{font-size:20px}
+    .hero-stats .stat-label{font-size:10px}
+    .hero .cta{max-width:100%}
+    .social-proof{font-size:12px}
+    .social-proof .avatars span{width:24px;height:24px;font-size:9px}
+    .bonus-item .b-free{padding:2px 6px;font-size:9px;margin-right:6px}
+    .price-badge{font-size:11px;padding:8px 10px}
+
+    /* General container */
+    .wrap{width:100%;padding:0 16px}
+    .cta{font-size:14.5px;padding:17px 22px;min-height:56px;line-height:1.3;border-radius:999px}
+
+    /* Problem section */
+    .problem{padding:20px;margin:24px 0}
+
+    /* Product card */
+    .product-card{padding:24px 16px}
+
+    /* Price card */
+    .price-section{padding:28px 0}
+    .price-badge{background:var(--red);color:#fff;font-size:12px;font-weight:900;letter-spacing:1.5px;text-transform:uppercase;text-align:center;border-radius:6px;padding:9px 14px;margin-bottom:18px;box-shadow:0 3px 12px rgba(185,28,28,.35)}
+  .price-card{padding:24px 16px}
+    .price-card .price-header .to{font-size:34px}
+    .price-card .price-header .to span{font-size:18px}
+    .price-card .price-label{font-size:11px}
+    .timer{gap:4px}
+    .timer div{padding:8px 10px;font-size:16px;min-width:42px}
+    .trust-row{gap:8px}
+
+    /* Modules */
+    .module{padding:14px 0;gap:12px}
+    .module-icon{width:36px;height:36px}
+    .module-icon svg{width:18px;height:18px}
+    .module-text h4{font-size:14px}
+    .module-text p{font-size:13px}
+
+    /* Bonus */
+    .bonus{padding:18px 0}
+    .bonus-item{font-size:13px}
+    .bonus-total{font-size:12px}
+
+    /* Testimonials */
+    .testimonials{padding:36px 16px}
+    .testi{padding:16px}
+
+    /* FAQ */
+    .faq{padding:28px 0}
+    .faq-q{padding:14px 16px;font-size:14px}
+    .faq-a p{padding:0 16px 16px;font-size:13.5px}
+
+    /* Final CTA */
+    .final-cta{padding:36px 16px;margin:0}
+    .final-cta h2{font-size:22px}
+    .final-cta p{font-size:14px}
+
+    /* Sticky CTA */
+    .sticky{padding:10px 12px}
+    .sticky-inner{gap:8px}
+    .sticky-price{font-size:12px}
+    .sticky-price b{font-size:15px}
+    .sticky .cta{min-height:44px;font-size:12.5px;padding:11px 18px;border-radius:999px;font-family:Helvetica,Arial,sans-serif}
+
+    /* Section titles */
+    .section-title{font-size:20px;margin-bottom:20px}
+    .section-subtitle{font-size:13px;margin-top:-10px}
+  }
+
+    /* Product Image */
+  /* ─── Price card refinado ─── */
+  .price-card .price-card-label{font-size:12px;color:var(--muted);margin-top:8px}
+  .price-card .to-once{font-size:16px;font-weight:600;color:var(--red)}
+  .price-urgency{font-size:12.5px;color:var(--red);font-weight:700;margin:16px 0 20px;text-align:center;background:rgba(185,28,28,.06);border:1px solid rgba(185,28,28,.2);border-radius:8px;padding:9px 14px}
+
+
+  /* ─── Hero headline (minimalista) ─── */
+  .hero-headline{font-size:18px;font-weight:800;color:var(--ink);margin:0 0 14px;letter-spacing:-.3px;line-height:1.4}
+  .hero-headline em{font-style:italic;color:var(--red);font-weight:900}
+
+  /* ─── Hero offer (minimalista) ─── */
+  .hero-offer{display:flex;align-items:baseline;justify-content:center;gap:10px;margin:0 0 18px}
+  .offer-from{font-size:15px;color:var(--muted);text-decoration:line-through;font-weight:600}
+  .offer-to{font-size:42px;font-weight:900;color:var(--ink);letter-spacing:-1.5px;line-height:1}
+  .offer-rs{font-size:19px;font-weight:700;color:var(--red)}
+  .offer-deal{font-size:12px;font-weight:700;color:var(--red)}
+
+
+  /* ─── Video hero: video quadrado (1:1) preenche o container sem barras pretas ─── */
+  .hero-video{max-width:420px;margin:0 auto 22px}
+  .video-wrap{position:relative;width:100%;aspect-ratio:1/1;border-radius:14px;overflow:hidden;box-shadow:0 10px 32px rgba(26,26,46,.18);background:var(--ink);}
+  .vsl-player{width:100%;height:100%;object-fit:cover;display:block}
+  .vsl-player::-webkit-media-controls{border-radius:0 0 14px 14px}
+
+
+  /* ─── Offer recap (stack de oferta) ─── */
+  .recap-today-tag{color:#fff;background:var(--red);font-size:10px;font-weight:900;letter-spacing:1px;border-radius:4px;padding:3px 8px;text-transform:uppercase;vertical-align:middle;margin-left:6px}
+  .offer-recap{background:var(--soft);border:1.5px dashed var(--red);border-radius:14px;padding:24px 22px;text-align:center;margin-top:26px}
+  .offer-recap-title{font-size:11px;text-transform:uppercase;letter-spacing:1.5px;color:var(--red);font-weight:800;margin-bottom:14px}
+  .offer-recap-list{margin-bottom:18px}
+  .offer-recap-item{display:flex;justify-content:space-between;align-items:center;font-size:14px;padding:6px 4px;color:var(--text)}
+  .offer-recap-item b{color:var(--ink)}
+  .offer-recap-item.total{border-top:1px solid var(--line);margin-top:6px;padding-top:10px;color:var(--muted)}
+  .offer-recap-item.today{font-size:16px;font-weight:700;color:var(--ink)}
+  .offer-recap-item.today b{color:var(--red);font-size:22px}
+  .offer-recap-item.today s{color:var(--light);font-weight:400;font-size:13px;margin-left:8px}
+  .offer-recap-note{font-size:12px;color:var(--muted);margin-top:14px}
+
+  /* ─── Headline arrow ─── */
+  .hero-headline .hl-arrow{color:var(--red);font-weight:400;margin-left:4px}
+
+
+
+
+
+
+  
+</style>
+</head>
+<body>
+
+<!-- Header -->
+<div class="top-bar">
+  🔴 ÚLTIMO DIA — PREÇO DE R$ 47 encerra HOJE às <b>23:59</b>
+</div>
+
+<!-- Hero (full-width, outside wrap) -->
+<section class="hero">
+  <div class="hero-inner">
+      <div class="tag">
+        <svg viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
+        O método que ninguém te contou na lotérica
+      </div>
+
+      <!-- Social proof -->
+      <div class="social-proof">
+        <div class="avatars">
+          <span style="background:#2563eb">RM</span>
+          <span style="background:#7c3aed">SF</span>
+          <span style="background:#059669">MV</span>
+          <span style="background:#dc2626">JA</span>
+        </div>
+        <span><b>+2.400 pessoas</b> já estão aplicando</span>
+      </div>
+
+      <h1>Lotofácil: O Estudo Secreto Que Te Ajuda a<br><em>ACERTAR 15 DEZENAS</em></h1>
+      <p class="sub">Você acerta 13, 14… e o prêmio não paga o que gastou. <b>Este método</b> te mostra como jogar certo.</p>
+
+                  <!-- Video de apresentacao (VSL) -->
+      <div class="hero-video">
+        <div class="video-wrap" id="video-hero">
+          <video id="vsl-video" class="vsl-player" controls autoplay muted playsinline preload="auto" loop
+            poster="https://files.manuscdn.com/user_upload_by_module/session_file/310519663865742747/qgNVHHftoOmuzWjO.jpg">
+            <source src="https://files.manuscdn.com/user_upload_by_module/session_file/310519663865742747/MMghhyCOKuguSGUx.mp4" type="video/mp4">
+            Seu navegador nao suporta video HTML5.
+          </video>
+        </div>
+      </div>
+
+      <!-- Headline abaixo do video -->
+      <div class="hero-headline">Descubra como acertar <em>15 dezenas</em> na Lotofácil</div>
+
+      <!-- Oferta -->
+      <div class="hero-offer">
+        <span class="offer-from">De R$ 97</span>
+        <span class="offer-to"><span class="offer-rs">R$</span> 47,00</span>
+      </div>
+
+      <a class="cta" href="https://pay.hotmart.com/A107245187R">
+        QUERO GANHAR NA LOTOFÁCIL
+        <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </a>
+      <div class="guarantee-badge">
+        <svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><polyline points="9 12 11 14 15 10"/></svg>
+        Garantia incondicional de 7 dias — 100% do dinheiro de volta
+      </div>
+  </div>
+</section>
+
+<div class="wrap">
+
+  <!-- Problem -->
+  <section class="problem">
+    <p>Você já parou pra pensar quanto <b>DINHEIRO</b> já jogou fora? Todo mês R$ 150, R$ 300… e só volta 13, 14 pontos. No fim do ano, são <b>milhares de reais</b> indo embora — sem critério.</p><p style="margin-top:14px">O problema nunca foi sua sorte. É que <b>ninguém te ensinou a jogar certo</b>. É exatamente isso que este material corrige.</p>
+  </section>
+
+  <!-- What you get -->
+  <section class="get-section">
+    <h2 class="section-title">O Que Você Recebe Hoje <span style="color:var(--red)">(e que muda TUDO)</span></h2>
+    <p class="section-subtitle">Acesso imediato após a compra</p>
+
+    <div class="product-card">
+      <div class="tag">Material Digital Secreto</div>
+      <h3>Estudo Secreto da Lotofácil</h3>
+      <p>O método para acertar 15 dezenas</p>
+    </div>
+
+    <div>
+      <div class="module">
+        <div class="module-icon"><svg viewBox="0 0 24 24"><rect x="3" y="12" width="4" height="9" rx="1"/><rect x="10" y="7" width="4" height="14" rx="1"/><rect x="17" y="3" width="4" height="18" rx="1"/></svg></div>
+        <div class="module-text"><div class="module-num">Passo 1</div><h4>Padrões Ocultos</h4><p>Quais dezenas mais saem — aposte com dados, não no chute.</p></div>
+      </div>
+      <div class="module">
+        <div class="module-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1.5" fill="#fff"/></svg></div>
+        <div class="module-text"><div class="module-num">Passo 2</div><h4>Fechamentos Inteligentes</h4><p>Cubra mais combinações gastando o mesmo valor.</p></div>
+      </div>
+      <div class="module">
+        <div class="module-icon"><svg viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg></div>
+        <div class="module-text"><div class="module-num">Passo 3</div><h4>Plano de Apostas</h4><p>Saiba quando apostar — e quando NÃO apostar.</p></div>
+      </div>
+    </div>
+
+    <div class="bonus">
+      <div class="bonus-title">+ Bônus Exclusivos — você leva <span style="color:var(--green)">GRÁTIS HOJE</span></div>
+      <div class="bonus-item"><span class="b-free">GRÁTIS</span><span class="b-icon"><svg viewBox="0 0 24 24"><rect x="3" y="12" width="4" height="9" rx="1"/><rect x="10" y="7" width="4" height="14" rx="1"/><rect x="17" y="3" width="4" height="18" rx="1"/></svg></span><span class="b-name">Planilha de Fechamentos Inteligentes</span><span class="b-value">R$ 47</span></div>
+      <div class="bonus-item"><span class="b-free">GRÁTIS</span><span class="b-icon"><svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg></span><span class="b-name">Guia: O Segredo dos Concursos Finais</span><span class="b-value">R$ 37</span></div>
+      <div class="bonus-item"><span class="b-free">GRÁTIS</span><span class="b-icon"><svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></span><span class="b-name">Acesso ao Grupo VIP de Apostadores</span><span class="b-value">R$ 67</span></div>
+      <div class="bonus-total">Valor total dos bônus: <b>R$ 151</b> + material principal · tudo por <b style="color:var(--red)">R$ 47</b></div>
+    </div>
+
+    <!-- Sua oferta hoje (recap do stack) -->
+    <div class="offer-recap">
+      <div class="offer-recap-title">Sua oferta <span class="recap-today-tag">SÓ HOJE</span></div>
+      <div class="offer-recap-list">
+        <div class="offer-recap-item"><span>Estudo Secreto da Lotofácil</span><b>R$ 47</b></div>
+        <div class="offer-recap-item"><span>+ 3 Bônus exclusivos</span><b>R$ 151</b></div>
+        <div class="offer-recap-item total"><span>Valor total</span><s>R$ 198</s></div>
+        <div class="offer-recap-item today"><span>Você paga hoje</span><b>R$ 47</b></div>
+      </div>
+      <a class="cta cta--outline-none" href="https://pay.hotmart.com/A107245187R" style="max-width:420px">
+        GARANTIR MINHA OFERTA POR R$ 47
+        <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </a>
+      <div class="offer-recap-note">Acesso imediato no seu e-mail após a confirmação do pagamento</div>
+    </div>
+  </section>
+
+  <!-- Price -->
+  <section class="price-section">
+    <div class="price-card">
+      <div class="price-badge">🔥 PREÇO ESPECIAL — SÓ HOJE</div>
+      <div class="price-header">
+        <div class="from">Material + bônus: R$ 198</div>
+        <div class="to"><span>R$</span> 47,00<span class="to-once"> hoje</span></div>
+        <div class="price-card-label">em pagamento único — sem mensalidade, para sempre</div>
+      </div>
+
+      <div class="price-features">
+        <span><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg> Acesso imediato</span>
+        <span><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg> Bônus inclusos</span>
+        <span><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg> Sem mensalidade</span>
+      </div>
+
+      <!-- Timer real de contagem regressiva -->
+      <div class="timer-block">
+        <div class="timer-label">⏰ Essa condição encerra em:</div>
+        <div class="timer">
+          <div id="timer-h">00</div><div class="sep">:</div>
+          <div id="timer-m">00</div><div class="sep">:</div>
+          <div id="timer-s">00</div>
+        </div>
+      </div>
+
+      <div class="price-urgency">⚠ Essa condição é válida somente hoje — depois, volta para R$ 97</div>
+      <a class="cta" href="https://pay.hotmart.com/A107245187R">
+        GARANTIR MINHA VAGA POR R$ 47
+        <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </a>
+      <div class="trust-row">
+        <span class="trust-item">
+          <svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><polyline points="9 12 11 14 15 10"/></svg>
+          7 dias de garantia
+        </span>
+        <span class="trust-item">
+          <svg viewBox="0 0 24 24"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+          Pagamento seguro
+        </span>
+        <span class="trust-item">
+          <svg viewBox="0 0 24 24"><rect x="1" y="4" width="22" height="16" rx="2"/><line x1="1" y1="10" x2="23" y2="10"/></svg>
+          <b>Pix</b>, cartão ou boleto
+        </span>
+      </div>
+    </div>
+  </section>
+
+  <!-- Autoridade / criador -->
+  <section style="padding:40px 0;border-top:1px solid var(--line)">
+    <h2 class="section-title">Quem Está Por Trás do Método</h2>
+    <div style="max-width:500px;margin:0 auto;background:var(--soft);border:1px solid var(--line);border-radius:12px;padding:24px;text-align:center">
+      <div style="width:88px;height:88px;border-radius:50%;background:var(--card-dark);display:flex;align-items:center;justify-content:center;margin:0 auto 14px;font-size:30px;font-weight:900;color:var(--yellow);letter-spacing:-1px">ES</div>
+      <p style="font-size:14.5px;color:var(--text);line-height:1.7">Desenvolvido por <b>Equipe de Apostadores Analíticos</b>, um grupo que há mais de 8 anos estuda os resultados da Lotofácil, mapeando padrões de dezenas e construindo fechamentos matemáticos. O objetivo nunca foi prometer prêmio — é ensinar a jogar de forma organizada, cobrindo mais combinações com o mesmo valor.</p>
+    </div>
+  </section>
+
+  <!-- Testimonials -->
+  <section class="testimonials">
+    <h2 class="section-title">Veja o Que Está Acontecendo com Quem Aplica o Método</h2>
+    <p class="section-subtitle">Resultados reais de quem parou de apostar no chute · ★★★★★</p>
+    <div class="testi">
+      <div class="testi-head">
+        <div class="testi-avatar" style="background:#2563eb">RM</div>
+        <div class="testi-info">
+          <div class="testi-name">Ricardo M. · Porto Alegre/RS</div>
+          <div class="testi-stars">★★★★★</div>
+        </div>
+      </div>
+      <p>"Eu perdi mais de R$ 3.000 em 3 anos jogando no chute. Depois que apliquei o estudo, parei de jogar dinheiro fora. Os fechamentos organizaram minhas apostas e o grupo VIP trouxe o apoio que eu não tinha."</p>
+      <div class="testi-verified">
+        <svg viewBox="0 0 24 24"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+        Compra verificada
+      </div>
+    </div>
+    <div class="testi">
+      <div class="testi-head">
+        <div class="testi-avatar" style="background:#7c3aed">SF</div>
+                <div class="testi-info">
+          <div class="testi-name">Sandra F. · Goiânia/GO</div>
+          <div class="testi-stars">★★★★★</div>
+        </div>
+      </div>
+      <p>"Nunca imaginei que existia um jeito de estudar os concursos. O material é simples e vai direto ao ponto — hoje eu jogo com o mesmo valor de sempre, mas com fechamentos que cobrem MUITO mais combinações. Recomendo."</p>
+      <div class="testi-verified">
+        <svg viewBox="0 0 24 24"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+        Compra verificada
+      </div>
+    </div>
+    <div class="testi">
+      <div class="testi-head">
+        <div class="testi-avatar" style="background:#059669">MV</div>
+        <div class="testi-info">
+          <div class="testi-name">Marcos V. · Salvador/BA</div>
+          <div class="testi-stars">★★★★★</div>
+        </div>
+      </div>
+      <p>"Simples e direto. Não é promessa de prêmio — é um material que organiza como apostar. Vale cada centavo pelo que economizei em apostas sem critério."</p>
+      <div class="testi-verified">
+        <svg viewBox="0 0 24 24"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+        Compra verificada
+      </div>
+    </div>
+    <div class="testi">
+      <div class="testi-head">
+        <div class="testi-avatar" style="background:var(--red)">JA</div>
+        <div class="testi-info">
+          <div class="testi-name">Juliana A. · Recife/PE</div>
+          <div class="testi-stars">★★★★★</div>
+        </div>
+      </div>
+      <p>"No segundo concurso aplicando os fechamentos, fechei 14 pontos. A sensação de ver o jogo organizado, com dados, é outra. Chega de apostas no chute."</p>
+      <div class="testi-verified">
+        <svg viewBox="0 0 24 24"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+        Compra verificada
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="faq">
+    <h2 class="section-title">Últimas Dúvidas Antes de Garantir</h2>
+    <div class="faq-item">
+      <button class="faq-q" onclick="this.parentElement.classList.toggle('open')">
+        É seguro comprar?
+        <svg viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+      </button>
+      <div class="faq-a"><p>Sim. É um material digital com método real. Você tem 7 dias para testar sem risco: se não gostar, devolvemos 100% do valor.</p></div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q" onclick="this.parentElement.classList.toggle('open')">
+        Loteria não é aleatória?
+        <svg viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+      </button>
+      <div class="faq-a"><p>O sorteio é aleatório, mas a FORMA de apostar não é. Este material te ensina a cobrir mais combinações com o mesmo valor.</p></div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q" onclick="this.parentElement.classList.toggle('open')">
+        E se eu não gostar?
+        <svg viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+      </button>
+      <div class="faq-a"><p>Devolvemos 100% do seu dinheiro em até 7 dias, sem perguntas. Risco zero.</p></div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q" onclick="this.parentElement.classList.toggle('open')">
+        Como recebo o material?
+        <svg viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+      </button>
+      <div class="faq-a"><p>Imediatamente após a confirmação do pagamento, você recebe o acesso completo no seu e-mail — material, planilha, guia e grupo VIP. Funciona no celular e no computador.</p></div>
+    </div>
+  </section>
+
+</div>
+
+<!-- Final CTA -->
+<section class="final-cta">
+  <div class="wrap">
+    <h2>⚠ Depois de hoje, esse preço <span style="color:var(--yellow)">NÃO EXISTE MAIS</span></h2>
+    <p>Amanhã esse preço não existe mais. <b>R$ 47</b> hoje — ou R$ 97 depois. Material + 3 bônus por menos de R$ 2 por dia. A escolha é sua.</p>
+    <a class="cta" href="https://pay.hotmart.com/A107245187R">
+      SIM! ANTES QUE ACABE
+      <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+    </a>
+    <div class="guarantee-badge">
+      <svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><polyline points="9 12 11 14 15 10"/></svg>
+      7 dias de garantia total — não gostou? Devolvemos TUDO
+    </div>
+  </div>
+</section>
+
+<!-- Notificação de compra recente (flutuante) -->
+<div class="purchase-toast" id="purchase-toast">
+  <div class="pt-avatar" style="background:#2563eb">CF</div>
+  <div class="pt-text">
+    <b id="pt-name">Carla F. · Curitiba/PR</b> acabou de garantir o acesso
+    <div class="pt-time" id="pt-time">há 2 minutos</div>
+  </div>
+  <button class="pt-close" id="pt-close" type="button" aria-label="Fechar">
+    <svg viewBox="0 0 24 24"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+  </button>
+</div>
+
+<!-- Sticky CTA -->
+<div class="sticky" id="sticky">
+  <div class="sticky-inner">
+    <span class="sticky-price"><s style="color:#777"></s> <b style="color:#fff">R$ 47,00 hoje</b></span>
+    <a class="cta" href="https://pay.hotmart.com/A107245187R">
+      QUERO GANHAR NA LOTOFÁCIL
+      <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+    </a>
+  </div>
+</div>
+
+<!-- Footer -->
+<footer class="footer">
+  <div class="disclaimer">
+    Loterias envolvem risco financeiro. Este material organiza apostas com base em padrões estatísticos, mas não garante retorno, lucro ou prêmio. Os resultados variam de pessoa para pessoa. Conteúdo comercial.
+  </div>
+  <p>© 2026 Estudo Secreto da Lotofácil. Todos os direitos reservados.<br>
+  <a href="#">Termos de Uso</a> · <a href="#">Política de Privacidade</a></p>
+</footer>
+
+<script>
+  // ── Timer real: conta até 23:59 de hoje (reinicia automaticamente) ──
+  (function () {
+    var pad = function (n) { return String(n).padStart(2, '0'); };
+    var target = function () {
+      var d = new Date();
+      var t = new Date(d.getFullYear(), d.getMonth(), d.getDate(), 23, 59, 59);
+      if (d >= t) t.setDate(t.getDate() + 1); // se já passou de 23:59, aponta para amanhã
+      return t;
+    };
+    var hEl = document.getElementById('timer-h');
+    var mEl = document.getElementById('timer-m');
+    var sEl = document.getElementById('timer-s');
+    if (!hEl) return;
+    var update = function () {
+      var diff = Math.max(0, Math.floor((target() - new Date()) / 1000));
+      var hh = Math.floor(diff / 3600);
+      var mm = Math.floor((diff % 3600) / 60);
+      var ss = diff % 60;
+      hEl.textContent = pad(hh);
+      mEl.textContent = pad(mm);
+      sEl.textContent = pad(ss);
+    };
+    update();
+    setInterval(update, 1000);
+  })();
+
+  // ── Notificação de compra recente (flutuante, em loop, com fechar por X e swipe) ──
+  (function () {
+    var toast = document.getElementById('purchase-toast');
+    var nameEl = document.getElementById('pt-name');
+    var timeEl = document.getElementById('pt-time');
+    var closeBtn = document.getElementById('pt-close');
+    if (!toast) return;
+
+    var buyers = [
+      ['CF','Carla F. · Curitiba/PR','há 2 minutos'],
+      ['JP','João P. · Belo Horizonte/MG','há 5 minutos'],
+      ['AL','Ana L. · Fortaleza/CE','há 7 minutos'],
+      ['RB','Roberto B. · Brasília/DF','há 11 minutos'],
+      ['TM','Tatiane M. · Cuiabá/MT','há 14 minutos']
+    ];
+    var i = 0;
+    var dismissed = false;
+    var hideTimer = null;
+
+    var dismiss = function () {
+      dismissed = true;
+      toast.classList.remove('show');
+      toast.classList.add('dismissed');
+      if (hideTimer) clearTimeout(hideTimer);
+    };
+
+    // Fechar pelo botão X (para o usuário até o fim da sessão)
+    if (closeBtn) closeBtn.addEventListener('click', dismiss);
+
+    // Fechar arrastando para o lado (mouse e touch)
+    var startX = 0, startY = 0, dragging = false, moved = false;
+    var THRESHOLD = 70; // px arrastados horizontalmente para confirmar o dismiss
+    var onStart = function (e) {
+      startX = e.clientX !== undefined ? e.clientX : e.touches[0].clientX;
+      startY = e.clientY !== undefined ? e.clientY : e.touches[0].clientY;
+      dragging = true;
+      moved = false;
+    };
+    var onMove = function (e) {
+      if (!dragging) return;
+      var cx = e.clientX !== undefined ? e.clientX : e.touches[0].clientX;
+      var dx = cx - startX;
+      var dy = (e.clientY !== undefined ? e.clientY : e.touches[0].clientY) - startY;
+      if (Math.abs(dx) > 8 || Math.abs(dy) > 8) moved = true;
+      if (Math.abs(dx) < Math.abs(dy)) return; // arrasto vertical = scroll, ignora
+      e.preventDefault ? e.preventDefault() : null;
+      toast.classList.add('dragging');
+      toast.style.transform = 'translate(' + dx + 'px, 0)';
+      toast.style.opacity = Math.max(0.2, 1 - Math.abs(dx) / 300);
+    };
+    var onEnd = function (e) {
+      if (!dragging) return;
+      dragging = false;
+      var cx = e.clientX !== undefined ? e.clientX : (e.changedTouches ? e.changedTouches[0].clientX : startX);
+      var dx = cx - startX;
+      toast.classList.remove('dragging');
+      toast.style.transform = '';
+      toast.style.opacity = '';
+      if (dismissed) return;
+      if (Math.abs(dx) >= THRESHOLD) {
+        dismiss();
+      }
+    };
+    toast.addEventListener('mousedown', onStart);
+    document.addEventListener('mousemove', onMove);
+    document.addEventListener('mouseup', onEnd);
+    toast.addEventListener('touchstart', onStart, {passive:true});
+    toast.addEventListener('touchmove', onMove, {passive:false});
+    toast.addEventListener('touchend', onEnd);
+
+    var show = function () {
+      if (dismissed) return; // usuário fechou: não reaparece
+      var b = buyers[i % buyers.length];
+      toast.querySelector('.pt-avatar').style.background = ['#2563eb','#7c3aed','#059669','#dc2626','#0891b2'][i % 5];
+      toast.querySelector('.pt-avatar').textContent = b[0];
+      nameEl.textContent = b[1];
+      timeEl.textContent = b[2];
+      toast.classList.remove('dismissed');
+      toast.classList.add('show');
+      if (hideTimer) clearTimeout(hideTimer);
+      hideTimer = setTimeout(function () { toast.classList.remove('show'); }, 5500);
+      i++;
+    };
+    setTimeout(function () {
+      show();
+      setInterval(show, 14000);
+    }, 8000);
+  })();
+
+  // Sticky CTA on scroll
+  const sticky=document.getElementById('sticky');
+  window.addEventListener('scroll',()=>{
+    if(window.scrollY>400) sticky.classList.add('visible');
+    else sticky.classList.remove('visible');
+  });
+</script>
+
+<script>
+  // Video de apresentacao (VSL) - comportamento padrao do navegador
+  (function () {
+    var v = document.getElementById('vsl-video');
+    if (!v) return;
+    // Autoplay mudo (desktop e mobile)
+    v.play().catch(function () {});
+    // Ativa o som no primeiro clique/touch em qualquer lugar da pagina
+    var activateSound = function () {
+      if (v.muted) { v.muted = false; v.volume = 1; }
+      document.removeEventListener('click', activateSound);
+      document.removeEventListener('touchstart', activateSound);
+    };
+    document.addEventListener('click', activateSound);
+    document.addEventListener('touchstart', activateSound);
+  })();
+</script>
+
+</body>
+</html>
