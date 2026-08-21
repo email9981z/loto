@@ -85,9 +85,31 @@
   .foot{text-align:center;padding:24px 20px 90px;font:9px 'DM Mono',monospace;color:#7c8d97}
   .foot a{margin:0 6px;text-decoration:none;border-bottom:1px solid rgba(124,141,151,.4)}
 
-  .sticky-bar{position:fixed;left:0;right:0;bottom:0;z-index:30;display:none;padding:10px 14px;background:#fff;border-top:1px solid var(--line);box-shadow:0 -8px 20px rgba(11,44,63,.08)}
-  .sticky-bar a{display:flex;align-items:center;justify-content:center;gap:8px;min-height:50px;border-radius:999px;background:linear-gradient(100deg,var(--gold-light),#e3ab2c);color:var(--ink);font-size:13px;font-weight:800;text-decoration:none;border:1px solid #a8720c}
-  @media(max-width:640px){.sticky-bar{display:block}.foot{padding-bottom:96px}}
+  .sticky-bar{
+    position:fixed;left:0;right:0;bottom:0;z-index:30;display:none;
+    padding:10px 14px calc(10px + env(safe-area-inset-bottom));
+    border-top:1px solid var(--line);
+    border-radius:18px 18px 0 0;
+    background:rgba(247,251,252,.86);
+    backdrop-filter:blur(14px) saturate(1.4);
+    -webkit-backdrop-filter:blur(14px) saturate(1.4);
+    box-shadow:0 -10px 24px rgba(11,44,63,.1);
+  }
+  .sticky-bar-inner{display:flex;align-items:center;gap:12px;max-width:520px;margin:0 auto}
+  .sticky-bar .sb-label{flex:1;min-width:0}
+  .sticky-bar .sb-label b{display:block;font-size:11.5px;font-weight:800;color:var(--ink);white-space:nowrap}
+  .sticky-bar .sb-label span{display:block;font-size:9.5px;color:var(--slate);font-weight:600}
+  .sticky-bar a{
+    flex:none;display:flex;align-items:center;justify-content:center;gap:7px;
+    min-height:46px;padding:0 18px;border-radius:999px;
+    background:linear-gradient(100deg,var(--gold-light),#e3ab2c);
+    color:var(--ink);font-size:12.5px;font-weight:800;letter-spacing:.2px;
+    text-decoration:none;border:1px solid #a8720c;
+    box-shadow:0 3px 0 #9a5d04,0 6px 14px rgba(181,125,15,.22);
+  }
+  .sticky-bar a:active{transform:translateY(1px);box-shadow:0 1px 0 #9a5d04}
+  .sticky-bar .cta-arrow{display:grid;place-items:center;width:20px;height:20px;border-radius:50%;background:var(--ink);color:#fff;flex:none;font-size:11px}
+  @media(max-width:640px){.sticky-bar{display:block}.foot{padding-bottom:100px}}
 </style>
 </head>
 <body>
@@ -170,7 +192,10 @@
   </footer>
 
   <div class="sticky-bar">
-    <a href="veja.html">Ver o método completo →</a>
+    <div class="sticky-bar-inner">
+      <span class="sb-label"><b>Método Lotofácil</b><span>Guia de organização</span></span>
+      <a href="veja.html">Ver método<span class="cta-arrow" aria-hidden="true">→</span></a>
+    </div>
   </div>
 </body>
 </html>
