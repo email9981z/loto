@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#ffffff" />
+    <title>Redirecionando</title>
+
+    <style>
+      * { box-sizing: border-box; }
+
+      html,
+      body {
+        height: 100%;
+        margin: 0;
+      }
+
+      body {
+        display: grid;
+        min-height: 100vh;
+        place-items: center;
+        background: #ffffff;
+      }
+
+      .spinner {
+        width: 38px;
+        height: 38px;
+        border: 3px solid #e6edfb;
+        border-top-color: #246bfd;
+        border-radius: 50%;
+        animation: spin 700ms linear infinite;
+      }
+
+      @keyframes spin {
+        to { transform: rotate(360deg); }
+      }
+
+      @media (prefers-reduced-motion: reduce) {
+        .spinner { animation-duration: 1.8s; }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="spinner" role="status" aria-label="Carregando"></div>
+
+    <script>
+      const checkoutUrl = "https://pay.hotmart.com/M107271590O";
+      const redirectDelayMs = 1500;
+
+      window.setTimeout(() => {
+        window.location.replace(checkoutUrl);
+      }, redirectDelayMs);
+    </script>
+  </body>
+</html>
