@@ -240,22 +240,6 @@
     transform: translateY(-1px);
   }
 
-  .popular-tag{
-    position: absolute;
-    top: -11px;
-    left: 50%;
-    transform: translateX(-50%);
-    background: var(--gold);
-    color: #fff;
-    font-size: 10.5px;
-    font-weight: 700;
-    letter-spacing: 0.03em;
-    text-transform: uppercase;
-    padding: 3px 9px;
-    border-radius: 999px;
-    white-space: nowrap;
-  }
-
   .amount-hint{
     text-align: center;
     font-size: 13px;
@@ -305,13 +289,6 @@
     font-size: 12.5px;
     color: var(--ink-soft);
     margin: 14px 0 0;
-  }
-
-  .optional-tag{
-    text-transform: none;
-    font-weight: 400;
-    letter-spacing: 0;
-    color: #B9A99C;
   }
 
   .share-row{
@@ -486,21 +463,10 @@
       <h3>Quanto você gostaria de nos presentear?</h3>
 
       <div class="field">
-        <label for="giverName">Seu nome</label>
-        <input type="text" id="giverName" name="giverName" placeholder="Como podemos te agradecer?" autocomplete="name">
-        <div class="error-msg" id="nameError" role="alert">Conta pra gente seu nome antes de continuar 💌</div>
-      </div>
-
-      <div class="field">
         <label>Escolha um valor</label>
         <div class="amount-grid" id="amountGrid" role="group" aria-label="Valores sugeridos">
           <button type="button" class="amount-btn" data-amount="2500" aria-pressed="false">R$ 25,00</button>
           <button type="button" class="amount-btn" data-amount="5000" aria-pressed="false">R$ 50,00</button>
-          <button type="button" class="amount-btn is-popular" data-amount="10000" aria-pressed="false">
-            R$ 100,00
-            <span class="popular-tag">Mais escolhido</span>
-          </button>
-          <button type="button" class="amount-btn" data-amount="20000" aria-pressed="false">R$ 200,00</button>
         </div>
 
         <div class="divider-or">ou digite outro valor</div>
@@ -508,11 +474,6 @@
         <input type="text" id="customAmount" inputmode="numeric" placeholder="R$ 0,00" data-cents="0" aria-label="Outro valor, em reais">
         <div class="error-msg" id="amountError" role="alert">Escolha ou digite um valor para presentear</div>
         <p class="amount-hint">Qualquer valor é bem-vindo — o que importa é fazer parte desse dia.</p>
-      </div>
-
-      <div class="field">
-        <label for="giverMessage">Recado para o casal <span class="optional-tag">(opcional)</span></label>
-        <input type="text" id="giverMessage" name="giverMessage" placeholder="Deixe uma mensagem carinhosa" autocomplete="off">
       </div>
 
       <button type="submit" class="submit-btn">Continuar para o Pix</button>
@@ -526,7 +487,7 @@
     <!-- Painel de confirmação: aqui entra a chave Pix real do casal -->
     <div class="confirmation" id="confirmation">
       <h4>Falta só um passo! 🤍</h4>
-      <p id="confirmName">Obrigado, Convidado!</p>
+      <p id="confirmName">Muito obrigado pelo carinho!</p>
       <div class="amount-line" id="confirmAmount">R$ 0,00</div>
 
       <ol class="pix-steps">
@@ -586,43 +547,22 @@
 
     // ---------- Envio do formulário ----------
     const giftForm = document.getElementById('giftForm');
-    const giverNameInput = document.getElementById('giverName');
-    const giverMessageInput = document.getElementById('giverMessage');
-    const nameError = document.getElementById('nameError');
     const confirmation = document.getElementById('confirmation');
-    const confirmName = document.getElementById('confirmName');
     const confirmAmount = document.getElementById('confirmAmount');
 
     giftForm.addEventListener('submit', (e) => {
       e.preventDefault();
 
-      const name = giverNameInput.value.trim();
-      const message = giverMessageInput.value.trim();
       const selectedBtn = document.querySelector('.amount-btn.is-selected');
       const customCents = parseInt(customAmountInput.dataset.cents || '0', 10);
       const amountCents = selectedBtn ? parseInt(selectedBtn.dataset.amount, 10) : customCents;
 
-      let hasError = false;
-
-      if (!name){
-        nameError.classList.add('is-visible');
-        hasError = true;
-      } else {
-        nameError.classList.remove('is-visible');
-      }
-
       if (!amountCents){
         amountError.classList.add('is-visible');
-        hasError = true;
-      } else {
-        amountError.classList.remove('is-visible');
+        return;
       }
+      amountError.classList.remove('is-visible');
 
-      if (hasError) return;
-
-      confirmName.textContent = message
-        ? 'Obrigado, ' + name + '! Vamos guardar seu recado com carinho 💌'
-        : 'Obrigado, ' + name + '!';
       confirmAmount.textContent = formatBRL(amountCents);
       confirmation.classList.add('is-visible');
       confirmation.scrollIntoView({ behavior: 'smooth', block: 'center' });
