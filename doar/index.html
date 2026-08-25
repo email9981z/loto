@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Ajude a construir um lar | Campanha de moradia</title>
-<meta name="description" content="Faça uma doação pelo Pix e ajude uma família a conquistar uma moradia digna.">
+<title>Ajude Ezequiel a conquistar um lar | Campanha de moradia</title>
+<meta name="description" content="Ezequiel trabalha coletando latinhas para cuidar da esposa. Ajude o casal a conquistar uma casa própria e uma vida mais digna.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@500;600&family=Work+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -27,33 +27,33 @@
 <main>
   <section class="hero-grid container">
     <div class="hero-copy">
-      <p class="eyebrow">Campanha de moradia digna</p>
+      <p class="eyebrow">Um lar para Ezequiel e sua esposa</p>
       <!-- Substitua o bloco abaixo por uma imagem real e autorizada da campanha. -->
       <div class="image-slot" role="img" aria-label="Espaço reservado para imagem da campanha"><span class="image-slot-label">Imagem da campanha</span></div>
-      <p>Estamos arrecadando recursos para apoiar uma família na conquista de uma casa segura e adequada.</p>
+      <p>Ezequiel dedica a vida a cuidar da esposa. Hoje, parte do dia é dedicada à coleta de latinhas para garantir alguma renda. Com sua ajuda, ele pode se aproximar do sonho de conquistar uma casa própria e viver com mais dignidade.</p>
       <div class="micro-trust"><span><i></i>Doação pelo Pix</span><span><i></i>Processo simples</span><span><i></i>Atualizações da campanha</span></div>
     </div>
 
     <section class="donation-card" id="doacao" aria-labelledby="donation-title">
       <form id="donationForm" novalidate>
-        <h2 id="donation-title">Faça sua doação</h2>
-        <p class="card-intro">Escolha um valor e veja a chave Pix no próximo passo.</p>
-        <span class="amount-title">Selecione uma contribuição <span class="selection-hint" id="selectionHint" aria-live="polite">R$ 50,00 selecionados</span></span>
+        <h2 id="donation-title">Ajude Ezequiel e sua esposa</h2>
+        <p class="card-intro">Sua contribuição ajuda a transformar o sonho de uma casa própria em realidade.</p>
+        <span class="amount-title">Escolha como fazer parte dessa corrente <span class="selection-hint" id="selectionHint" aria-live="polite">R$ 50,00 selecionados</span></span>
         <div class="amount-grid" role="group" aria-label="Valores sugeridos">
-          <button type="button" class="amount-btn" data-cents="2500" aria-pressed="false">R$ 25,00<span class="amount-label">apoio inicial</span></button>
-          <button type="button" class="amount-btn selected" data-cents="5000" aria-pressed="true">R$ 50,00<span class="amount-label">apoio à reforma</span></button>
-          <button type="button" class="amount-btn" data-cents="10000" aria-pressed="false">R$ 100,00<span class="amount-label">ajuda ampliada</span></button>
-          <button type="button" class="amount-btn" data-cents="25000" aria-pressed="false">R$ 250,00<span class="amount-label">etapa importante</span></button>
+          <button type="button" class="amount-btn" data-cents="2500" aria-pressed="false">R$ 25,00<span class="amount-label">primeiro apoio</span></button>
+          <button type="button" class="amount-btn selected" data-cents="5000" aria-pressed="true">R$ 50,00<span class="amount-label">apoio para o lar</span></button>
+          <button type="button" class="amount-btn" data-cents="10000" aria-pressed="false">R$ 100,00<span class="amount-label">ajuda essencial</span></button>
+          <button type="button" class="amount-btn" data-cents="25000" aria-pressed="false">R$ 250,00<span class="amount-label">passo para a casa</span></button>
         </div>
         <label class="custom-label" for="customAmount">Ou digite outro valor</label>
         <input class="custom-input" id="customAmount" inputmode="numeric" autocomplete="off" placeholder="R$ 0,00" data-cents="0" aria-describedby="amountError">
         <p class="error" id="amountError" role="alert">Escolha ou digite um valor para doar.</p>
         <button class="primary-btn" id="submitDonation" type="submit">Doar R$ 50,00</button>
-        <div class="card-trust" aria-label="Informações de segurança"><span><strong>✓</strong> Pix direto</span><span><strong>✓</strong> Você escolhe o valor</span><span><strong>✓</strong> Processo simples</span></div><p class="security">Você conferirá o nome do recebedor antes de confirmar o pagamento no seu banco.</p>
+        <div class="card-trust" aria-label="Informações de segurança"><span><strong>✓</strong> Pix direto</span><span><strong>✓</strong> Você escolhe o valor</span><span><strong>✓</strong> Processo simples</span></div><p class="security">Antes de confirmar, confira o nome do recebedor e o valor no aplicativo do seu banco.</p>
       </form>
 
       <div class="confirmation" id="confirmation" aria-live="polite">
-        <h3>Falta só um passo</h3>
+        <h3>Você está ajudando a mudar esse destino</h3>
         <p>Copie a chave, abra o Pix no seu banco e confira o destinatário antes de confirmar.</p>
         <div class="selected-amount" id="selectedAmount">R$ 50,00</div>
         <div class="pix-layout"><div class="qr-frame" id="qrFrame"><span class="qr-placeholder">O QR Code aparecerá aqui quando a chave oficial estiver configurada.</span></div><div><div class="pix-box"><code class="pix-key" id="pixKey">SUA-CHAVE-PIX-AQUI</code><button class="copy-btn" id="copyPix" type="button" disabled>Copiar chave</button></div><div class="pix-payload-box"><code class="pix-payload" id="pixPayload" title="Pix Copia e Cola">Pix Copia e Cola disponível após configurar a chave oficial.</code><button class="copy-btn" id="copyPayload" type="button" disabled>Copiar Pix</button></div><p class="copy-feedback" id="copyFeedback" role="status" aria-live="polite"></p></div></div><details class="pix-help"><summary>Como concluir o pagamento?</summary><ol class="pix-steps"><li><b>1</b><span>Abra o aplicativo do seu banco e escolha Pix.</span></li><li><b>2</b><span>Escaneie o QR Code ou cole a chave copiada.</span></li><li><b>3</b><span>Confira o nome do recebedor e o valor antes de confirmar.</span></li></ol></details>
@@ -63,12 +63,12 @@
   </section>
 
   <section class="support container" aria-labelledby="support-title">
-    <div><h2 id="support-title">Sua contribuição vira segurança.</h2><p>Cada doação apoia materiais, mão de obra e etapas essenciais para tornar essa moradia mais segura. Publique atualizações em um canal acessível e informe como os recursos estão sendo utilizados.</p></div>
+    <div><h2 id="support-title">Um lar pode mudar essa história.</h2><p>Cada contribuição aproxima Ezequiel e sua esposa do sonho de ter uma casa própria. Sua ajuda fortalece essa corrente do bem e contribui para uma vida mais segura e digna para o casal.</p></div>
     <div class="support-box"><strong>Transparência da campanha</strong><p>Meta: R$ [defina a meta]<br>Atualizações: [informe o canal]<br>Responsável: [informe o responsável]</p><small>Preencha estas informações antes de divulgar a campanha para reforçar a confiança de quem doa.</small></div>
   </section>
-  <div class="share container"><button id="shareBtn" type="button">Não pode doar agora? Compartilhe a campanha.</button></div>
+  <div class="share container"><button id="shareBtn" type="button">Não pode contribuir agora? Compartilhe a história do Ezequiel.</button></div>
 </main>
-<footer>Juntos por um lar. Cada doação aproxima uma família de uma moradia digna.</footer>
+<footer>Cada doação aproxima Ezequiel e sua esposa do sonho de um lar próprio.</footer>
 <script>
 const buttons=[...document.querySelectorAll('.amount-btn')],input=document.getElementById('customAmount'),error=document.getElementById('amountError'),confirmation=document.getElementById('confirmation'),selectedAmount=document.getElementById('selectedAmount');const pixConfig={pixKey:'SUA-CHAVE-PIX-AQUI',merchantName:'CAMPANHA MORADIA',merchantCity:'SUA CIDADE'};
 function brl(cents){return 'R$ '+(cents/100).toLocaleString('pt-BR',{minimumFractionDigits:2,maximumFractionDigits:2})}
@@ -77,7 +77,7 @@ buttons.forEach(button=>button.addEventListener('click',()=>choose(button)));
 input.addEventListener('input',event=>{const digits=event.target.value.replace(/\D/g,'');const cents=digits?parseInt(digits,10):0;event.target.dataset.cents=String(cents);event.target.value=cents?brl(cents):'';if(cents){buttons.forEach(item=>{item.classList.remove('selected');item.setAttribute('aria-pressed','false')});document.getElementById('selectionHint').textContent=brl(cents)+' selecionados';document.getElementById('submitDonation').textContent='Doar '+brl(cents);error.classList.remove('show')}});
 function crc16(payload){let crc=0xFFFF;for(let i=0;i<payload.length;i++){crc^=payload.charCodeAt(i)<<8;for(let j=0;j<8;j++)crc=crc&0x8000?(crc<<1)^0x1021:crc<<1;crc&=0xFFFF}return crc.toString(16).toUpperCase().padStart(4,'0')}function pixField(id,value){return id+String(value.length).padStart(2,'0')+value}function buildPixPayload(cents){const key=pixConfig.pixKey,name=pixConfig.merchantName,city=pixConfig.merchantCity;if(!key||key==='SUA-CHAVE-PIX-AQUI')return '';const merchant=pixField('00','BR.GOV.BCB.PIX')+pixField('01',key);const additional=pixField('05','***');let payload='000201'+pixField('26',merchant)+'52040000'+'5303986'+pixField('54',(cents/100).toFixed(2))+'5802BR'+pixField('59',name.slice(0,25))+'60'+String(city.slice(0,15).length).padStart(2,'0')+city.slice(0,15)+pixField('62',additional)+'6304';return payload+crc16(payload)}function renderPix(cents){const payload=buildPixPayload(cents),frame=document.getElementById('qrFrame'),note=document.getElementById('pixConfigNote'),warning=document.getElementById('pixWarning'),copyKey=document.getElementById('copyPix'),copyPayload=document.getElementById('copyPayload'),payloadEl=document.getElementById('pixPayload');document.getElementById('pixKey').textContent=pixConfig.pixKey;if(!payload){frame.innerHTML='<span class="qr-placeholder">O QR Code aparecerá aqui quando a chave oficial estiver configurada.</span>';payloadEl.textContent='Pix Copia e Cola disponível após configurar a chave oficial.';copyKey.disabled=true;copyPayload.disabled=true;note.hidden=false;warning.hidden=false;return}const img=document.createElement('img');img.alt='QR Code Pix para doação de '+brl(cents);img.referrerPolicy='no-referrer';img.src='https://quickchart.io/qr?size=260&margin=1&text='+encodeURIComponent(payload);frame.replaceChildren(img);payloadEl.textContent=payload;copyKey.disabled=false;copyPayload.disabled=false;note.hidden=true;warning.hidden=true}document.getElementById('donationForm').addEventListener('submit',event=>{event.preventDefault();const active=document.querySelector('.amount-btn.selected');const cents=active?Number(active.dataset.cents):Number(input.dataset.cents||0);if(!cents){error.classList.add('show');input.focus();return}selectedAmount.textContent=brl(cents);renderPix(cents);confirmation.classList.add('show');confirmation.scrollIntoView({behavior:'smooth',block:'center'})});
 async function copyValue(value,label){const feedback=document.getElementById('copyFeedback');try{await navigator.clipboard.writeText(value)}catch(e){const helper=document.createElement('textarea');helper.value=value;document.body.appendChild(helper);helper.select();document.execCommand('copy');helper.remove()}feedback.textContent=label+' copiado. Confira o destinatário e o valor no aplicativo do seu banco.';setTimeout(()=>feedback.textContent='',3000)}document.getElementById('copyPix').addEventListener('click',()=>copyValue(document.getElementById('pixKey').textContent.trim(),'Chave Pix'));document.getElementById('copyPayload').addEventListener('click',()=>copyValue(document.getElementById('pixPayload').textContent.trim(),'Pix Copia e Cola'));
-document.getElementById('shareBtn').addEventListener('click',async()=>{const text='Ajude uma família a conquistar uma moradia digna. Faça uma doação ou compartilhe esta campanha:';if(navigator.share){try{await navigator.share({title:document.title,text,url:location.href})}catch(e){}}else{window.open('https://wa.me/?text='+encodeURIComponent(text+' '+location.href),'_blank')}});
+document.getElementById('shareBtn').addEventListener('click',async()=>{const text='Ajude Ezequiel e sua esposa a conquistarem uma casa própria. Faça uma contribuição ou compartilhe esta campanha:';if(navigator.share){try{await navigator.share({title:document.title,text,url:location.href})}catch(e){}}else{window.open('https://wa.me/?text='+encodeURIComponent(text+' '+location.href),'_blank')}});
 </script>
 </body>
 </html>
