@@ -1,0 +1,389 @@
+
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Vamos mudar a vida do Ezequiel | Doe agora</title>
+<meta name="description" content="Ezequiel e sua esposa precisam de ajuda para o tratamento e uma casa digna. Doe via Pix ou cartão em menos de 1 minuto — 100% do valor vai para a família." />
+<meta property="og:title" content="Vamos mudar a vida do Ezequiel | Doe agora" />
+<meta property="og:description" content="Faltam poucos dias para a meta. Sua doação ajuda Ezequiel a ter tratamento e um teto seguro." />
+<meta property="og:type" content="website" />
+<meta name="twitter:card" content="summary_large_image" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700;12..96,800&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet" />
+<style>
+:root{
+  --bg:#fbfaf3; --fg:#1e2a24; --card:#fff; --muted:#f5f4ee; --muted-fg:#6b7a72;
+  --primary:#1f8a5b; --primary-fg:#f7fdfa; --secondary:#e6f3ea; --secondary-fg:#2c4a3a;
+  --accent:#f2a541; --border:#e2e6df; --heart:#e2484d;
+  --radius:1rem;
+  --shadow-card:0 1px 2px rgba(30,42,36,.05),0 12px 32px rgba(30,42,36,.08);
+  --shadow-cta:0 8px 24px rgba(31,138,91,.35);
+  --font-display:"Bricolage Grotesque",ui-sans-serif,system-ui,sans-serif;
+  --font-sans:"Plus Jakarta Sans",ui-sans-serif,system-ui,sans-serif;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--bg);color:var(--fg);font-family:var(--font-sans);-webkit-font-smoothing:antialiased;line-height:1.5}
+h1,h2,h3{font-family:var(--font-display);letter-spacing:-.02em;line-height:1.15}
+img{display:block;max-width:100%}
+button,input{font:inherit}
+.wrap{max-width:1120px;margin:0 auto;padding:0 16px}
+/* header */
+header{position:sticky;top:0;z-index:40;background:rgba(251,250,243,.88);backdrop-filter:blur(8px);border-bottom:1px solid var(--border)}
+.hd{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:12px 0}
+.brand{display:flex;align-items:center;gap:8px;font-family:var(--font-display);font-weight:700;font-size:18px}
+.logo{width:36px;height:36px;border-radius:999px;display:grid;place-items:center;background:linear-gradient(135deg,#1f8a5b,#2fae9a);color:#fff}
+.btn{border:0;cursor:pointer;border-radius:999px;background:var(--primary);color:var(--primary-fg);font-weight:700;transition:filter .2s,transform .2s}
+.btn:hover{filter:brightness(1.1)}
+.btn-sm{padding:10px 20px;font-size:14px;box-shadow:var(--shadow-cta)}
+.btn-ghost{background:transparent;color:var(--fg);border:1px solid var(--border);font-weight:600;font-size:14px;padding:10px 16px;display:flex;align-items:center;justify-content:center;gap:8px}
+.btn-ghost:hover{border-color:var(--primary)}
+/* layout */
+.grid{display:grid;gap:24px;padding:20px 0}
+@media(min-width:1024px){
+  .grid{grid-template-columns:1.55fr 1fr;gap:32px;padding:48px 0}
+  #intro{grid-column:1;grid-row:1}
+  #story{grid-column:1;grid-row:2}
+  aside{grid-column:2;grid-row:1/span 2}
+}
+
+.tags{display:flex;flex-wrap:wrap;gap:8px;font-size:12px;font-weight:700}
+.tag{background:var(--secondary);color:var(--secondary-fg);border-radius:999px;padding:5px 12px}
+.tag.alt{background:rgba(242,165,65,.25);color:#5a3d10}
+h1{font-size:clamp(28px,5vw,48px);margin-top:16px}
+.lead{margin-top:12px;color:var(--muted-fg);font-size:17px;max-width:44rem}
+.hero{margin-top:24px;border:1px solid var(--border);border-radius:24px;overflow:hidden;background:var(--card);box-shadow:var(--shadow-card)}
+.hero img{aspect-ratio:16/10;object-fit:cover;width:100%}
+.stats{display:grid;gap:16px;margin-top:24px;grid-template-columns:repeat(3,minmax(0,1fr))}
+.stat{border:1px solid var(--border);border-radius:16px;background:var(--card);padding:16px;box-shadow:var(--shadow-card)}
+.stat b{display:block;font-family:var(--font-display);font-size:20px;margin-top:8px}
+.stat span{font-size:12px;color:var(--muted-fg)}
+article{margin-top:32px;color:var(--muted-fg);font-size:15px;display:grid;gap:16px}
+article h2,section h2{color:var(--fg);font-size:24px}
+ul.checks{display:grid;gap:8px;list-style:none}
+@media(min-width:640px){ul.checks{grid-template-columns:1fr 1fr}}
+ul.checks li{background:rgba(230,243,234,.7);color:var(--secondary-fg);border-radius:12px;padding:8px 12px;font-size:14px;display:flex;gap:8px}
+.supporters{margin-top:32px;list-style:none;display:grid;gap:12px}
+.supporters li{display:flex;justify-content:space-between;gap:16px;border:1px solid var(--border);border-radius:16px;background:var(--card);padding:16px;box-shadow:var(--shadow-card)}
+.supporters .nm{font-size:14px;font-weight:700}
+.supporters .nt{font-size:14px;color:var(--muted-fg);margin-top:4px}
+.supporters .vl{font-family:var(--font-display);font-weight:700;color:var(--primary);text-align:right}
+.supporters .wh{font-size:12px;color:var(--muted-fg);text-align:right}
+/* checkout */
+aside{align-self:start}
+@media(min-width:1024px){aside{position:sticky;top:88px}}
+.box{border:1px solid var(--border);border-radius:24px;background:var(--card);padding:24px;box-shadow:var(--shadow-card)}
+.kicker{font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:.04em;color:var(--muted-fg)}
+.raised{font-family:var(--font-display);font-size:34px;font-weight:800;color:var(--primary)}
+.goal{font-size:14px;color:var(--muted-fg)}
+.bar{height:12px;border-radius:999px;background:var(--secondary);overflow:hidden;margin-top:16px}
+.bar>i{display:block;height:100%;width:0;border-radius:999px;background:linear-gradient(90deg,#1f8a5b,#8bc34a);transition:width 1s ease-out}
+.pct{margin-top:8px;font-size:12px;font-weight:700}
+.amounts{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-top:12px}
+.amt{border:1px solid var(--border);background:var(--bg);border-radius:12px;padding:12px 8px;font-size:14px;font-weight:700;cursor:pointer;transition:.15s}
+.amt:hover{border-color:rgba(31,138,91,.6)}
+.amt.active{background:var(--primary);border-color:var(--primary);color:var(--primary-fg)}
+#custom{border:1px solid var(--border);background:var(--bg);border-radius:12px;padding:12px 8px;text-align:center;font-weight:700;outline:none;width:100%}
+#custom:focus{border-color:var(--primary)}
+.monthly{display:flex;align-items:center;gap:12px;background:rgba(230,243,234,.7);border-radius:12px;padding:12px;margin-top:16px;font-size:14px;color:var(--secondary-fg);cursor:pointer}
+.monthly input{accent-color:var(--primary);width:16px;height:16px}
+#cta{width:100%;margin-top:16px;padding:16px;font-family:var(--font-display);font-size:16px;animation:pulse 2.4s ease-in-out infinite}
+@keyframes pulse{0%,100%{transform:scale(1);box-shadow:var(--shadow-cta)}50%{transform:scale(1.02);box-shadow:0 12px 32px rgba(31,138,91,.45)}}
+.safe{margin-top:12px;font-size:12px;color:var(--muted-fg);text-align:center}
+.pix{margin-top:20px;border:1px dashed rgba(31,138,91,.45);background:rgba(230,243,234,.45);border-radius:16px;padding:16px}
+.pixrow{display:flex;gap:8px;margin-top:8px}
+.pixrow code{flex:1;background:var(--bg);border-radius:8px;padding:8px 12px;font-size:14px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.pixrow button{width:40px;height:40px;border-radius:8px;flex:none}
+.duo{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:16px}
+.ticker{margin-top:20px;background:rgba(230,243,234,.6);color:var(--secondary-fg);border-radius:16px;padding:12px;font-size:12px;animation:rise .6s cubic-bezier(.22,1,.36,1)}
+@keyframes rise{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:none}}
+.fineprint{margin-top:16px;padding:0 8px;font-size:12px;color:var(--muted-fg)}
+.closer{border-top:1px solid var(--border);background:rgba(230,243,234,.4);text-align:center;padding:40px 0}
+.closer h2{font-size:clamp(22px,4vw,30px)}
+.closer p{max-width:36rem;margin:8px auto 0;font-size:14px;color:var(--muted-fg)}
+.closer button{margin-top:24px;padding:16px 32px;font-family:var(--font-display);font-size:16px;box-shadow:var(--shadow-cta)}
+footer{border-top:1px solid var(--border);padding:32px 16px;text-align:center;font-size:12px;color:var(--muted-fg)}
+.sticky-cta{position:fixed;inset:auto 0 0 0;z-index:50;background:rgba(251,250,243,.97);backdrop-filter:blur(10px);border-top:1px solid var(--border);padding:10px 12px calc(10px + env(safe-area-inset-bottom))}
+.chips{display:flex;gap:8px;overflow-x:auto;padding-bottom:8px;scrollbar-width:none}
+.chips::-webkit-scrollbar{display:none}
+.chip{flex:1 0 auto;border:1px solid var(--border);background:var(--card);border-radius:999px;padding:8px 14px;font-size:14px;font-weight:700;cursor:pointer}
+.chip.active{background:var(--primary);border-color:var(--primary);color:var(--primary-fg)}
+.stickyrow{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:8px}
+.stickyrow .btn{padding:15px;font-family:var(--font-display);font-size:16px;box-shadow:var(--shadow-cta)}
+.pixbtn{border-radius:999px;padding:0 18px;font-weight:700;background:var(--secondary);border-color:transparent;color:var(--secondary-fg)}
+.spacer{height:150px}
+@media(min-width:1024px){.sticky-cta,.spacer{display:none}}
+@media(max-width:1023px){
+  .grid{display:flex;flex-direction:column}
+  #intro{order:1}
+  aside{order:2}
+  #story{order:3}
+  h1{font-size:26px;margin-top:12px}
+  .lead{font-size:15px;margin-top:8px}
+  .hero{margin-top:16px;border-radius:18px}
+  .hero img{aspect-ratio:auto;height:200px;object-fit:cover;object-position:center 30%}
+
+  .box{padding:18px;border-radius:20px}
+  .raised{font-size:28px}
+  .amt,#custom{padding:14px 8px;font-size:15px}
+  .stats{gap:8px;margin-top:0}
+  .stat b{font-size:16px}
+  .stat span{font-size:11px}
+  .stat{padding:12px}
+  .stat b{font-size:16px}
+  .closer button{width:100%}
+}
+
+svg{width:16px;height:16px;stroke:currentColor;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;flex:none}
+.ic-primary{color:var(--primary)}
+</style>
+</head>
+<body>
+<header>
+  <div class="wrap hd">
+    <div class="brand">
+      <span class="logo"><svg viewBox="0 0 24 24" fill="currentColor" stroke="none"><path d="M12 21s-7-4.6-9.3-9A5.2 5.2 0 0 1 12 6.6 5.2 5.2 0 0 1 21.3 12c-2.3 4.4-9.3 9-9.3 9z"/></svg></span>
+      Doe pelo Ezequiel
+    </div>
+    <button class="btn btn-sm js-donate">Quero ajudar</button>
+  </div>
+</header>
+
+<main>
+<div class="wrap grid">
+  <div id="intro">
+    <div class="tags">
+      <span class="tag">Saúde / Tratamentos</span>
+      <span class="tag alt">✓ Campanha verificada</span>
+    </div>
+    <h1>Vamos mudar a vida do Ezequiel</h1>
+    <p class="lead">Ezequiel, 68 anos, cuida sozinho da esposa doente. Doe em menos de 1 minuto — 100% vai para a família.</p>
+
+    <div class="hero">
+      <img src="ezequiel-hero.jpg" alt="Ezequiel e sua esposa sorrindo dentro de casa" width="1280" height="768" />
+    </div>
+  </div>
+
+  <div id="story">
+    <div class="stats">
+      <div class="stat"><span class="ic-primary">👥</span><b>8.516</b><span>Apoiadores</span></div>
+      <div class="stat"><span>❤️</span><b id="hearts">5.254</b><span>Corações recebidos</span></div>
+      <div class="stat"><span>⏳</span><b>9 dias</b><span>Encerra em</span></div>
+    </div>
+
+    <article>
+      <h2>A história do Ezequiel</h2>
+      <p>Depois de mais de 40 anos trabalhando na roça, Ezequiel perdeu a força nas pernas e passou a depender de consultas semanais em outra cidade. A casa onde ele mora com dona Cida não tem banheiro adequado e o telhado alaga a cada chuva.</p>
+      <p>Com a sua ajuda vamos custear o tratamento completo, a reforma emergencial da casa e uma reserva de medicamentos para os próximos 12 meses. Toda a prestação de contas é publicada nas atualizações da campanha.</p>
+      <ul class="checks">
+        <li>✅ Tratamento e fisioterapia: R$ 150.000</li>
+        <li>✅ Reforma da casa: R$ 120.000</li>
+        <li>✅ Medicamentos por 12 meses: R$ 50.000</li>
+        <li>✅ Transporte para consultas: R$ 30.000</li>
+      </ul>
+    </article>
+
+    <section>
+      <h2 style="margin-top:32px">Quem já ajudou</h2>
+      <ul class="supporters" id="supporters"></ul>
+    </section>
+  </div>
+
+  <aside>
+
+    <div class="box" id="checkout">
+      <p class="kicker">Arrecadado</p>
+      <p class="raised" id="raised"></p>
+      <p class="goal" id="goalText"></p>
+
+      <div class="bar"><i id="bar"></i></div>
+      <p class="pct" id="pct"></p>
+
+      <p style="margin-top:20px;font-size:14px;font-weight:700">Escolha o valor da sua doação</p>
+      <div class="amounts" id="amounts">
+        <button class="amt" data-v="25">R$ 25</button>
+        <button class="amt" data-v="50">R$ 50</button>
+        <button class="amt active" data-v="100">R$ 100</button>
+        <button class="amt" data-v="250">R$ 250</button>
+        <button class="amt" data-v="500">R$ 500</button>
+        <input id="custom" inputmode="numeric" placeholder="Outro" aria-label="Outro valor em reais" />
+      </div>
+
+      <label class="monthly">
+        <input type="checkbox" id="monthly" />
+        <span>Quero doar todo mês e manter o tratamento em dia</span>
+      </label>
+
+      <button class="btn js-donate" id="cta">Doar R$ 100,00 agora</button>
+      <p class="safe">🔒 Pagamento seguro • Pix, cartão ou boleto</p>
+
+      <div class="pix">
+        <p class="kicker">Doe via Pix</p>
+        <div class="pixrow">
+          <code id="pixkey">ezequiel@vakinha.com.br</code>
+          <button class="btn" id="copy" aria-label="Copiar chave Pix">⧉</button>
+        </div>
+        <p id="copied" style="display:none;margin-top:8px;font-size:12px;font-weight:700;color:var(--primary)">Chave copiada!</p>
+      </div>
+
+      <div class="duo">
+        <button class="btn-ghost" id="like">🤍 Enviar coração</button>
+        <button class="btn-ghost" id="share">↗ Compartilhar</button>
+      </div>
+
+      <div class="ticker" id="ticker"></div>
+    </div>
+    <p class="fineprint">Campanha em benefício de Ezequiel, criada por um familiar verificado. 100% do valor arrecadado é repassado à família.</p>
+  </aside>
+</div>
+
+<section class="closer">
+  <div class="wrap">
+    <h2 id="closerTitle"></h2>
+    <p>Sua doação de hoje pode ser a que fecha essa conta e coloca o Ezequiel em tratamento na semana que vem.</p>
+    <button class="btn js-donate">Doar agora</button>
+  </div>
+</section>
+</main>
+
+<footer>AVISO: os textos e imagens desta página são de responsabilidade do criador da campanha.</footer>
+
+<div class="sticky-cta" id="stickyBar">
+  <div class="chips" id="chips">
+    <button class="chip" data-v="25">R$ 25</button>
+    <button class="chip" data-v="50">R$ 50</button>
+    <button class="chip active" data-v="100">R$ 100</button>
+    <button class="chip" data-v="250">R$ 250</button>
+  </div>
+  <div class="stickyrow">
+    <button class="btn js-donate" id="stickyCta">Doar R$ 100,00</button>
+    <button class="btn-ghost pixbtn" id="stickyPix" aria-label="Copiar chave Pix">Pix</button>
+  </div>
+</div>
+<div class="spacer"></div>
+
+
+<script>
+(function () {
+  var GOAL = 350000, RAISED = 341410.65;
+  var brl = function (v) { return v.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL', minimumFractionDigits: 2 }); };
+
+  var SUPPORTERS = [
+    { name: 'Mariana S.', amount: 100, when: 'há 2 minutos', note: 'Que Deus abençoe vocês!' },
+    { name: 'Doador anônimo', amount: 50, when: 'há 8 minutos', note: 'Força, Ezequiel!' },
+    { name: 'Rafael A.', amount: 250, when: 'há 14 minutos', note: 'Um abraço da minha família.' },
+    { name: 'Juliana P.', amount: 30, when: 'há 21 minutos', note: 'É pouco, mas é de coração.' },
+    { name: 'Carlos E.', amount: 500, when: 'há 35 minutos', note: 'Vamos chegar na meta!' }
+  ];
+
+  var percent = Math.min(100, (RAISED / GOAL) * 100);
+  document.getElementById('raised').textContent = brl(RAISED);
+  document.getElementById('goalText').textContent = 'de ' + brl(GOAL);
+  document.getElementById('pct').textContent = percent.toFixed(1) + '% da meta • faltam ' + brl(GOAL - RAISED);
+  document.getElementById('closerTitle').textContent = 'Faltam apenas ' + brl(GOAL - RAISED) + ' para a meta';
+  setTimeout(function () { document.getElementById('bar').style.width = percent + '%'; }, 250);
+
+  document.getElementById('supporters').innerHTML = SUPPORTERS.map(function (s) {
+    return '<li><div><p class="nm">' + s.name + '</p><p class="nt">“' + s.note + '”</p></div>' +
+      '<div><p class="vl">' + brl(s.amount) + '</p><p class="wh">' + s.when + '</p></div></li>';
+  }).join('');
+
+  var i = 0, ticker = document.getElementById('ticker');
+  function renderTicker() {
+    var s = SUPPORTERS[i];
+    ticker.innerHTML = '<strong>' + s.name + '</strong> doou ' + brl(s.amount) + ' ' + s.when;
+    ticker.style.animation = 'none'; void ticker.offsetWidth; ticker.style.animation = '';
+  }
+  renderTicker();
+  setInterval(function () { i = (i + 1) % SUPPORTERS.length; renderTicker(); }, 4000);
+
+  // valor
+  var amount = 100, monthly = false;
+  var cta = document.getElementById('cta'), sticky = document.getElementById('stickyCta');
+  var custom = document.getElementById('custom');
+
+  function value() { return custom.value ? Number(custom.value) : amount; }
+  function syncActive() {
+    document.querySelectorAll('.amt,.chip').forEach(function (x) {
+      x.classList.toggle('active', !custom.value && Number(x.dataset.v) === amount);
+    });
+  }
+  function refresh() {
+    var v = value();
+    cta.disabled = !v;
+    cta.style.opacity = v ? 1 : .5;
+    cta.textContent = 'Doar ' + (v ? brl(v) : '') + ' ' + (monthly ? 'por mês' : 'agora');
+    sticky.textContent = 'Doar ' + (v ? brl(v) : 'agora') + (monthly ? '/mês' : '');
+    syncActive();
+  }
+
+  function pick(v) { amount = v; custom.value = ''; refresh(); }
+  document.querySelectorAll('.amt,.chip').forEach(function (b) {
+    b.addEventListener('click', function () { pick(Number(b.dataset.v)); });
+  });
+  custom.addEventListener('input', function () {
+    custom.value = custom.value.replace(/\D/g, '');
+    refresh();
+  });
+  document.getElementById('monthly').addEventListener('change', function (e) { monthly = e.target.checked; refresh(); });
+  refresh();
+
+  function checkout() {
+    alert('Redirecionando para o pagamento de ' + brl(value()) + (monthly ? ' por mês' : '') + '…');
+  }
+
+  // CTAs: no mobile a barra fixa doa direto; os demais rolam até o checkout
+  document.querySelectorAll('.js-donate').forEach(function (b) {
+    b.addEventListener('click', function (e) {
+      if (b.id === 'cta' || b.id === 'stickyCta') return;
+      e.preventDefault();
+      document.getElementById('checkout').scrollIntoView({ behavior: 'smooth', block: 'center' });
+    });
+
+  });
+  cta.addEventListener('click', checkout);
+  sticky.addEventListener('click', checkout);
+
+  // pix
+  function copyPix(feedback) {
+    var key = document.getElementById('pixkey').textContent.trim();
+    var done = function () {
+      var el = document.getElementById('copied');
+      el.style.display = 'block';
+      setTimeout(function () { el.style.display = 'none'; }, 2200);
+      if (feedback) feedback();
+    };
+    if (navigator.clipboard) { navigator.clipboard.writeText(key).then(done, done); }
+    else { var t = document.createElement('textarea'); t.value = key; document.body.appendChild(t); t.select(); document.execCommand('copy'); t.remove(); done(); }
+  }
+  document.getElementById('copy').addEventListener('click', function () { copyPix(); });
+  var spx = document.getElementById('stickyPix');
+  spx.addEventListener('click', function () {
+    copyPix(function () {
+      spx.textContent = 'Copiado!';
+      setTimeout(function () { spx.textContent = 'Pix'; }, 2200);
+    });
+  });
+
+
+  // coração
+  var liked = false, hearts = 5254, hEl = document.getElementById('hearts');
+  document.getElementById('like').addEventListener('click', function (e) {
+    if (liked) return;
+    liked = true; hearts++;
+    hEl.textContent = hearts.toLocaleString('pt-BR');
+    e.currentTarget.innerHTML = '❤️ Obrigado!';
+  });
+
+  // compartilhar
+  document.getElementById('share').addEventListener('click', function () {
+    var data = { title: 'Vamos mudar a vida do Ezequiel', text: 'Ajude o Ezequiel a alcançar a meta desta campanha.', url: location.href };
+    if (navigator.share) { navigator.share(data).catch(function () {}); }
+    else if (navigator.clipboard) { navigator.clipboard.writeText(location.href); alert('Link copiado!'); }
+  });
+})();
+</script>
+</body>
+</html>
