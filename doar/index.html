@@ -79,6 +79,23 @@
     color: var(--gold);
   }
 
+  /* =========================================================
+     IDENTITY (nome do casal + data, sem bloco colorido)
+     ========================================================= */
+  .identity{
+    padding: 56px 24px 0;
+    text-align: center;
+  }
+
+  .identity h1{
+    font-family: var(--font-display);
+    font-weight: 500;
+    font-size: clamp(32px, 6vw, 44px);
+    color: var(--wine);
+    margin: 10px 0 0;
+    letter-spacing: 0.01em;
+  }
+
   @keyframes seal-in{
     from{ opacity: 0; transform: scale(0.8); }
     to{ opacity: 1; transform: scale(1); }
@@ -97,7 +114,7 @@
   /* =========================================================
      MEDIA SLOT (troque pela foto/vídeo do casal)
      ========================================================= */
-  .media-section{ padding: 112px 24px 0; }
+  .media-section{ padding: 40px 24px 0; }
 
   .media-slot{
     position: relative;
@@ -114,29 +131,13 @@
     justify-content: center;
   }
 
-  .media-slot .play{
-    width: 68px;
-    height: 68px;
-    border-radius: 50%;
-    background: rgba(255,253,248,0.9);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: var(--wine);
-    box-shadow: 0 10px 24px -8px rgba(74,23,38,0.4);
-  }
-
-  .media-slot .badge{
-    position: absolute;
-    left: 18px;
-    bottom: 18px;
-    background: rgba(43,33,30,0.72);
-    color: var(--ivory);
-    font-size: 12.5px;
-    font-weight: 600;
-    letter-spacing: 0.03em;
-    padding: 8px 14px;
-    border-radius: 999px;
+  .media-slot .media-monogram{
+    font-family: var(--font-display);
+    font-style: italic;
+    font-weight: 500;
+    font-size: clamp(30px, 7vw, 46px);
+    letter-spacing: 0.06em;
+    color: rgba(110,35,55,0.32);
   }
 
   /* =========================================================
@@ -220,6 +221,7 @@
   }
 
   .amount-btn{
+    position: relative;
     padding: 14px 10px;
     border-radius: var(--radius-sm);
     border: 1.5px solid var(--wine);
@@ -236,6 +238,29 @@
     background: var(--wine);
     color: var(--ivory);
     transform: translateY(-1px);
+  }
+
+  .popular-tag{
+    position: absolute;
+    top: -11px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: var(--gold);
+    color: #fff;
+    font-size: 10.5px;
+    font-weight: 700;
+    letter-spacing: 0.03em;
+    text-transform: uppercase;
+    padding: 3px 9px;
+    border-radius: 999px;
+    white-space: nowrap;
+  }
+
+  .amount-hint{
+    text-align: center;
+    font-size: 13px;
+    color: var(--ink-soft);
+    margin: 4px 0 0;
   }
 
   .divider-or{
@@ -275,6 +300,39 @@
   .submit-btn:hover{ transform: translateY(-2px); box-shadow: 0 18px 32px -12px rgba(74,23,38,0.6); }
   .submit-btn:active{ transform: translateY(0); }
 
+  .trust-note{
+    text-align: center;
+    font-size: 12.5px;
+    color: var(--ink-soft);
+    margin: 14px 0 0;
+  }
+
+  .optional-tag{
+    text-transform: none;
+    font-weight: 400;
+    letter-spacing: 0;
+    color: #B9A99C;
+  }
+
+  .share-row{
+    text-align: center;
+    margin-top: 22px;
+  }
+
+  .share-btn{
+    background: none;
+    border: none;
+    color: var(--wine);
+    font-family: var(--font-body);
+    font-weight: 600;
+    font-size: 14px;
+    text-decoration: underline;
+    text-underline-offset: 3px;
+    cursor: pointer;
+    padding: 6px;
+  }
+  .share-btn:hover{ color: var(--wine-deep); }
+
   /* =========================================================
      CONFIRMATION PANEL
      ========================================================= */
@@ -309,6 +367,16 @@
     color: var(--wine);
     margin-bottom: 22px;
   }
+
+  .pix-steps{
+    text-align: left;
+    max-width: 380px;
+    margin: 0 auto 20px;
+    padding-left: 20px;
+    color: var(--ink-soft);
+    font-size: 14.5px;
+  }
+  .pix-steps li{ margin-bottom: 6px; }
 
   .pix-box{
     display: flex;
@@ -374,22 +442,30 @@
 
   @media (max-width: 480px){
     .gift-card{ padding: 34px 22px; }
-    .media-section{ padding-top: 84px; }
+    .identity{ padding-top: 40px; }
+    .media-section{ padding-top: 28px; }
   }
 </style>
 </head>
 <body>
 
   <!-- =========================================================
+       IDENTIDADE — troque pelo nome do casal e a data do casamento
+       ========================================================= -->
+  <header class="identity container">
+    <p class="eyebrow">27 de setembro de 2026</p>
+    <h1>Ana &amp; Rafael</h1>
+  </header>
+
+  <!-- =========================================================
        ESPAÇO PARA FOTO OU VÍDEO DO CASAL
-       Troque a div .media-slot por um <img> ou <video> real
+       Troque a div .media-slot por um <img> ou <video> real antes de publicar.
+       O conteúdo abaixo é só decorativo, para não expor texto de instrução
+       para quem visita a página caso vocês esqueçam de trocar.
        ========================================================= -->
   <section class="media-section container">
-    <div class="media-slot reveal">
-      <div class="play" aria-hidden="true">
-        <svg width="26" height="26" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
-      </div>
-      <span class="badge">Coloque aqui a foto ou vídeo de vocês</span>
+    <div class="media-slot reveal" role="img" aria-label="Foto do casal">
+      <span class="media-monogram">A · R</span>
     </div>
   </section>
 
@@ -412,43 +488,65 @@
       <div class="field">
         <label for="giverName">Seu nome</label>
         <input type="text" id="giverName" name="giverName" placeholder="Como podemos te agradecer?" autocomplete="name">
-        <div class="error-msg" id="nameError">Conta pra gente seu nome antes de continuar 💌</div>
+        <div class="error-msg" id="nameError" role="alert">Conta pra gente seu nome antes de continuar 💌</div>
       </div>
 
       <div class="field">
         <label>Escolha um valor</label>
         <div class="amount-grid" id="amountGrid" role="group" aria-label="Valores sugeridos">
-          <button type="button" class="amount-btn" data-amount="2500">R$ 25,00</button>
-          <button type="button" class="amount-btn" data-amount="5000">R$ 50,00</button>
-          <button type="button" class="amount-btn" data-amount="10000">R$ 100,00</button>
-          <button type="button" class="amount-btn" data-amount="20000">R$ 200,00</button>
+          <button type="button" class="amount-btn" data-amount="2500" aria-pressed="false">R$ 25,00</button>
+          <button type="button" class="amount-btn" data-amount="5000" aria-pressed="false">R$ 50,00</button>
+          <button type="button" class="amount-btn is-popular" data-amount="10000" aria-pressed="false">
+            R$ 100,00
+            <span class="popular-tag">Mais escolhido</span>
+          </button>
+          <button type="button" class="amount-btn" data-amount="20000" aria-pressed="false">R$ 200,00</button>
         </div>
 
         <div class="divider-or">ou digite outro valor</div>
 
-        <input type="text" id="customAmount" inputmode="numeric" placeholder="R$ 0,00" data-cents="0">
-        <div class="error-msg" id="amountError">Escolha ou digite um valor para presentear</div>
+        <input type="text" id="customAmount" inputmode="numeric" placeholder="R$ 0,00" data-cents="0" aria-label="Outro valor, em reais">
+        <div class="error-msg" id="amountError" role="alert">Escolha ou digite um valor para presentear</div>
+        <p class="amount-hint">Qualquer valor é bem-vindo — o que importa é fazer parte desse dia.</p>
       </div>
 
-      <button type="submit" class="submit-btn">Presentear</button>
+      <div class="field">
+        <label for="giverMessage">Recado para o casal <span class="optional-tag">(opcional)</span></label>
+        <input type="text" id="giverMessage" name="giverMessage" placeholder="Deixe uma mensagem carinhosa" autocomplete="off">
+      </div>
+
+      <button type="submit" class="submit-btn">Continuar para o Pix</button>
+      <p class="trust-note">🔒 Pagamento direto pelo Pix do seu banco. Não coletamos nem armazenamos dados de pagamento.</p>
     </form>
+
+    <div class="share-row">
+      <button type="button" class="share-btn" id="shareBtn">Compartilhar com outros convidados</button>
+    </div>
 
     <!-- Painel de confirmação: aqui entra a chave Pix real do casal -->
     <div class="confirmation" id="confirmation">
-      <h4>Quase lá! 🤍</h4>
+      <h4>Falta só um passo! 🤍</h4>
       <p id="confirmName">Obrigado, Convidado!</p>
       <div class="amount-line" id="confirmAmount">R$ 0,00</div>
+
+      <ol class="pix-steps">
+        <li>Copie a chave Pix abaixo</li>
+        <li>Abra o app do seu banco e escolha "Pix"</li>
+        <li>Cole a chave, confira o valor e confirme</li>
+      </ol>
+
       <div class="pix-box">
         <code id="pixKey">ana.e.rafael.casamento@exemplo.com</code>
         <button type="button" class="copy-btn" id="copyPixBtn">Copiar chave</button>
       </div>
-      <p class="note">Chave Pix de exemplo — troque pela chave real de vocês. Faça o Pix no valor acima; a confirmação de pagamento não é automática nesta página.</p>
+      <p class="note">Chave Pix de exemplo — troque pela chave real de vocês antes de publicar. A confirmação de pagamento não é automática nesta página.</p>
     </div>
   </section>
 
   <footer>
     <div class="foot-seal">Ana &amp; Rafael</div>
     <p class="foot-note">Feito com carinho para o nosso grande dia</p>
+    <p class="foot-note" style="opacity:0.75; margin-top:4px;">Seus dados ficam só entre a gente — nenhuma informação de pagamento é armazenada nesta página.</p>
   </footer>
 
   <script>
@@ -465,8 +563,9 @@
 
     amountButtons.forEach(btn => {
       btn.addEventListener('click', () => {
-        amountButtons.forEach(b => b.classList.remove('is-selected'));
+        amountButtons.forEach(b => { b.classList.remove('is-selected'); b.setAttribute('aria-pressed', 'false'); });
         btn.classList.add('is-selected');
+        btn.setAttribute('aria-pressed', 'true');
         customAmountInput.value = '';
         customAmountInput.dataset.cents = '0';
         amountError.classList.remove('is-visible');
@@ -480,7 +579,7 @@
       e.target.dataset.cents = String(cents);
       e.target.value = cents ? formatBRL(cents) : '';
       if (cents > 0){
-        amountButtons.forEach(b => b.classList.remove('is-selected'));
+        amountButtons.forEach(b => { b.classList.remove('is-selected'); b.setAttribute('aria-pressed', 'false'); });
         amountError.classList.remove('is-visible');
       }
     });
@@ -488,6 +587,7 @@
     // ---------- Envio do formulário ----------
     const giftForm = document.getElementById('giftForm');
     const giverNameInput = document.getElementById('giverName');
+    const giverMessageInput = document.getElementById('giverMessage');
     const nameError = document.getElementById('nameError');
     const confirmation = document.getElementById('confirmation');
     const confirmName = document.getElementById('confirmName');
@@ -497,6 +597,7 @@
       e.preventDefault();
 
       const name = giverNameInput.value.trim();
+      const message = giverMessageInput.value.trim();
       const selectedBtn = document.querySelector('.amount-btn.is-selected');
       const customCents = parseInt(customAmountInput.dataset.cents || '0', 10);
       const amountCents = selectedBtn ? parseInt(selectedBtn.dataset.amount, 10) : customCents;
@@ -519,7 +620,9 @@
 
       if (hasError) return;
 
-      confirmName.textContent = 'Obrigado, ' + name + '!';
+      confirmName.textContent = message
+        ? 'Obrigado, ' + name + '! Vamos guardar seu recado com carinho 💌'
+        : 'Obrigado, ' + name + '!';
       confirmAmount.textContent = formatBRL(amountCents);
       confirmation.classList.add('is-visible');
       confirmation.scrollIntoView({ behavior: 'smooth', block: 'center' });
@@ -544,6 +647,24 @@
       const original = copyPixBtn.textContent;
       copyPixBtn.textContent = 'Copiado!';
       setTimeout(() => { copyPixBtn.textContent = original; }, 2000);
+    });
+
+    // ---------- Compartilhar com outros convidados ----------
+    const shareBtn = document.getElementById('shareBtn');
+
+    shareBtn.addEventListener('click', async () => {
+      const shareText = 'Ajude Ana & Rafael a realizar o sonho do casamento 💍';
+      const shareUrl = window.location.href;
+
+      if (navigator.share) {
+        try {
+          await navigator.share({ title: document.title, text: shareText, url: shareUrl });
+        } catch (err) {
+          // usuário cancelou o compartilhamento — nada a fazer
+        }
+      } else {
+        window.open('https://wa.me/?text=' + encodeURIComponent(shareText + ' ' + shareUrl), '_blank');
+      }
     });
 
     // ---------- Revelar seções ao rolar a página ----------
