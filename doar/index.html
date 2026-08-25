@@ -79,105 +79,10 @@
     color: var(--gold);
   }
 
-  /* =========================================================
-     PAPER TEXTURE (leve, decorativa)
-     ========================================================= */
-  .texture{
-    position: absolute;
-    inset: 0;
-    opacity: 0.5;
-    pointer-events: none;
-    background-image:
-      radial-gradient(rgba(185,139,78,0.10) 1px, transparent 1px);
-    background-size: 22px 22px;
-  }
-
-  /* =========================================================
-     HERO
-     ========================================================= */
-  .hero{
-    position: relative;
-    overflow: hidden;
-    background: radial-gradient(120% 140% at 50% 0%, var(--wine) 0%, var(--wine-deep) 65%, #370f1b 100%);
-    color: var(--ivory);
-    padding: 88px 24px 96px;
-    text-align: center;
-    isolation: isolate;
-  }
-
-  .hero .texture{ opacity: 0.14; background-image: radial-gradient(rgba(250,243,234,0.35) 1px, transparent 1px); }
-
-  .seal{
-    width: 92px;
-    height: 92px;
-    margin: 0 auto 28px;
-    border-radius: 50%;
-    border: 1.5px solid var(--gold-soft);
-    outline: 1px solid rgba(227,200,154,0.35);
-    outline-offset: 5px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-family: var(--font-display);
-    font-style: italic;
-    font-weight: 500;
-    font-size: 22px;
-    letter-spacing: 0.04em;
-    color: var(--gold-soft);
-    opacity: 0;
-    animation: seal-in 0.8s var(--ease) 0.1s forwards;
-  }
-
   @keyframes seal-in{
     from{ opacity: 0; transform: scale(0.8); }
     to{ opacity: 1; transform: scale(1); }
   }
-
-  .hero h1{
-    font-family: var(--font-display);
-    font-weight: 500;
-    font-size: clamp(40px, 9vw, 68px);
-    line-height: 1.05;
-    margin: 0 0 14px;
-    letter-spacing: 0.01em;
-  }
-
-  .hero .tagline{
-    font-family: var(--font-display);
-    font-style: italic;
-    font-weight: 400;
-    font-size: clamp(16px, 3vw, 20px);
-    color: var(--gold-soft);
-    margin: 0 0 34px;
-  }
-
-  .divider{
-    width: 120px;
-    height: 14px;
-    margin: 0 auto 34px;
-    color: var(--gold-soft);
-    opacity: 0.85;
-  }
-
-  .hero-cta{
-    display: inline-flex;
-    align-items: center;
-    gap: 10px;
-    background: transparent;
-    color: var(--ivory);
-    border: 1px solid rgba(250,243,234,0.4);
-    padding: 13px 28px;
-    border-radius: 999px;
-    font-family: var(--font-body);
-    font-weight: 600;
-    font-size: 14px;
-    letter-spacing: 0.04em;
-    text-transform: uppercase;
-    cursor: pointer;
-    transition: background 0.25s var(--ease), transform 0.25s var(--ease), border-color .25s var(--ease);
-  }
-  .hero-cta:hover{ background: rgba(250,243,234,0.1); border-color: var(--gold-soft); transform: translateY(-2px); }
-  .hero-cta:active{ transform: translateY(0); }
 
   /* =========================================================
      REVEAL ON SCROLL
@@ -192,7 +97,7 @@
   /* =========================================================
      MEDIA SLOT (troque pela foto/vídeo do casal)
      ========================================================= */
-  .media-section{ padding: 72px 24px 0; }
+  .media-section{ padding: 112px 24px 0; }
 
   .media-slot{
     position: relative;
@@ -469,31 +374,11 @@
 
   @media (max-width: 480px){
     .gift-card{ padding: 34px 22px; }
-    .hero{ padding: 72px 20px 80px; }
+    .media-section{ padding-top: 84px; }
   }
 </style>
 </head>
 <body>
-
-  <!-- =========================================================
-       HERO — troque "Ana & Rafael" pelo nome do casal
-       ========================================================= -->
-  <header class="hero">
-    <div class="texture"></div>
-    <div class="container" style="position:relative;">
-      <div class="seal">A · R</div>
-      <h1>Ana &amp; Rafael</h1>
-      <p class="tagline">Um novo capítulo, escrito a dois</p>
-
-      <svg class="divider" viewBox="0 0 120 14" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-        <line x1="0" y1="7" x2="48" y2="7" stroke="currentColor" stroke-width="1"/>
-        <rect x="54" y="1" width="12" height="12" transform="rotate(45 60 7)" stroke="currentColor" stroke-width="1" fill="none"/>
-        <line x1="72" y1="7" x2="120" y2="7" stroke="currentColor" stroke-width="1"/>
-      </svg>
-
-      <button class="hero-cta" id="ctaScroll" type="button">Quero presentear ↓</button>
-    </div>
-  </header>
 
   <!-- =========================================================
        ESPAÇO PARA FOTO OU VÍDEO DO CASAL
@@ -659,11 +544,6 @@
       const original = copyPixBtn.textContent;
       copyPixBtn.textContent = 'Copiado!';
       setTimeout(() => { copyPixBtn.textContent = original; }, 2000);
-    });
-
-    // ---------- CTA da hero rola até o cartão de presente ----------
-    document.getElementById('ctaScroll').addEventListener('click', () => {
-      document.getElementById('presente').scrollIntoView({ behavior: 'smooth' });
     });
 
     // ---------- Revelar seções ao rolar a página ----------
