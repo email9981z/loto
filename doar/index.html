@@ -1,15 +1,17 @@
-
 <!doctype html>
 <html lang="pt-BR">
 <head>
 <meta charset="utf-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+<meta name="theme-color" content="#1f8a5b" />
 <title>Vamos mudar a vida do Ezequiel | Doe agora</title>
 <meta name="description" content="Ezequiel e sua esposa precisam de ajuda para o tratamento e uma casa digna. Doe via Pix ou cartão em menos de 1 minuto — 100% do valor vai para a família." />
 <meta property="og:title" content="Vamos mudar a vida do Ezequiel | Doe agora" />
 <meta property="og:description" content="Faltam poucos dias para a meta. Sua doação ajuda Ezequiel a ter tratamento e um teto seguro." />
+<meta property="og:image" content="ezequiel-hero.jpg" />
 <meta property="og:type" content="website" />
 <meta name="twitter:card" content="summary_large_image" />
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='%231f8a5b' d='M12 21s-7-4.6-9.3-9A5.2 5.2 0 0 1 12 6.6 5.2 5.2 0 0 1 21.3 12c-2.3 4.4-9.3 9-9.3 9z'/%3E%3C/svg%3E" />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700;12..96,800&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet" />
@@ -25,20 +27,28 @@
   --font-sans:"Plus Jakarta Sans",ui-sans-serif,system-ui,sans-serif;
 }
 *{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+html,body{overflow-x:hidden;max-width:100%}
 body{background:var(--bg);color:var(--fg);font-family:var(--font-sans);-webkit-font-smoothing:antialiased;line-height:1.5}
+a{overflow-wrap:anywhere}
 h1,h2,h3{font-family:var(--font-display);letter-spacing:-.02em;line-height:1.15}
 img{display:block;max-width:100%}
 button,input{font:inherit}
+a{color:inherit}
 .wrap{max-width:1120px;margin:0 auto;padding:0 16px}
+:focus-visible{outline:2px solid var(--primary);outline-offset:2px}
+.skip-link{position:absolute;left:-9999px;top:0;background:var(--primary);color:var(--primary-fg);padding:10px 16px;border-radius:0 0 8px 0;z-index:100}
+.skip-link:focus{left:0}
 /* header */
 header{position:sticky;top:0;z-index:40;background:rgba(251,250,243,.88);backdrop-filter:blur(8px);border-bottom:1px solid var(--border)}
 .hd{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:12px 0}
 .brand{display:flex;align-items:center;gap:8px;font-family:var(--font-display);font-weight:700;font-size:18px}
-.logo{width:36px;height:36px;border-radius:999px;display:grid;place-items:center;background:linear-gradient(135deg,#1f8a5b,#2fae9a);color:#fff}
+.logo{width:36px;height:36px;border-radius:999px;display:grid;place-items:center;background:linear-gradient(135deg,#1f8a5b,#2fae9a);color:#fff;flex:none}
 .btn{border:0;cursor:pointer;border-radius:999px;background:var(--primary);color:var(--primary-fg);font-weight:700;transition:filter .2s,transform .2s}
 .btn:hover{filter:brightness(1.1)}
+.btn:disabled{opacity:.5;cursor:not-allowed;filter:none}
 .btn-sm{padding:10px 20px;font-size:14px;box-shadow:var(--shadow-cta)}
-.btn-ghost{background:transparent;color:var(--fg);border:1px solid var(--border);font-weight:600;font-size:14px;padding:10px 16px;display:flex;align-items:center;justify-content:center;gap:8px}
+.btn-ghost{background:transparent;color:var(--fg);border:1px solid var(--border);font-weight:600;font-size:14px;padding:10px 16px;display:flex;align-items:center;justify-content:center;gap:8px;border-radius:999px;cursor:pointer}
 .btn-ghost:hover{border-color:var(--primary)}
 /* layout */
 .grid{display:grid;gap:24px;padding:20px 0}
@@ -48,29 +58,47 @@ header{position:sticky;top:0;z-index:40;background:rgba(251,250,243,.88);backdro
   #story{grid-column:1;grid-row:2}
   aside{grid-column:2;grid-row:1/span 2}
 }
-
 .tags{display:flex;flex-wrap:wrap;gap:8px;font-size:12px;font-weight:700}
 .tag{background:var(--secondary);color:var(--secondary-fg);border-radius:999px;padding:5px 12px}
-.tag.alt{background:rgba(242,165,65,.25);color:#5a3d10}
+.tag.alt{background:rgba(242,165,65,.25);color:#5a3d10;text-decoration:none;display:inline-flex;align-items:center;gap:4px}
+.tag.alt:hover{text-decoration:underline}
 h1{font-size:clamp(28px,5vw,48px);margin-top:16px}
 .lead{margin-top:12px;color:var(--muted-fg);font-size:17px;max-width:44rem}
 .hero{margin-top:24px;border:1px solid var(--border);border-radius:24px;overflow:hidden;background:var(--card);box-shadow:var(--shadow-card)}
-.hero img{aspect-ratio:16/10;object-fit:cover;width:100%}
+.hero img{aspect-ratio:16/10;object-fit:cover;width:100%;background:var(--muted)}
 .stats{display:grid;gap:16px;margin-top:24px;grid-template-columns:repeat(3,minmax(0,1fr))}
 .stat{border:1px solid var(--border);border-radius:16px;background:var(--card);padding:16px;box-shadow:var(--shadow-card)}
 .stat b{display:block;font-family:var(--font-display);font-size:20px;margin-top:8px}
-.stat span{font-size:12px;color:var(--muted-fg)}
-article{margin-top:32px;color:var(--muted-fg);font-size:15px;display:grid;gap:16px}
+.stat span:first-child{font-size:16px}
+.stat span.lbl{font-size:12px;color:var(--muted-fg)}
+article{color:var(--muted-fg);font-size:15px;display:grid;gap:16px}
 article h2,section h2{color:var(--fg);font-size:24px}
+.section-head{margin-top:32px}
 ul.checks{display:grid;gap:8px;list-style:none}
 @media(min-width:640px){ul.checks{grid-template-columns:1fr 1fr}}
-ul.checks li{background:rgba(230,243,234,.7);color:var(--secondary-fg);border-radius:12px;padding:8px 12px;font-size:14px;display:flex;gap:8px}
-.supporters{margin-top:32px;list-style:none;display:grid;gap:12px}
+ul.checks li{background:rgba(230,243,234,.7);color:var(--secondary-fg);border-radius:12px;padding:10px 12px;font-size:14px;display:flex;justify-content:space-between;gap:8px;align-items:baseline}
+ul.checks li b{font-weight:700;white-space:nowrap}
+ul.checks li small{color:var(--muted-fg);font-weight:600}
+.supporters{margin-top:16px;list-style:none;display:grid;gap:12px}
 .supporters li{display:flex;justify-content:space-between;gap:16px;border:1px solid var(--border);border-radius:16px;background:var(--card);padding:16px;box-shadow:var(--shadow-card)}
 .supporters .nm{font-size:14px;font-weight:700}
 .supporters .nt{font-size:14px;color:var(--muted-fg);margin-top:4px}
 .supporters .vl{font-family:var(--font-display);font-weight:700;color:var(--primary);text-align:right}
 .supporters .wh{font-size:12px;color:var(--muted-fg);text-align:right}
+/* updates / trust / faq */
+.updates{margin-top:16px;display:grid;gap:12px}
+.update{border:1px solid var(--border);border-radius:16px;background:var(--card);padding:16px 18px;box-shadow:var(--shadow-card)}
+.update .dt{font-size:12px;font-weight:700;color:var(--primary);text-transform:uppercase;letter-spacing:.03em}
+.update p{margin-top:6px;font-size:14px;color:var(--muted-fg)}
+.trust{margin-top:16px;border:1px solid var(--border);border-radius:16px;background:var(--card);padding:18px;box-shadow:var(--shadow-card);font-size:14px;color:var(--muted-fg);display:grid;gap:8px}
+.trust b{color:var(--fg)}
+.faq{margin-top:16px;display:grid;gap:8px}
+.faq details{border:1px solid var(--border);border-radius:14px;background:var(--card);padding:4px 18px;box-shadow:var(--shadow-card)}
+.faq summary{cursor:pointer;font-weight:700;padding:14px 0;font-size:14px;list-style:none;display:flex;justify-content:space-between;align-items:center;gap:12px}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary::after{content:"+";font-size:20px;color:var(--primary);flex:none}
+.faq details[open] summary::after{content:"–"}
+.faq p{padding:0 0 16px;font-size:14px;color:var(--muted-fg)}
 /* checkout */
 aside{align-self:start}
 @media(min-width:1024px){aside{position:sticky;top:88px}}
@@ -88,59 +116,84 @@ aside{align-self:start}
 #custom{border:1px solid var(--border);background:var(--bg);border-radius:12px;padding:12px 8px;text-align:center;font-weight:700;outline:none;width:100%}
 #custom:focus{border-color:var(--primary)}
 .monthly{display:flex;align-items:center;gap:12px;background:rgba(230,243,234,.7);border-radius:12px;padding:12px;margin-top:16px;font-size:14px;color:var(--secondary-fg);cursor:pointer}
-.monthly input{accent-color:var(--primary);width:16px;height:16px}
-#cta{width:100%;margin-top:16px;padding:16px;font-family:var(--font-display);font-size:16px;animation:pulse 2.4s ease-in-out infinite}
-@keyframes pulse{0%,100%{transform:scale(1);box-shadow:var(--shadow-cta)}50%{transform:scale(1.02);box-shadow:0 12px 32px rgba(31,138,91,.45)}}
-.safe{margin-top:12px;font-size:12px;color:var(--muted-fg);text-align:center}
-.pix{margin-top:20px;border:1px dashed rgba(31,138,91,.45);background:rgba(230,243,234,.45);border-radius:16px;padding:16px}
+.monthly input{accent-color:var(--primary);width:16px;height:16px;flex:none}
+#cta{width:100%;margin-top:16px;padding:16px;font-family:var(--font-display);font-size:16px;box-shadow:var(--shadow-cta)}
+#cta.pulse{animation:pulse 2.4s ease-in-out 3}
+@keyframes pulse{0%,100%{transform:scale(1)}50%{transform:scale(1.02);box-shadow:0 12px 32px rgba(31,138,91,.45)}}
+.safe{margin-top:12px;font-size:12px;color:var(--muted-fg);text-align:center;display:flex;align-items:center;justify-content:center;gap:6px}
+.pix{margin-top:20px;border:1px dashed rgba(31,138,91,.45);background:rgba(230,243,234,.45);border-radius:16px;padding:16px;transition:box-shadow .3s}
+.pix.flash{box-shadow:0 0 0 3px rgba(31,138,91,.35)}
 .pixrow{display:flex;gap:8px;margin-top:8px}
 .pixrow code{flex:1;background:var(--bg);border-radius:8px;padding:8px 12px;font-size:14px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
-.pixrow button{width:40px;height:40px;border-radius:8px;flex:none}
+.pixrow button{width:44px;height:44px;border-radius:8px;flex:none;border:0;cursor:pointer;background:var(--primary);color:var(--primary-fg)}
 .duo{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:16px}
-.ticker{margin-top:20px;background:rgba(230,243,234,.6);color:var(--secondary-fg);border-radius:16px;padding:12px;font-size:12px;animation:rise .6s cubic-bezier(.22,1,.36,1)}
+.ticker{margin-top:20px;background:rgba(230,243,234,.6);color:var(--secondary-fg);border-radius:16px;padding:12px;font-size:12px}
+.ticker.rise{animation:rise .6s cubic-bezier(.22,1,.36,1)}
 @keyframes rise{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:none}}
 .fineprint{margin-top:16px;padding:0 8px;font-size:12px;color:var(--muted-fg)}
+.toast{position:fixed;left:50%;bottom:24px;transform:translate(-50%,140%);background:var(--fg);color:var(--bg);padding:12px 20px;border-radius:999px;font-size:13px;font-weight:600;z-index:80;transition:transform .3s ease;box-shadow:0 12px 32px rgba(0,0,0,.25)}
+.toast.show{transform:translate(-50%,0)}
 .closer{border-top:1px solid var(--border);background:rgba(230,243,234,.4);text-align:center;padding:40px 0}
 .closer h2{font-size:clamp(22px,4vw,30px)}
 .closer p{max-width:36rem;margin:8px auto 0;font-size:14px;color:var(--muted-fg)}
 .closer button{margin-top:24px;padding:16px 32px;font-family:var(--font-display);font-size:16px;box-shadow:var(--shadow-cta)}
-footer{border-top:1px solid var(--border);padding:32px 16px;text-align:center;font-size:12px;color:var(--muted-fg)}
+footer{border-top:1px solid var(--border);padding:32px 16px;text-align:center;font-size:12px;color:var(--muted-fg);display:grid;gap:6px}
+footer a{color:var(--secondary-fg);font-weight:600}
 .sticky-cta{position:fixed;inset:auto 0 0 0;z-index:50;background:rgba(251,250,243,.97);backdrop-filter:blur(10px);border-top:1px solid var(--border);padding:10px 12px calc(10px + env(safe-area-inset-bottom))}
 .chips{display:flex;gap:8px;overflow-x:auto;padding-bottom:8px;scrollbar-width:none}
 .chips::-webkit-scrollbar{display:none}
 .chip{flex:1 0 auto;border:1px solid var(--border);background:var(--card);border-radius:999px;padding:8px 14px;font-size:14px;font-weight:700;cursor:pointer}
 .chip.active{background:var(--primary);border-color:var(--primary);color:var(--primary-fg)}
 .stickyrow{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:8px}
-.stickyrow .btn{padding:15px;font-family:var(--font-display);font-size:16px;box-shadow:var(--shadow-cta)}
+.stickyrow .btn{padding:15px;font-family:var(--font-display);font-size:16px;box-shadow:var(--shadow-cta);border:0;cursor:pointer}
 .pixbtn{border-radius:999px;padding:0 18px;font-weight:700;background:var(--secondary);border-color:transparent;color:var(--secondary-fg)}
-.spacer{height:150px}
+.spacer{height:164px}
 @media(min-width:1024px){.sticky-cta,.spacer{display:none}}
 @media(max-width:1023px){
   .grid{display:flex;flex-direction:column}
   #intro{order:1}
   aside{order:2}
   #story{order:3}
+  /* header: wrap instead of squeezing brand + button off-screen on narrow phones */
+  .brand{font-size:15px;gap:6px}
+  .logo{width:30px;height:30px}
+  /* one CTA pattern on mobile — the bottom bar is always visible, so the
+     header button would just be a redundant, space-fighting duplicate */
+  .hd .js-donate{display:none}
+  :root{--shadow-card:0 1px 2px rgba(30,42,36,.04),0 6px 16px rgba(30,42,36,.06)}
   h1{font-size:26px;margin-top:12px}
   .lead{font-size:15px;margin-top:8px}
+  article h2,section h2{font-size:20px}
+  .section-head{margin-top:24px}
   .hero{margin-top:16px;border-radius:18px}
   .hero img{aspect-ratio:auto;height:200px;object-fit:cover;object-position:center 30%}
-
   .box{padding:18px;border-radius:20px}
   .raised{font-size:28px}
-  .amt,#custom{padding:14px 8px;font-size:15px}
-  .stats{gap:8px;margin-top:0}
-  .stat b{font-size:16px}
-  .stat span{font-size:11px}
+  .amt{padding:14px 8px;font-size:15px}
+  /* keep the free-text input at 16px so iOS Safari doesn't zoom in on focus */
+  #custom{padding:14px 8px;font-size:16px}
+  .stats{gap:8px;margin-top:16px}
   .stat{padding:12px}
   .stat b{font-size:16px}
+  .stat span.lbl{font-size:11px}
+  /* long budget-item labels no longer fight the amount for space on one line */
+  ul.checks li{flex-direction:column;align-items:flex-start;gap:2px}
+  ul.checks li span{align-self:flex-start}
+  .duo .btn-ghost{padding:12px 14px}
+  .chip{padding:11px 16px}
+  .closer{padding:32px 0}
   .closer button{width:100%}
 }
-
+@media (prefers-reduced-motion: reduce){
+  *,*::before,*::after{animation-duration:.001ms !important;animation-iteration-count:1 !important;transition-duration:.001ms !important}
+  html{scroll-behavior:auto}
+}
 svg{width:16px;height:16px;stroke:currentColor;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;flex:none}
 .ic-primary{color:var(--primary)}
 </style>
 </head>
 <body>
+<a class="skip-link" href="#main">Pular para o conteúdo</a>
 <header>
   <div class="wrap hd">
     <div class="brand">
@@ -151,48 +204,78 @@ svg{width:16px;height:16px;stroke:currentColor;fill:none;stroke-width:2;stroke-l
   </div>
 </header>
 
-<main>
+<main id="main">
 <div class="wrap grid">
   <div id="intro">
     <div class="tags">
       <span class="tag">Saúde / Tratamentos</span>
-      <span class="tag alt">✓ Campanha verificada</span>
+      <a class="tag alt" href="#trust" title="Veja o que foi verificado sobre esta campanha">✓ Identidade verificada</a>
     </div>
     <h1>Vamos mudar a vida do Ezequiel</h1>
-    <p class="lead">Ezequiel, 68 anos, cuida sozinho da esposa doente. Doe em menos de 1 minuto — 100% vai para a família.</p>
+    <p class="lead">Ezequiel, 68 anos, cuida sozinho da esposa doente. Doe em menos de 1 minuto — 100% do valor arrecadado vai direto para a família.</p>
 
     <div class="hero">
-      <img src="ezequiel-hero.jpg" alt="Ezequiel e sua esposa sorrindo dentro de casa" width="1280" height="768" />
+      <img src="ezequiel-hero.jpg" alt="Ezequiel e sua esposa sorrindo dentro de casa" width="1280" height="768" loading="eager" />
+    </div>
+
+    <div class="stats">
+      <div class="stat"><span class="ic-primary">👥</span><b id="statSupporters"></b><span class="lbl">Apoiadores</span></div>
+      <div class="stat"><span>❤️</span><b id="hearts"></b><span class="lbl">Corações recebidos</span></div>
+      <div class="stat"><span>⏳</span><b id="statDays"></b><span class="lbl">Encerra em</span></div>
     </div>
   </div>
 
   <div id="story">
-    <div class="stats">
-      <div class="stat"><span class="ic-primary">👥</span><b>8.516</b><span>Apoiadores</span></div>
-      <div class="stat"><span>❤️</span><b id="hearts">5.254</b><span>Corações recebidos</span></div>
-      <div class="stat"><span>⏳</span><b>9 dias</b><span>Encerra em</span></div>
-    </div>
-
     <article>
       <h2>A história do Ezequiel</h2>
       <p>Depois de mais de 40 anos trabalhando na roça, Ezequiel perdeu a força nas pernas e passou a depender de consultas semanais em outra cidade. A casa onde ele mora com dona Cida não tem banheiro adequado e o telhado alaga a cada chuva.</p>
-      <p>Com a sua ajuda vamos custear o tratamento completo, a reforma emergencial da casa e uma reserva de medicamentos para os próximos 12 meses. Toda a prestação de contas é publicada nas atualizações da campanha.</p>
-      <ul class="checks">
-        <li>✅ Tratamento e fisioterapia: R$ 150.000</li>
-        <li>✅ Reforma da casa: R$ 120.000</li>
-        <li>✅ Medicamentos por 12 meses: R$ 50.000</li>
-        <li>✅ Transporte para consultas: R$ 30.000</li>
-      </ul>
+      <p>Com a sua ajuda vamos custear o tratamento completo, a reforma emergencial da casa e uma reserva de medicamentos para os próximos 12 meses. Toda a prestação de contas é publicada nas atualizações abaixo, com recibos e fotos.</p>
+      <ul class="checks" id="breakdown"></ul>
     </article>
 
-    <section>
-      <h2 style="margin-top:32px">Quem já ajudou</h2>
+    <section aria-labelledby="updatesTitle">
+      <h2 id="updatesTitle" class="section-head">Atualizações da campanha</h2>
+      <div class="updates" id="updates"></div>
+    </section>
+
+    <section id="trust" aria-labelledby="trustTitle">
+      <h2 id="trustTitle" class="section-head">Sobre esta campanha</h2>
+      <div class="trust">
+        <p><b>Organizado por:</b> um familiar direto de Ezequiel, com identidade e vínculo confirmados pela plataforma de pagamento.</p>
+        <p><b>Como o dinheiro é usado:</b> os valores arrecadados são usados exatamente conforme o detalhamento acima. Comprovantes e notas fiscais são publicados nas atualizações à medida que as despesas acontecem.</p>
+        <p><b>Dúvidas ou suporte:</b> <a href="mailto:contato@doepeloezequiel.exemplo.com">contato@doepeloezequiel.exemplo.com</a></p>
+      </div>
+    </section>
+
+    <section aria-labelledby="faqTitle">
+      <h2 id="faqTitle" class="section-head">Perguntas frequentes</h2>
+      <div class="faq">
+        <details>
+          <summary>Como sei que minha doação chega até o Ezequiel?</summary>
+          <p>O Pix e o checkout desta página estão vinculados diretamente à conta usada para custear o tratamento e a reforma. Cada gasto é registrado e publicado na seção de atualizações, com data e comprovante.</p>
+        </details>
+        <details>
+          <summary>Posso pedir um comprovante da minha doação?</summary>
+          <p>Sim. Pagamentos por Pix ou cartão geram comprovante automático no seu aplicativo de banco. Se precisar de algo adicional, é só escrever para o e-mail de contato.</p>
+        </details>
+        <details>
+          <summary>É seguro doar pelo Pix nesta página?</summary>
+          <p>Sim. O Pix é processado diretamente pelo seu banco; esta página apenas exibe a chave. Confira sempre o nome do destinatário exibido no seu aplicativo antes de confirmar.</p>
+        </details>
+        <details>
+          <summary>Posso cancelar uma doação mensal?</summary>
+          <p>Sim, a qualquer momento, diretamente no aplicativo do seu banco ou cartão, sem burocracia.</p>
+        </details>
+      </div>
+    </section>
+
+    <section aria-labelledby="supportersTitle">
+      <h2 id="supportersTitle" class="section-head">Quem já ajudou</h2>
       <ul class="supporters" id="supporters"></ul>
     </section>
   </div>
 
   <aside>
-
     <div class="box" id="checkout">
       <p class="kicker">Arrecadado</p>
       <p class="raised" id="raised"></p>
@@ -201,13 +284,13 @@ svg{width:16px;height:16px;stroke:currentColor;fill:none;stroke-width:2;stroke-l
       <div class="bar"><i id="bar"></i></div>
       <p class="pct" id="pct"></p>
 
-      <p style="margin-top:20px;font-size:14px;font-weight:700">Escolha o valor da sua doação</p>
-      <div class="amounts" id="amounts">
-        <button class="amt" data-v="25">R$ 25</button>
-        <button class="amt" data-v="50">R$ 50</button>
-        <button class="amt active" data-v="100">R$ 100</button>
-        <button class="amt" data-v="250">R$ 250</button>
-        <button class="amt" data-v="500">R$ 500</button>
+      <p style="margin-top:20px;font-size:14px;font-weight:700" id="amountsLabel">Escolha o valor da sua doação</p>
+      <div class="amounts" id="amounts" role="group" aria-labelledby="amountsLabel">
+        <button class="amt" type="button" data-v="25" aria-pressed="false">R$ 25</button>
+        <button class="amt" type="button" data-v="50" aria-pressed="false">R$ 50</button>
+        <button class="amt active" type="button" data-v="100" aria-pressed="true">R$ 100</button>
+        <button class="amt" type="button" data-v="250" aria-pressed="false">R$ 250</button>
+        <button class="amt" type="button" data-v="500" aria-pressed="false">R$ 500</button>
         <input id="custom" inputmode="numeric" placeholder="Outro" aria-label="Outro valor em reais" />
       </div>
 
@@ -216,24 +299,23 @@ svg{width:16px;height:16px;stroke:currentColor;fill:none;stroke-width:2;stroke-l
         <span>Quero doar todo mês e manter o tratamento em dia</span>
       </label>
 
-      <button class="btn js-donate" id="cta">Doar R$ 100,00 agora</button>
+      <button class="btn pulse js-donate" id="cta">Doar R$ 100,00 agora</button>
       <p class="safe">🔒 Pagamento seguro • Pix, cartão ou boleto</p>
 
-      <div class="pix">
+      <div class="pix" id="pixBox">
         <p class="kicker">Doe via Pix</p>
         <div class="pixrow">
           <code id="pixkey">ezequiel@vakinha.com.br</code>
-          <button class="btn" id="copy" aria-label="Copiar chave Pix">⧉</button>
+          <button id="copy" aria-label="Copiar chave Pix">⧉</button>
         </div>
-        <p id="copied" style="display:none;margin-top:8px;font-size:12px;font-weight:700;color:var(--primary)">Chave copiada!</p>
       </div>
 
       <div class="duo">
-        <button class="btn-ghost" id="like">🤍 Enviar coração</button>
+        <button class="btn-ghost" id="like" aria-pressed="false">🤍 Enviar coração</button>
         <button class="btn-ghost" id="share">↗ Compartilhar</button>
       </div>
 
-      <div class="ticker" id="ticker"></div>
+      <div class="ticker" id="ticker" aria-live="polite"></div>
     </div>
     <p class="fineprint">Campanha em benefício de Ezequiel, criada por um familiar verificado. 100% do valor arrecadado é repassado à família.</p>
   </aside>
@@ -248,58 +330,119 @@ svg{width:16px;height:16px;stroke:currentColor;fill:none;stroke-width:2;stroke-l
 </section>
 </main>
 
-<footer>AVISO: os textos e imagens desta página são de responsabilidade do criador da campanha.</footer>
+<footer>
+  <p>Os textos e imagens desta página são de responsabilidade do criador da campanha.</p>
+  <p>Dúvidas ou denúncias: <a href="mailto:contato@doepeloezequiel.exemplo.com">contato@doepeloezequiel.exemplo.com</a></p>
+</footer>
 
 <div class="sticky-cta" id="stickyBar">
   <div class="chips" id="chips">
-    <button class="chip" data-v="25">R$ 25</button>
-    <button class="chip" data-v="50">R$ 50</button>
-    <button class="chip active" data-v="100">R$ 100</button>
-    <button class="chip" data-v="250">R$ 250</button>
+    <button class="chip" type="button" data-v="25">R$ 25</button>
+    <button class="chip" type="button" data-v="50">R$ 50</button>
+    <button class="chip active" type="button" data-v="100">R$ 100</button>
+    <button class="chip" type="button" data-v="250">R$ 250</button>
   </div>
   <div class="stickyrow">
     <button class="btn js-donate" id="stickyCta">Doar R$ 100,00</button>
-    <button class="btn-ghost pixbtn" id="stickyPix" aria-label="Copiar chave Pix">Pix</button>
+    <button class="btn-ghost pixbtn" id="stickyPix">Pix</button>
   </div>
 </div>
 <div class="spacer"></div>
-
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
 
 <script>
 (function () {
-  var GOAL = 350000, RAISED = 341410.65;
+  // ---------------------------------------------------------------
+  // CONFIGURAÇÃO DA CAMPANHA — edite apenas os valores abaixo.
+  // IMPORTANTE: os números de exemplo (arrecadado, apoiadores, doações
+  // recentes) precisam ser substituídos por dados reais antes de publicar.
+  // Apresentar estatísticas ou depoimentos fictícios como se fossem reais
+  // pode configurar propaganda enganosa.
+  // ---------------------------------------------------------------
+  var CONFIG = {
+    goal: 350000,
+    raised: 341410.65,
+    daysLeft: 9,
+    supportersCount: 8516,
+    heartsCount: 5254,
+    pixKey: 'ezequiel@vakinha.com.br',
+    // Link real de checkout (Vakinha, Mercado Pago, PagSeguro etc.).
+    // Deixe vazio para que o botão "Doar agora" leve o visitante direto
+    // ao Pix, que já é 100% funcional sem integração nenhuma.
+    donationUrl: '',
+    breakdown: [
+      { label: 'Tratamento e fisioterapia', value: 150000 },
+      { label: 'Reforma da casa', value: 120000 },
+      { label: 'Medicamentos por 12 meses', value: 50000 },
+      { label: 'Transporte para consultas', value: 30000 }
+    ],
+    recentDonations: [
+      { name: 'Mariana S.', amount: 100, when: 'há 2 minutos', note: 'Que Deus abençoe vocês!' },
+      { name: 'Doador anônimo', amount: 50, when: 'há 8 minutos', note: 'Força, Ezequiel!' },
+      { name: 'Rafael A.', amount: 250, when: 'há 14 minutos', note: 'Um abraço da minha família.' },
+      { name: 'Juliana P.', amount: 30, when: 'há 21 minutos', note: 'É pouco, mas é de coração.' },
+      { name: 'Carlos E.', amount: 500, when: 'há 35 minutos', note: 'Vamos chegar na meta!' }
+    ],
+    updates: [
+      { date: '20 de agosto', text: 'Primeira consulta com o fisioterapeuta agendada para a próxima semana. Obrigado a todos que já ajudaram!' },
+      { date: '10 de agosto', text: 'Campanha no ar. Vamos publicar aqui cada etapa do tratamento e da reforma, com comprovantes.' }
+    ]
+  };
+
   var brl = function (v) { return v.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL', minimumFractionDigits: 2 }); };
 
-  var SUPPORTERS = [
-    { name: 'Mariana S.', amount: 100, when: 'há 2 minutos', note: 'Que Deus abençoe vocês!' },
-    { name: 'Doador anônimo', amount: 50, when: 'há 8 minutos', note: 'Força, Ezequiel!' },
-    { name: 'Rafael A.', amount: 250, when: 'há 14 minutos', note: 'Um abraço da minha família.' },
-    { name: 'Juliana P.', amount: 30, when: 'há 21 minutos', note: 'É pouco, mas é de coração.' },
-    { name: 'Carlos E.', amount: 500, when: 'há 35 minutos', note: 'Vamos chegar na meta!' }
-  ];
+  // stats
+  document.getElementById('statSupporters').textContent = CONFIG.supportersCount.toLocaleString('pt-BR');
+  document.getElementById('statDays').textContent = CONFIG.daysLeft + (CONFIG.daysLeft === 1 ? ' dia' : ' dias');
+  document.getElementById('pixkey').textContent = CONFIG.pixKey;
 
-  var percent = Math.min(100, (RAISED / GOAL) * 100);
-  document.getElementById('raised').textContent = brl(RAISED);
-  document.getElementById('goalText').textContent = 'de ' + brl(GOAL);
-  document.getElementById('pct').textContent = percent.toFixed(1) + '% da meta • faltam ' + brl(GOAL - RAISED);
-  document.getElementById('closerTitle').textContent = 'Faltam apenas ' + brl(GOAL - RAISED) + ' para a meta';
+  // progress
+  var percent = Math.min(100, (CONFIG.raised / CONFIG.goal) * 100);
+  document.getElementById('raised').textContent = brl(CONFIG.raised);
+  document.getElementById('goalText').textContent = 'de ' + brl(CONFIG.goal);
+  document.getElementById('pct').textContent = percent.toFixed(1) + '% da meta • faltam ' + brl(Math.max(0, CONFIG.goal - CONFIG.raised));
+  document.getElementById('closerTitle').textContent = CONFIG.raised < CONFIG.goal
+    ? 'Faltam apenas ' + brl(CONFIG.goal - CONFIG.raised) + ' para a meta'
+    : 'Meta alcançada — obrigado a todos!';
   setTimeout(function () { document.getElementById('bar').style.width = percent + '%'; }, 250);
 
-  document.getElementById('supporters').innerHTML = SUPPORTERS.map(function (s) {
+  // breakdown, tied to the same numbers used for the goal
+  document.getElementById('breakdown').innerHTML = CONFIG.breakdown.map(function (b) {
+    var pct = Math.round((b.value / CONFIG.goal) * 100);
+    return '<li>✅ ' + b.label + ' <span><b>' + brl(b.value) + '</b> <small>(' + pct + '%)</small></span></li>';
+  }).join('');
+
+  // updates
+  document.getElementById('updates').innerHTML = CONFIG.updates.map(function (u) {
+    return '<div class="update"><p class="dt">' + u.date + '</p><p>' + u.text + '</p></div>';
+  }).join('');
+
+  // supporters
+  document.getElementById('supporters').innerHTML = CONFIG.recentDonations.map(function (s) {
     return '<li><div><p class="nm">' + s.name + '</p><p class="nt">“' + s.note + '”</p></div>' +
       '<div><p class="vl">' + brl(s.amount) + '</p><p class="wh">' + s.when + '</p></div></li>';
   }).join('');
 
+  // ticker
   var i = 0, ticker = document.getElementById('ticker');
   function renderTicker() {
-    var s = SUPPORTERS[i];
+    var s = CONFIG.recentDonations[i];
+    ticker.classList.remove('rise'); void ticker.offsetWidth; ticker.classList.add('rise');
     ticker.innerHTML = '<strong>' + s.name + '</strong> doou ' + brl(s.amount) + ' ' + s.when;
-    ticker.style.animation = 'none'; void ticker.offsetWidth; ticker.style.animation = '';
   }
   renderTicker();
-  setInterval(function () { i = (i + 1) % SUPPORTERS.length; renderTicker(); }, 4000);
+  setInterval(function () { i = (i + 1) % CONFIG.recentDonations.length; renderTicker(); }, 4000);
 
-  // valor
+  // toast helper
+  var toastEl = document.getElementById('toast'), toastTimer;
+  function toast(msg) {
+    clearTimeout(toastTimer);
+    toastEl.textContent = msg;
+    toastEl.classList.add('show');
+    toastTimer = setTimeout(function () { toastEl.classList.remove('show'); }, 2600);
+  }
+
+  // amount selection
   var amount = 100, monthly = false;
   var cta = document.getElementById('cta'), sticky = document.getElementById('stickyCta');
   var custom = document.getElementById('custom');
@@ -307,13 +450,14 @@ svg{width:16px;height:16px;stroke:currentColor;fill:none;stroke-width:2;stroke-l
   function value() { return custom.value ? Number(custom.value) : amount; }
   function syncActive() {
     document.querySelectorAll('.amt,.chip').forEach(function (x) {
-      x.classList.toggle('active', !custom.value && Number(x.dataset.v) === amount);
+      var isActive = !custom.value && Number(x.dataset.v) === amount;
+      x.classList.toggle('active', isActive);
+      if (x.classList.contains('amt')) x.setAttribute('aria-pressed', isActive ? 'true' : 'false');
     });
   }
   function refresh() {
     var v = value();
     cta.disabled = !v;
-    cta.style.opacity = v ? 1 : .5;
     cta.textContent = 'Doar ' + (v ? brl(v) : '') + ' ' + (monthly ? 'por mês' : 'agora');
     sticky.textContent = 'Doar ' + (v ? brl(v) : 'agora') + (monthly ? '/mês' : '');
     syncActive();
@@ -330,58 +474,67 @@ svg{width:16px;height:16px;stroke:currentColor;fill:none;stroke-width:2;stroke-l
   document.getElementById('monthly').addEventListener('change', function (e) { monthly = e.target.checked; refresh(); });
   refresh();
 
-  function checkout() {
-    alert('Redirecionando para o pagamento de ' + brl(value()) + (monthly ? ' por mês' : '') + '…');
-  }
-
-  // CTAs: no mobile a barra fixa doa direto; os demais rolam até o checkout
-  document.querySelectorAll('.js-donate').forEach(function (b) {
-    b.addEventListener('click', function (e) {
-      if (b.id === 'cta' || b.id === 'stickyCta') return;
-      e.preventDefault();
-      document.getElementById('checkout').scrollIntoView({ behavior: 'smooth', block: 'center' });
-    });
-
-  });
-  cta.addEventListener('click', checkout);
-  sticky.addEventListener('click', checkout);
-
-  // pix
-  function copyPix(feedback) {
-    var key = document.getElementById('pixkey').textContent.trim();
-    var done = function () {
-      var el = document.getElementById('copied');
-      el.style.display = 'block';
-      setTimeout(function () { el.style.display = 'none'; }, 2200);
-      if (feedback) feedback();
-    };
+  // checkout: uses a real payment link when configured; otherwise sends
+  // the visitor straight to the Pix key, which needs no integration.
+  function copyPix(silent) {
+    var key = CONFIG.pixKey;
+    var done = function () { if (!silent) toast('Chave Pix copiada — cole no app do seu banco'); };
     if (navigator.clipboard) { navigator.clipboard.writeText(key).then(done, done); }
     else { var t = document.createElement('textarea'); t.value = key; document.body.appendChild(t); t.select(); document.execCommand('copy'); t.remove(); done(); }
   }
-  document.getElementById('copy').addEventListener('click', function () { copyPix(); });
-  var spx = document.getElementById('stickyPix');
-  spx.addEventListener('click', function () {
-    copyPix(function () {
-      spx.textContent = 'Copiado!';
-      setTimeout(function () { spx.textContent = 'Pix'; }, 2200);
+
+  function checkout() {
+    var v = value();
+    if (!v) return;
+    if (CONFIG.donationUrl) {
+      window.open(CONFIG.donationUrl + (CONFIG.donationUrl.indexOf('?') > -1 ? '&' : '?') + 'amount=' + v + (monthly ? '&recurring=1' : ''), '_blank', 'noopener');
+      return;
+    }
+    var box = document.getElementById('pixBox');
+    box.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    box.classList.add('flash');
+    setTimeout(function () { box.classList.remove('flash'); }, 1200);
+    copyPix();
+  }
+
+  document.querySelectorAll('.js-donate').forEach(function (b) {
+    b.addEventListener('click', function (e) {
+      if (b.id === 'cta' || b.id === 'stickyCta') { checkout(); return; }
+      e.preventDefault();
+      document.getElementById('checkout').scrollIntoView({ behavior: 'smooth', block: 'center' });
     });
   });
 
+  document.getElementById('copy').addEventListener('click', function () { copyPix(); });
+  document.getElementById('stickyPix').addEventListener('click', function () {
+    copyPix(true);
+    var spx = document.getElementById('stickyPix');
+    spx.textContent = 'Copiado!';
+    toast('Chave Pix copiada — cole no app do seu banco');
+    setTimeout(function () { spx.textContent = 'Pix'; }, 2200);
+  });
 
-  // coração
-  var liked = false, hearts = 5254, hEl = document.getElementById('hearts');
+  // heart
+  var liked = false, hearts = CONFIG.heartsCount, hEl = document.getElementById('hearts');
+  hEl.textContent = hearts.toLocaleString('pt-BR');
   document.getElementById('like').addEventListener('click', function (e) {
     if (liked) return;
     liked = true; hearts++;
     hEl.textContent = hearts.toLocaleString('pt-BR');
     e.currentTarget.innerHTML = '❤️ Obrigado!';
+    e.currentTarget.setAttribute('aria-pressed', 'true');
   });
 
-  // compartilhar
+  // share — tries native share, falls back to WhatsApp on desktop
   document.getElementById('share').addEventListener('click', function () {
-    var data = { title: 'Vamos mudar a vida do Ezequiel', text: 'Ajude o Ezequiel a alcançar a meta desta campanha.', url: location.href };
-    if (navigator.share) { navigator.share(data).catch(function () {}); }
-    else if (navigator.clipboard) { navigator.clipboard.writeText(location.href); alert('Link copiado!'); }
+    var text = 'Ajude o Ezequiel a alcançar a meta desta campanha.';
+    var data = { title: 'Vamos mudar a vida do Ezequiel', text: text, url: location.href };
+    if (navigator.share) {
+      navigator.share(data).catch(function () {});
+    } else {
+      window.open('https://wa.me/?text=' + encodeURIComponent(text + ' ' + location.href), '_blank', 'noopener');
+      if (navigator.clipboard) navigator.clipboard.writeText(location.href);
+    }
   });
 })();
 </script>
