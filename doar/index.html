@@ -7,228 +7,133 @@
 <title>Vamos mudar a vida do Ezequiel | Doe agora</title>
 <meta name="description" content="Ezequiel, 68 anos, cuida sozinho da esposa doente. Doe via Pix ou cartão em menos de 1 minuto — 100% do valor vai para a família." />
 <meta property="og:title" content="Vamos mudar a vida do Ezequiel | Doe agora" />
-<meta property="og:description" content="Faltam poucos dias para a meta. Sua doação ajuda Ezequiel a ter tratamento e um teto seguro." />
+<meta property="og:description" content="Sua doação ajuda Ezequiel a ter tratamento e um teto seguro." />
 <meta property="og:image" content="ezequiel-hero.jpg" />
 <meta property="og:type" content="website" />
 <meta name="twitter:card" content="summary_large_image" />
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='%231e6f49' d='M12 21s-7-4.6-9.3-9A5.2 5.2 0 0 1 12 6.6 5.2 5.2 0 0 1 21.3 12c-2.3 4.4-9.3 9-9.3 9z'/%3E%3C/svg%3E" />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
 <style>
-/* ================================================================
-   TOKENS — paleta pensada para o contexto (saúde + roça + confiança):
-   verde-mata como cor primária/CTA (crescimento, cuidado), terracota
-   como acento pontual (terra, calor humano), papel quente de fundo.
-   Evita o combo genérico "creme + terracota como CTA".
-   ================================================================ */
+/* Paleta enxuta: verde-mata (confiança/ação) + papel quente de fundo.
+   Terracota usado só como 1 acento pontual, não como cor estrutural. */
 :root{
-  --bg:#f6f1e6; --bg-alt:#efe7d6; --ink:#231f1a; --muted:#6e6656;
+  --bg:#f6f1e6; --ink:#231f1a; --muted:#6e6656;
   --card:#fff; --border:#e4dcc8;
-  --forest:#1e6f49; --forest-deep:#134f34; --forest-tint:#e3efe5; --forest-tint-2:#d2e6d8;
-  --clay:#b85430; --clay-tint:#f5e1d2; --clay-deep:#8a3e20;
-  --heart:#c94b4b;
-  --radius:1.1rem; --radius-sm:.7rem;
-  --shadow-card:0 1px 2px rgba(35,31,26,.05),0 16px 34px -14px rgba(24,45,34,.28);
-  --shadow-cta:0 10px 24px -6px rgba(30,111,73,.45);
+  --forest:#1e6f49; --forest-deep:#134f34; --forest-tint:#e3efe5;
+  --clay-deep:#8a3e20;
+  --shadow-card:0 1px 2px rgba(35,31,26,.05),0 14px 28px -14px rgba(24,45,34,.25);
+  --shadow-cta:0 8px 20px -6px rgba(30,111,73,.4);
   --font-display:"Fraunces",ui-serif,Georgia,serif;
   --font-sans:"Inter",ui-sans-serif,system-ui,sans-serif;
 }
 *{box-sizing:border-box;margin:0;padding:0}
-html{scroll-behavior:scroll-behavior}
 html{scroll-behavior:smooth}
 html,body{overflow-x:hidden;max-width:100%}
 body{background:var(--bg);color:var(--ink);font-family:var(--font-sans);-webkit-font-smoothing:antialiased;line-height:1.55}
-a{overflow-wrap:anywhere}
-h1,h2,h3{font-family:var(--font-display);letter-spacing:-.01em;line-height:1.12;font-weight:600}
+a{overflow-wrap:anywhere;color:inherit}
+h1,h2{font-family:var(--font-display);letter-spacing:-.01em;line-height:1.14;font-weight:600}
 img{display:block;max-width:100%}
 button,input{font:inherit}
-a{color:inherit}
-.wrap{max-width:1120px;margin:0 auto;padding:0 20px}
+.wrap{max-width:1040px;margin:0 auto;padding:0 20px}
 :focus-visible{outline:2px solid var(--forest);outline-offset:2px}
 .skip-link{position:absolute;left:-9999px;top:0;background:var(--forest);color:#fff;padding:10px 16px;border-radius:0 0 8px 0;z-index:100}
 .skip-link:focus{left:0}
 svg{width:16px;height:16px;stroke:currentColor;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;flex:none}
-.ic-forest{color:var(--forest)}
-.ic-clay{color:var(--clay)}
-.ic-heart{color:var(--heart)}
 
-/* ---------- header ---------- */
-header{position:sticky;top:0;z-index:40;background:rgba(246,241,230,.9);backdrop-filter:blur(8px);border-bottom:1px solid var(--border)}
-.hd{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:14px 0}
-.brand{display:flex;align-items:center;gap:10px;font-family:var(--font-display);font-weight:600;font-size:19px;min-width:0}
-.brand span.tt{white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-.logo{width:38px;height:38px;border-radius:999px;display:grid;place-items:center;background:linear-gradient(150deg,#1e6f49,#2c9468);color:#fff;flex:none;box-shadow:0 4px 10px -2px rgba(30,111,73,.5)}
+/* header */
+header{position:sticky;top:0;z-index:40;background:rgba(246,241,230,.92);backdrop-filter:blur(8px);border-bottom:1px solid var(--border)}
+.hd{display:flex;align-items:center;gap:10px;padding:14px 0}
+.brand{display:flex;align-items:center;gap:10px;font-family:var(--font-display);font-weight:600;font-size:17px}
+.logo{width:32px;height:32px;border-radius:999px;display:grid;place-items:center;background:var(--forest);color:#fff;flex:none}
+
 .btn{border:0;cursor:pointer;border-radius:999px;background:var(--forest);color:#fff;font-weight:700;transition:filter .2s,transform .15s}
 .btn:hover{filter:brightness(1.08)}
 .btn:active{transform:scale(.98)}
-.btn:disabled{opacity:.5;cursor:not-allowed;filter:none}
-.btn-sm{padding:11px 22px;font-size:14px;box-shadow:var(--shadow-cta);flex:none}
-.btn-ghost{background:var(--card);color:var(--ink);border:1px solid var(--border);font-weight:600;font-size:14px;padding:12px 16px;display:flex;align-items:center;justify-content:center;gap:8px;border-radius:999px;cursor:pointer}
-.btn-ghost:hover{border-color:var(--forest);color:var(--forest-deep)}
+.btn:disabled{opacity:.5;cursor:not-allowed}
+.link-btn{background:none;border:0;padding:0;color:var(--forest-deep);font-weight:600;text-decoration:underline;cursor:pointer;font-size:13.5px}
 
-/* ---------- layout ---------- */
-.grid{display:grid;gap:28px;padding:24px 0}
-@media(min-width:1024px){
-  .grid{grid-template-columns:1.5fr 1fr;gap:40px;padding:56px 0}
-  #intro{grid-column:1;grid-row:1}
-  #story{grid-column:1;grid-row:2}
-  aside{grid-column:2;grid-row:1/span 2}
-}
-.tags{display:flex;flex-wrap:wrap;gap:8px;font-size:12px;font-weight:700}
-.tag{background:var(--forest-tint);color:var(--forest-deep);border-radius:999px;padding:6px 13px;letter-spacing:.01em}
-.tag.alt{background:var(--clay-tint);color:var(--clay-deep);text-decoration:none;display:inline-flex;align-items:center;gap:5px}
-.tag.alt:hover{text-decoration:underline}
-h1{font-size:clamp(30px,4.6vw,50px);margin-top:18px}
-.lead{margin-top:14px;color:var(--muted);font-size:17.5px;max-width:42rem}
-.hero{position:relative;margin-top:26px;border:1px solid var(--border);border-radius:22px;overflow:hidden;background:var(--card);box-shadow:var(--shadow-card)}
-.hero img{aspect-ratio:16/10;object-fit:cover;width:100%;background:var(--forest-tint)}
-.hero-cap{position:absolute;left:0;right:0;bottom:0;padding:18px 20px;background:linear-gradient(0deg,rgba(19,32,24,.72),rgba(19,32,24,0));color:#fff}
-.hero-cap p{font-family:var(--font-display);font-size:15px;font-weight:500}
-.hero-cap span{font-size:12px;opacity:.85}
-.stats{display:grid;gap:14px;margin-top:26px;grid-template-columns:repeat(3,minmax(0,1fr))}
-.stat{border:1px solid var(--border);border-radius:16px;background:var(--card);padding:16px 14px;box-shadow:var(--shadow-card);text-align:left}
-.stat .row{display:flex;align-items:center;gap:6px}
-.stat b{display:block;font-family:var(--font-display);font-size:clamp(16px,4vw,20px);margin-top:8px;font-weight:600}
-.stat .lbl{font-size:11.5px;color:var(--muted);font-weight:600}
-article{color:var(--muted);font-size:15.5px;display:grid;gap:16px}
-article h2,section h2{color:var(--ink);font-size:25px}
-.section-head{margin-top:36px}
-ul.checks{display:grid;gap:8px;list-style:none;margin-top:6px}
-@media(min-width:640px){ul.checks{grid-template-columns:1fr 1fr}}
-ul.checks li{background:var(--forest-tint);color:var(--forest-deep);border-radius:12px;padding:12px 14px;font-size:14px;display:flex;justify-content:space-between;gap:10px;align-items:center}
-ul.checks li .txt{display:flex;align-items:center;gap:8px}
-ul.checks li b{font-weight:700;white-space:nowrap}
-ul.checks li small{color:var(--muted);font-weight:600;display:block;text-align:right}
+/* hero + card */
+.hero-grid{display:grid;gap:28px;padding:28px 0 8px}
+@media(min-width:960px){ .hero-grid{grid-template-columns:1.25fr 1fr;gap:44px;align-items:start;padding:48px 0 12px} }
+.badge{display:inline-flex;align-items:center;gap:6px;background:var(--forest-tint);color:var(--forest-deep);border-radius:999px;padding:6px 13px;font-size:12px;font-weight:700}
+h1{font-size:clamp(28px,4.4vw,44px);margin-top:16px}
+.lead{margin-top:12px;color:var(--muted);font-size:16.5px;max-width:38rem}
+.story{margin-top:14px;color:var(--muted);font-size:15.5px;max-width:38rem}
+.hero-img{margin-top:22px;border-radius:20px;overflow:hidden;border:1px solid var(--border);box-shadow:var(--shadow-card)}
+.hero-img img{aspect-ratio:16/10;object-fit:cover;width:100%;background:var(--forest-tint)}
 
-/* ---------- supporters / updates / trust / faq ---------- */
-.supporters{margin-top:16px;list-style:none;display:grid;gap:12px}
-.supporters li{display:flex;justify-content:space-between;gap:16px;border:1px solid var(--border);border-radius:16px;background:var(--card);padding:16px;box-shadow:var(--shadow-card)}
-.supporters .nm{font-size:14px;font-weight:700}
-.supporters .nt{font-size:14px;color:var(--muted);margin-top:4px}
-.supporters .vl{font-family:var(--font-display);font-weight:600;color:var(--forest);text-align:right}
-.supporters .wh{font-size:12px;color:var(--muted);text-align:right}
-.updates{margin-top:16px;display:grid;gap:12px}
-.update{border:1px solid var(--border);border-left:3px solid var(--forest);border-radius:12px;background:var(--card);padding:16px 18px;box-shadow:var(--shadow-card)}
-.update .dt{font-size:12px;font-weight:700;color:var(--forest);text-transform:uppercase;letter-spacing:.04em}
-.update p{margin-top:6px;font-size:14px;color:var(--muted)}
-.trust{margin-top:16px;border:1px solid var(--border);border-radius:16px;background:var(--card);padding:20px;box-shadow:var(--shadow-card);font-size:14px;color:var(--muted);display:grid;gap:10px}
-.trust b{color:var(--ink)}
-.faq{margin-top:16px;display:grid;gap:8px}
-.faq details{border:1px solid var(--border);border-radius:14px;background:var(--card);padding:4px 18px;box-shadow:var(--shadow-card)}
-.faq summary{cursor:pointer;font-weight:700;padding:15px 0;font-size:14.5px;list-style:none;display:flex;justify-content:space-between;align-items:center;gap:12px}
-.faq summary::-webkit-details-marker{display:none}
-.faq summary::after{content:"+";font-size:20px;color:var(--forest);flex:none}
-.faq details[open] summary::after{content:"–"}
-.faq p{padding:0 0 16px;font-size:14px;color:var(--muted)}
+/* donation card */
+.box{border:1px solid var(--border);border-radius:20px;background:var(--card);padding:22px;box-shadow:var(--shadow-card)}
+@media(min-width:960px){.box{position:sticky;top:88px}}
+.kicker{font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:.04em;color:var(--muted)}
+.raised{font-family:var(--font-display);font-size:32px;font-weight:600;color:var(--forest-deep);margin-top:2px}
+.goal{font-size:13.5px;color:var(--muted)}
+.bar{height:10px;border-radius:999px;background:var(--forest-tint);overflow:hidden;margin-top:14px}
+.bar>i{display:block;height:100%;width:0;border-radius:999px;background:var(--forest);transition:width 1s ease-out}
+.pct{margin-top:8px;font-size:12.5px;color:var(--muted)}
+.pct b{color:var(--clay-deep)}
 
-/* ---------- divider (signature element) ---------- */
-.divider{width:100%;height:56px;margin-top:44px;color:var(--forest-tint-2)}
-.divider svg{width:100%;height:100%;stroke:none}
-
-/* ---------- checkout ---------- */
-aside{align-self:start}
-@media(min-width:1024px){aside{position:sticky;top:88px}}
-.box{border:1px solid var(--border);border-radius:22px;background:var(--card);padding:24px;box-shadow:var(--shadow-card)}
-.kicker{font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:.05em;color:var(--muted)}
-.raised{font-family:var(--font-display);font-size:36px;font-weight:600;color:var(--forest-deep)}
-.goal{font-size:14px;color:var(--muted)}
-.bar{height:11px;border-radius:999px;background:var(--forest-tint);overflow:hidden;margin-top:16px}
-.bar>i{display:block;height:100%;width:0;border-radius:999px;background:linear-gradient(90deg,#1e6f49,#79b98f);transition:width 1.1s ease-out}
-.pct{margin-top:8px;font-size:12.5px;font-weight:700;color:var(--forest-deep)}
-.amountsLabel{margin-top:22px;font-size:14px;font-weight:700}
-.amounts{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px;margin-top:10px}
-.amt{display:flex;flex-direction:column;align-items:center;gap:3px;border:1px solid var(--border);background:var(--bg);border-radius:12px;padding:11px 6px;cursor:pointer;transition:.15s;text-align:center}
+.amountsLabel{margin-top:20px;font-size:13.5px;font-weight:700}
+.amounts{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px;margin-top:8px}
+.amt{border:1px solid var(--border);background:var(--bg);border-radius:11px;padding:13px 6px;font-size:14.5px;font-weight:700;cursor:pointer}
 .amt:hover{border-color:var(--forest)}
-.amt .v{font-size:14.5px;font-weight:700}
-.amt .imp{font-size:10.5px;font-weight:600;color:var(--muted);line-height:1.2}
-.amt.active{background:var(--forest);border-color:var(--forest);color:#fff;box-shadow:0 6px 14px -4px rgba(30,111,73,.5)}
-.amt.active .imp{color:rgba(255,255,255,.85)}
-#custom{grid-column:1/-1;border:1px dashed var(--border);background:var(--bg);border-radius:12px;padding:13px 8px;text-align:center;font-weight:700;outline:none;width:100%;color:var(--ink)}
+.amt.active{background:var(--forest);border-color:var(--forest);color:#fff}
+#custom{grid-column:1/-1;border:1px dashed var(--border);background:var(--bg);border-radius:11px;padding:13px 6px;text-align:center;font-weight:700;outline:none;width:100%;color:var(--ink)}
 #custom::placeholder{color:var(--muted);font-weight:600}
 #custom:focus{border-color:var(--forest);border-style:solid}
-.monthly{display:flex;align-items:center;gap:12px;background:var(--clay-tint);border-radius:12px;padding:13px;margin-top:16px;font-size:13.5px;color:var(--clay-deep);cursor:pointer;font-weight:500}
-.monthly input{accent-color:var(--clay);width:17px;height:17px;flex:none}
-#cta{width:100%;margin-top:16px;padding:17px;font-family:var(--font-display);font-size:16.5px;font-weight:600;box-shadow:var(--shadow-cta)}
-#cta.pulse{animation:pulse 2.4s ease-in-out 3}
-@keyframes pulse{0%,100%{transform:scale(1)}50%{transform:scale(1.015);box-shadow:0 14px 30px -6px rgba(30,111,73,.55)}}
-.safe{margin-top:12px;font-size:12px;color:var(--muted);text-align:center;display:flex;align-items:center;justify-content:center;gap:6px}
-.pix{margin-top:20px;border:1px dashed var(--forest);background:var(--forest-tint);border-radius:16px;padding:16px;transition:box-shadow .3s}
-.pix.flash{box-shadow:0 0 0 3px rgba(30,111,73,.35)}
-.pixrow{display:flex;gap:8px;margin-top:8px}
-.pixrow code{flex:1;min-width:0;background:var(--card);border-radius:8px;padding:9px 12px;font-size:13.5px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
-.pixrow button{width:44px;height:44px;border-radius:8px;flex:none;border:0;cursor:pointer;background:var(--forest);color:#fff}
-.duo{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:16px}
-.ticker{margin-top:20px;background:var(--forest-tint);color:var(--forest-deep);border-radius:16px;padding:13px;font-size:12.5px;display:flex;align-items:center;gap:8px}
-.ticker.rise{animation:rise .6s cubic-bezier(.22,1,.36,1)}
-@keyframes rise{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
-.fineprint{margin-top:16px;padding:0 8px;font-size:12px;color:var(--muted);line-height:1.5}
-.toast{position:fixed;left:50%;bottom:24px;transform:translate(-50%,140%);background:var(--ink);color:var(--bg);padding:12px 20px;border-radius:999px;font-size:13px;font-weight:600;z-index:80;transition:transform .3s ease;box-shadow:0 12px 32px rgba(0,0,0,.28);white-space:nowrap}
-.toast.show{transform:translate(-50%,0)}
 
-/* ---------- closer ---------- */
-.closer{background:var(--bg-alt);text-align:center;padding:48px 0 56px}
-.closer h2{font-size:clamp(23px,4vw,32px)}
-.closer p{max-width:34rem;margin:10px auto 0;font-size:14.5px;color:var(--muted)}
-.closer button{margin-top:26px;padding:17px 34px;font-family:var(--font-display);font-size:16.5px;font-weight:600;box-shadow:var(--shadow-cta)}
-.closerAlt{margin-top:16px;font-size:13.5px;color:var(--muted)}
-.closerAlt button{background:none;border:0;padding:0;color:var(--forest-deep);font-weight:700;text-decoration:underline;cursor:pointer;font:inherit}
+.monthly{display:flex;align-items:center;gap:10px;margin-top:14px;font-size:13.5px;color:var(--muted);cursor:pointer}
+.monthly input{accent-color:var(--forest);width:16px;height:16px;flex:none}
 
-footer{border-top:1px solid var(--border);padding:36px 16px;text-align:center;font-size:12px;color:var(--muted);display:grid;gap:6px}
+#cta{width:100%;margin-top:16px;padding:16px;font-family:var(--font-display);font-size:16px;font-weight:600;box-shadow:var(--shadow-cta)}
+.safe{margin-top:10px;font-size:12px;color:var(--muted);text-align:center;display:flex;align-items:center;justify-content:center;gap:6px}
+
+.pixToggle{width:100%;margin-top:10px;background:none;border:1px solid var(--border);border-radius:11px;padding:10px;font-size:13px;font-weight:600;color:var(--forest-deep);cursor:pointer}
+.pix{display:none;margin-top:10px;border:1px dashed var(--forest);background:var(--forest-tint);border-radius:12px;padding:12px}
+.pix.open{display:block}
+.pixrow{display:flex;gap:8px}
+.pixrow code{flex:1;min-width:0;background:var(--card);border-radius:8px;padding:9px 12px;font-size:13px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.pixrow button{width:40px;height:40px;border-radius:8px;flex:none;border:0;cursor:pointer;background:var(--forest);color:#fff}
+
+.share-line{margin-top:14px;text-align:center;font-size:12.5px;color:var(--muted)}
+.fineprint{margin-top:14px;padding:0 4px;font-size:11.5px;color:var(--muted);line-height:1.5;text-align:center}
+
+/* below-fold: kept short and scannable, on purpose */
+.section{max-width:640px;margin:0 auto;padding:44px 20px 0}
+.section h2{font-size:20px}
+.chips-row{display:flex;flex-wrap:wrap;gap:8px;margin-top:14px}
+.chip-static{background:var(--forest-tint);color:var(--forest-deep);border-radius:999px;padding:7px 14px;font-size:13px;font-weight:600}
+.trust{margin-top:16px;border:1px solid var(--border);border-radius:16px;background:var(--card);padding:18px;box-shadow:var(--shadow-card);font-size:13.5px;color:var(--muted);display:grid;gap:8px}
+.trust b{color:var(--ink)}
+.faq{margin-top:14px;display:grid;gap:8px}
+.faq details{border:1px solid var(--border);border-radius:12px;background:var(--card);padding:2px 16px}
+.faq summary{cursor:pointer;font-weight:700;padding:13px 0;font-size:14px;list-style:none;display:flex;justify-content:space-between;align-items:center;gap:12px}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary::after{content:"+";font-size:18px;color:var(--forest);flex:none}
+.faq details[open] summary::after{content:"–"}
+.faq p{padding:0 0 14px;font-size:13.5px;color:var(--muted)}
+
+footer{border-top:1px solid var(--border);margin-top:48px;padding:28px 16px;text-align:center;font-size:11.5px;color:var(--muted);display:grid;gap:6px}
 footer a{color:var(--forest-deep);font-weight:600}
 
-/* ---------- sticky mobile bar ---------- */
-.sticky-cta{position:fixed;inset:auto 0 0 0;z-index:50;background:rgba(246,241,230,.98);backdrop-filter:blur(10px);border-top:1px solid var(--border);padding:10px 12px calc(10px + env(safe-area-inset-bottom))}
-.stickyNote{font-size:11px;font-weight:700;color:var(--forest-deep);text-align:center;margin-bottom:7px}
-.chips{display:flex;gap:8px;overflow-x:auto;padding-bottom:8px;scrollbar-width:none}
-.chips::-webkit-scrollbar{display:none}
-.chip{flex:1 0 auto;border:1px solid var(--border);background:var(--card);border-radius:999px;padding:9px 15px;font-size:13.5px;font-weight:700;cursor:pointer;white-space:nowrap}
-.chip.active{background:var(--forest);border-color:var(--forest);color:#fff}
-.stickyrow{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:8px}
-.stickyrow .btn{padding:15px;font-family:var(--font-display);font-size:15.5px;font-weight:600;box-shadow:var(--shadow-cta);border:0;cursor:pointer;min-width:0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-.pixbtn{border-radius:999px;padding:0 16px;font-weight:700;background:var(--forest-tint);border-color:transparent;color:var(--forest-deep);flex:none;white-space:nowrap}
-.spacer{height:150px}
-@media(min-width:1024px){.sticky-cta,.spacer{display:none}}
+/* single sticky action on mobile — one button, one decision */
+.sticky-cta{position:fixed;inset:auto 0 0 0;z-index:50;background:rgba(246,241,230,.98);backdrop-filter:blur(10px);border-top:1px solid var(--border);padding:10px 14px calc(10px + env(safe-area-inset-bottom))}
+.sticky-cta .btn{width:100%;padding:15px;font-family:var(--font-display);font-size:15.5px;font-weight:600;box-shadow:var(--shadow-cta);border:0;cursor:pointer;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.spacer{height:78px}
+@media(min-width:960px){.sticky-cta,.spacer{display:none}}
 
-/* ---------- mobile refinements ---------- */
-@media(max-width:1023px){
-  .grid{display:flex;flex-direction:column;gap:22px;padding:18px 0}
-  #intro{order:1}
-  aside{order:2}
-  #story{order:3}
-  .brand{font-size:15.5px;gap:8px}
-  .logo{width:32px;height:32px}
-  .hd .js-donate{display:none}
-  :root{--shadow-card:0 1px 2px rgba(35,31,26,.04),0 8px 18px -8px rgba(24,45,34,.22)}
-  h1{font-size:27px;margin-top:12px}
-  .lead{font-size:15px;margin-top:8px}
-  article h2,section h2{font-size:20px}
-  .section-head{margin-top:26px}
-  .hero{margin-top:16px;border-radius:18px}
-  .hero img{aspect-ratio:auto;height:190px;object-fit:cover;object-position:center 30%}
-  .hero-cap{padding:14px 16px}
-  .box{padding:18px;border-radius:20px}
-  .raised{font-size:29px}
-  .amt{padding:12px 6px}
-  .amt .v{font-size:15px}
-  #custom{padding:14px 8px;font-size:16px} /* 16px: evita zoom automático no iOS Safari */
-  .stats{gap:8px;margin-top:18px}
-  .stat{padding:12px}
-  .stat b{font-size:16px;margin-top:6px}
-  .stat .lbl{font-size:10.5px}
-  ul.checks li{flex-direction:column;align-items:flex-start;gap:6px}
-  ul.checks li small{text-align:left}
-  .duo .btn-ghost{padding:12px 10px;font-size:13px}
-  .divider{margin-top:30px;height:36px}
-  .closer{padding:36px 0 44px}
-  .closer button{width:100%}
-}
-@media(max-width:380px){
-  .stat .lbl{font-size:10px}
-  .amt{padding:10px 4px}
-  .amt .v{font-size:13.5px}
-  .amt .imp{font-size:9.5px}
-  .stickyrow .btn{font-size:14.5px;padding:14px}
+@media(max-width:959px){
+  .hero-grid{padding:18px 0 4px}
+  h1{font-size:26px;margin-top:12px}
+  .lead{font-size:15px}
+  .hero-img{margin-top:16px;border-radius:16px}
+  .hero-img img{aspect-ratio:auto;height:190px;object-fit:cover;object-position:center 30%}
+  .box{padding:18px;border-radius:18px;margin-top:20px}
+  .raised{font-size:27px}
+  #custom{padding:14px 6px;font-size:16px} /* 16px evita zoom automático no iOS Safari */
+  .section{padding:34px 20px 0}
 }
 @media (prefers-reduced-motion: reduce){
   *,*::before,*::after{animation-duration:.001ms !important;animation-iteration-count:1 !important;transition-duration:.001ms !important}
@@ -242,168 +147,94 @@ footer a{color:var(--forest-deep);font-weight:600}
   <div class="wrap hd">
     <div class="brand">
       <span class="logo"><svg viewBox="0 0 24 24" fill="currentColor" stroke="none"><path d="M12 21s-7-4.6-9.3-9A5.2 5.2 0 0 1 12 6.6 5.2 5.2 0 0 1 21.3 12c-2.3 4.4-9.3 9-9.3 9z"/></svg></span>
-      <span class="tt">Doe pelo Ezequiel</span>
+      Doe pelo Ezequiel
     </div>
-    <button class="btn btn-sm js-donate">Quero ajudar</button>
   </div>
 </header>
 
 <main id="main">
-<div class="wrap grid">
-  <div id="intro">
-    <div class="tags">
-      <span class="tag">Saúde &amp; moradia</span>
-      <a class="tag alt" href="#trust" title="Veja o que foi verificado sobre esta campanha">
+  <div class="wrap hero-grid">
+    <div>
+      <span class="badge">
         <svg viewBox="0 0 24 24"><path d="M12 3l7 3v6c0 4.5-3 8-7 9-4-1-7-4.5-7-9V6z"/><path d="M9 12l2 2 4-4"/></svg>
         Identidade verificada
-      </a>
-    </div>
-    <h1>Vamos mudar a vida do Ezequiel</h1>
-    <p class="lead">Aos 68 anos, Ezequiel cuida sozinho da esposa doente numa casa que alaga a cada chuva. Doe em menos de 1 minuto — 100% do valor arrecadado vai direto para a família.</p>
-
-    <div class="hero">
-      <img src="ezequiel-hero.jpg" alt="Ezequiel e sua esposa sorrindo dentro de casa" width="1280" height="768" loading="eager" />
-      <div class="hero-cap">
-        <p>Ezequiel, 68 anos</p>
-        <span>Agricultor aposentado, cuidador de dona Cida</span>
+      </span>
+      <h1>Vamos mudar a vida do Ezequiel</h1>
+      <p class="lead">Aos 68 anos, Ezequiel cuida sozinho da esposa doente numa casa que alaga a cada chuva. Sua doação ajuda a pagar o tratamento e a reforma da casa deles.</p>
+      <p class="story">Depois de mais de 40 anos na roça, Ezequiel perdeu a força nas pernas e hoje depende de consultas semanais em outra cidade. Toda doação é usada exatamente para o tratamento, a reforma e os remédios — com comprovantes publicados à medida que os gastos acontecem.</p>
+      <div class="hero-img">
+        <img src="ezequiel-hero.jpg" alt="Ezequiel e sua esposa sorrindo dentro de casa" width="1200" height="750" loading="eager" />
       </div>
     </div>
 
-    <div class="stats">
-      <div class="stat">
-        <div class="row"><svg class="ic-forest" viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H7a4 4 0 0 0-4 4v2"/><circle cx="10" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
-        <b id="statSupporters"></b><span class="lbl">Apoiadores</span>
-      </div>
-      <div class="stat">
-        <div class="row"><svg class="ic-heart" viewBox="0 0 24 24" fill="currentColor" stroke="none"><path d="M12 21s-7-4.6-9.3-9A5.2 5.2 0 0 1 12 6.6 5.2 5.2 0 0 1 21.3 12c-2.3 4.4-9.3 9-9.3 9z"/></svg></div>
-        <b id="hearts"></b><span class="lbl">Corações recebidos</span>
-      </div>
-      <div class="stat">
-        <div class="row"><svg class="ic-clay" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg></div>
-        <b id="statDays" style="color:var(--clay-deep)"></b><span class="lbl">Encerra em</span>
-      </div>
-    </div>
-  </div>
+    <aside>
+      <div class="box" id="checkout">
+        <p class="kicker">Arrecadado</p>
+        <p class="raised" id="raised"></p>
+        <p class="goal" id="goalText"></p>
+        <div class="bar"><i id="bar"></i></div>
+        <p class="pct" id="pct"></p>
 
-  <div id="story">
-    <article>
-      <h2>A história do Ezequiel</h2>
-      <p>Depois de mais de 40 anos trabalhando na roça, Ezequiel perdeu a força nas pernas e passou a depender de consultas semanais em outra cidade. A casa onde ele mora com dona Cida não tem banheiro adequado e o telhado alaga a cada chuva.</p>
-      <p>Com a sua ajuda vamos custear o tratamento completo, a reforma emergencial da casa e uma reserva de medicamentos para os próximos 12 meses. Toda a prestação de contas é publicada nas atualizações abaixo, com recibos e fotos.</p>
-      <ul class="checks" id="breakdown"></ul>
-    </article>
-
-    <section aria-labelledby="updatesTitle">
-      <h2 id="updatesTitle" class="section-head">Atualizações da campanha</h2>
-      <div class="updates" id="updates"></div>
-    </section>
-
-    <section id="trust" aria-labelledby="trustTitle">
-      <h2 id="trustTitle" class="section-head">Sobre esta campanha</h2>
-      <div class="trust">
-        <p><b>Organizado por:</b> um familiar direto de Ezequiel, com identidade e vínculo confirmados pela plataforma de pagamento.</p>
-        <p><b>Como o dinheiro é usado:</b> os valores arrecadados são usados exatamente conforme o detalhamento acima. Comprovantes e notas fiscais são publicados nas atualizações à medida que as despesas acontecem.</p>
-        <p><b>Dúvidas ou suporte:</b> <a href="mailto:contato@doepeloezequiel.exemplo.com">contato@doepeloezequiel.exemplo.com</a></p>
-      </div>
-    </section>
-
-    <section aria-labelledby="faqTitle">
-      <h2 id="faqTitle" class="section-head">Perguntas frequentes</h2>
-      <div class="faq">
-        <details>
-          <summary>Como sei que minha doação chega até o Ezequiel?</summary>
-          <p>O Pix e o checkout desta página estão vinculados diretamente à conta usada para custear o tratamento e a reforma. Cada gasto é registrado e publicado na seção de atualizações, com data e comprovante.</p>
-        </details>
-        <details>
-          <summary>Posso pedir um comprovante da minha doação?</summary>
-          <p>Sim. Pagamentos por Pix ou cartão geram comprovante automático no seu aplicativo de banco. Se precisar de algo adicional, é só escrever para o e-mail de contato.</p>
-        </details>
-        <details>
-          <summary>É seguro doar pelo Pix nesta página?</summary>
-          <p>Sim. O Pix é processado diretamente pelo seu banco; esta página apenas exibe a chave. Confira sempre o nome do destinatário exibido no seu aplicativo antes de confirmar.</p>
-        </details>
-        <details>
-          <summary>Posso cancelar uma doação mensal?</summary>
-          <p>Sim, a qualquer momento, diretamente no aplicativo do seu banco ou cartão, sem burocracia.</p>
-        </details>
-      </div>
-    </section>
-
-    <section aria-labelledby="supportersTitle">
-      <h2 id="supportersTitle" class="section-head">Quem já ajudou</h2>
-      <ul class="supporters" id="supporters"></ul>
-    </section>
-  </div>
-
-  <aside>
-    <div class="box" id="checkout">
-      <p class="kicker">Arrecadado</p>
-      <p class="raised" id="raised"></p>
-      <p class="goal" id="goalText"></p>
-
-      <div class="bar"><i id="bar"></i></div>
-      <p class="pct" id="pct"></p>
-
-      <p class="amountsLabel" id="amountsLabel">Escolha o valor da sua doação</p>
-      <div class="amounts" id="amounts" role="group" aria-labelledby="amountsLabel">
-        <button class="amt" type="button" data-v="25" aria-pressed="false"><span class="v">R$ 25</span><span class="imp">ajuda no transporte</span></button>
-        <button class="amt" type="button" data-v="50" aria-pressed="false"><span class="v">R$ 50</span><span class="imp">contribui p/ remédios</span></button>
-        <button class="amt active" type="button" data-v="100" aria-pressed="true"><span class="v">R$ 100</span><span class="imp">sugerido · fisioterapia</span></button>
-        <button class="amt" type="button" data-v="250" aria-pressed="false"><span class="v">R$ 250</span><span class="imp">ajuda na reforma</span></button>
-        <button class="amt" type="button" data-v="500" aria-pressed="false"><span class="v">R$ 500</span><span class="imp">grande impacto no tratamento</span></button>
-        <input id="custom" inputmode="numeric" placeholder="Outro valor" aria-label="Outro valor em reais" />
-      </div>
-
-      <label class="monthly">
-        <input type="checkbox" id="monthly" />
-        <span>Quero doar todo mês e manter o tratamento em dia</span>
-      </label>
-
-      <button class="btn pulse js-donate" id="cta">Doar R$ 100,00 agora</button>
-      <p class="safe">
-        <svg viewBox="0 0 24 24"><rect x="4" y="10" width="16" height="10" rx="2"/><path d="M8 10V7a4 4 0 0 1 8 0v3"/></svg>
-        Pagamento seguro • Pix, cartão ou boleto
-      </p>
-
-      <div class="pix" id="pixBox">
-        <p class="kicker">Doe via Pix</p>
-        <div class="pixrow">
-          <code id="pixkey">ezequiel@vakinha.com.br</code>
-          <button id="copy" aria-label="Copiar chave Pix">
-            <svg viewBox="0 0 24 24"><rect x="9" y="9" width="12" height="12" rx="2"/><path d="M5 15H4a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h10a1 1 0 0 1 1 1v1"/></svg>
-          </button>
+        <p class="amountsLabel" id="amountsLabel">Valor da doação</p>
+        <div class="amounts" id="amounts" role="group" aria-labelledby="amountsLabel">
+          <button class="amt" type="button" data-v="25" aria-pressed="false">R$ 25</button>
+          <button class="amt" type="button" data-v="50" aria-pressed="false">R$ 50</button>
+          <button class="amt active" type="button" data-v="100" aria-pressed="true">R$ 100</button>
+          <button class="amt" type="button" data-v="250" aria-pressed="false">R$ 250</button>
+          <button class="amt" type="button" data-v="500" aria-pressed="false">R$ 500</button>
+          <input id="custom" inputmode="numeric" placeholder="Outro valor" aria-label="Outro valor em reais" />
         </div>
+
+        <label class="monthly">
+          <input type="checkbox" id="monthly" />
+          <span>Doar todo mês</span>
+        </label>
+
+        <button class="btn" id="cta">Doar R$ 100,00 agora</button>
+        <p class="safe">
+          <svg viewBox="0 0 24 24"><rect x="4" y="10" width="16" height="10" rx="2"/><path d="M8 10V7a4 4 0 0 1 8 0v3"/></svg>
+          Pagamento seguro • Pix, cartão ou boleto
+        </p>
+
+        <button class="pixToggle" id="pixToggle" type="button" aria-expanded="false">Prefere pagar com Pix? Ver chave</button>
+        <div class="pix" id="pixBox">
+          <div class="pixrow">
+            <code id="pixkey">ezequiel@vakinha.com.br</code>
+            <button id="copy" aria-label="Copiar chave Pix">
+              <svg viewBox="0 0 24 24"><rect x="9" y="9" width="12" height="12" rx="2"/><path d="M5 15H4a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h10a1 1 0 0 1 1 1v1"/></svg>
+            </button>
+          </div>
+        </div>
+
+        <p class="share-line"><button class="link-btn" id="share" type="button">Não pode doar? Compartilhe a campanha</button></p>
       </div>
-
-      <div class="duo">
-        <button class="btn-ghost" id="like" aria-pressed="false">
-          <svg viewBox="0 0 24 24"><path d="M12 21s-7-4.6-9.3-9A5.2 5.2 0 0 1 12 6.6 5.2 5.2 0 0 1 21.3 12c-2.3 4.4-9.3 9-9.3 9z"/></svg>
-          Enviar coração
-        </button>
-        <button class="btn-ghost" id="share">
-          <svg viewBox="0 0 24 24"><path d="M7 17L17 7"/><path d="M8 7h9v9"/></svg>
-          Compartilhar
-        </button>
-      </div>
-
-      <div class="ticker" id="ticker" aria-live="polite"></div>
-    </div>
-    <p class="fineprint">Campanha em benefício de Ezequiel, criada por um familiar verificado. 100% do valor arrecadado é repassado à família.</p>
-  </aside>
-</div>
-
-<div class="divider" aria-hidden="true">
-  <svg viewBox="0 0 1200 60" preserveAspectRatio="none"><path fill="currentColor" d="M0,40 C150,10 300,55 450,35 C600,15 750,50 900,30 C1000,17 1100,32 1200,20 L1200,60 L0,60 Z"/></svg>
-</div>
-
-<section class="closer">
-  <div class="wrap">
-    <h2 id="closerTitle"></h2>
-    <p>Sua doação de hoje pode ser a que fecha essa conta e coloca o Ezequiel em tratamento na semana que vem.</p>
-    <button class="btn js-donate">Doar agora</button>
-    <p class="closerAlt">Não pode doar agora? <button type="button" id="closerShare">Compartilhe com alguém que possa ajudar</button></p>
+      <p class="fineprint">Campanha em benefício de Ezequiel, criada por um familiar verificado. 100% do valor arrecadado é repassado à família.</p>
+    </aside>
   </div>
-</section>
+
+  <section class="section" aria-labelledby="useTitle">
+    <h2 id="useTitle">Sua doação garante</h2>
+    <div class="chips-row" id="breakdown"></div>
+  </section>
+
+  <section class="section" aria-labelledby="trustTitle">
+    <h2 id="trustTitle">Sobre esta campanha</h2>
+    <div class="trust">
+      <p><b>Organizado por</b> um familiar direto de Ezequiel, com identidade confirmada pela plataforma de pagamento.</p>
+      <p><b>Última atualização:</b> <span id="lastUpdate"></span></p>
+      <p><b>Dúvidas:</b> <a href="mailto:contato@doepeloezequiel.exemplo.com">contato@doepeloezequiel.exemplo.com</a></p>
+    </div>
+    <div class="faq">
+      <details>
+        <summary>Como sei que minha doação chega até o Ezequiel?</summary>
+        <p>O Pix e o checkout desta página estão vinculados diretamente à conta usada para custear o tratamento e a reforma. Cada gasto é registrado e publicado com data e comprovante.</p>
+      </details>
+      <details>
+        <summary>É seguro doar por aqui?</summary>
+        <p>Sim. O Pix é processado pelo seu banco e o cartão por uma processadora de pagamentos — esta página não armazena seus dados. Confira sempre o nome do destinatário antes de confirmar.</p>
+      </details>
+    </div>
+  </section>
 </main>
 
 <footer>
@@ -412,20 +243,9 @@ footer a{color:var(--forest-deep);font-weight:600}
 </footer>
 
 <div class="sticky-cta" id="stickyBar">
-  <p class="stickyNote" id="stickyNote"></p>
-  <div class="chips" id="chips">
-    <button class="chip" type="button" data-v="25">R$ 25</button>
-    <button class="chip" type="button" data-v="50">R$ 50</button>
-    <button class="chip active" type="button" data-v="100">R$ 100</button>
-    <button class="chip" type="button" data-v="250">R$ 250</button>
-  </div>
-  <div class="stickyrow">
-    <button class="btn js-donate" id="stickyCta">Doar R$ 100,00</button>
-    <button class="btn-ghost pixbtn" id="stickyPix">Pix</button>
-  </div>
+  <button class="btn" id="stickyCta">Doar R$ 100,00 agora</button>
 </div>
 <div class="spacer"></div>
-<div class="toast" id="toast" role="status" aria-live="polite"></div>
 
 <script>
 (function () {
@@ -433,100 +253,37 @@ footer a{color:var(--forest-deep);font-weight:600}
   // CONFIGURAÇÃO DA CAMPANHA — edite apenas os valores abaixo.
   //
   // ⚠️ ESTA É UMA PÁGINA-MODELO. Os números abaixo (arrecadado,
-  // apoiadores, doações recentes, atualizações) são exemplos usados
-  // só para visualizar o layout — NÃO são dados reais. Antes de
-  // publicar a campanha de verdade, substitua tudo por informações
-  // reais e verificáveis. Exibir estatísticas ou depoimentos fictícios
-  // como se fossem reais pode configurar propaganda enganosa.
+  // meta, prazo, atualização) são exemplos usados só para visualizar
+  // o layout — NÃO são dados reais. Substitua por informações reais
+  // e verificáveis antes de publicar a campanha de verdade.
   // ---------------------------------------------------------------
   var CONFIG = {
     goal: 350000,
     raised: 341410.65,
     daysLeft: 9,
-    supportersCount: 8516,
-    heartsCount: 5254,
     pixKey: 'ezequiel@vakinha.com.br',
     // Link real de checkout (Vakinha, Mercado Pago, PagSeguro etc.).
-    // Deixe vazio para que o botão "Doar agora" leve o visitante direto
-    // ao Pix, que já é 100% funcional sem integração nenhuma.
+    // Deixe vazio para que "Doar agora" leve direto ao Pix.
     donationUrl: '',
-    breakdown: [
-      { label: 'Tratamento e fisioterapia', value: 150000 },
-      { label: 'Reforma da casa', value: 120000 },
-      { label: 'Medicamentos por 12 meses', value: 50000 },
-      { label: 'Transporte para consultas', value: 30000 }
-    ],
-    recentDonations: [
-      { name: 'Mariana S.', amount: 100, when: 'há 2 minutos', note: 'Que Deus abençoe vocês!' },
-      { name: 'Doador anônimo', amount: 50, when: 'há 8 minutos', note: 'Força, Ezequiel!' },
-      { name: 'Rafael A.', amount: 250, when: 'há 14 minutos', note: 'Um abraço da minha família.' },
-      { name: 'Juliana P.', amount: 30, when: 'há 21 minutos', note: 'É pouco, mas é de coração.' },
-      { name: 'Carlos E.', amount: 500, when: 'há 35 minutos', note: 'Vamos chegar na meta!' }
-    ],
-    updates: [
-      { date: '20 de agosto', text: 'Primeira consulta com o fisioterapeuta agendada para a próxima semana. Obrigado a todos que já ajudaram!' },
-      { date: '10 de agosto', text: 'Campanha no ar. Vamos publicar aqui cada etapa do tratamento e da reforma, com comprovantes.' }
-    ]
+    breakdown: ['Tratamento e fisioterapia', 'Reforma da casa', 'Medicamentos', 'Transporte às consultas'],
+    lastUpdate: '20 de agosto — primeira consulta de fisioterapia agendada.'
   };
-
-  var checkIcon = '<svg viewBox="0 0 24 24" style="color:#1e6f49"><circle cx="12" cy="12" r="9"/><path d="M8.5 12.5l2.5 2.5 4.5-5"/></svg>';
 
   var brl = function (v) { return v.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL', minimumFractionDigits: 2 }); };
 
-  // stats
-  document.getElementById('statSupporters').textContent = CONFIG.supportersCount.toLocaleString('pt-BR');
-  document.getElementById('statDays').textContent = CONFIG.daysLeft + (CONFIG.daysLeft === 1 ? ' dia' : ' dias');
   document.getElementById('pixkey').textContent = CONFIG.pixKey;
+  document.getElementById('lastUpdate').textContent = CONFIG.lastUpdate;
+  document.getElementById('breakdown').innerHTML = CONFIG.breakdown.map(function (b) {
+    return '<span class="chip-static">' + b + '</span>';
+  }).join('');
 
   // progress
   var percent = Math.min(100, (CONFIG.raised / CONFIG.goal) * 100);
   document.getElementById('raised').textContent = brl(CONFIG.raised);
   document.getElementById('goalText').textContent = 'de ' + brl(CONFIG.goal);
-  document.getElementById('pct').textContent = percent.toFixed(1) + '% da meta • faltam ' + brl(Math.max(0, CONFIG.goal - CONFIG.raised));
-  document.getElementById('closerTitle').textContent = CONFIG.raised < CONFIG.goal
-    ? 'Faltam apenas ' + brl(CONFIG.goal - CONFIG.raised) + ' para a meta'
-    : 'Meta alcançada — obrigado a todos!';
-  document.getElementById('stickyNote').textContent = CONFIG.raised < CONFIG.goal
-    ? 'Faltam ' + brl(CONFIG.goal - CONFIG.raised) + ' para a meta'
-    : 'Meta alcançada — obrigado a todos!';
+  document.getElementById('pct').textContent = percent.toFixed(0) + '% da meta • ';
+  document.getElementById('pct').innerHTML += '<b>' + CONFIG.daysLeft + (CONFIG.daysLeft === 1 ? ' dia restante' : ' dias restantes') + '</b>';
   setTimeout(function () { document.getElementById('bar').style.width = percent + '%'; }, 250);
-
-  // breakdown, tied to the same numbers used for the goal
-  document.getElementById('breakdown').innerHTML = CONFIG.breakdown.map(function (b) {
-    var pct = Math.round((b.value / CONFIG.goal) * 100);
-    return '<li><span class="txt">' + checkIcon + ' ' + b.label + '</span><span><b>' + brl(b.value) + '</b><small>' + pct + '% do total</small></span></li>';
-  }).join('');
-
-  // updates
-  document.getElementById('updates').innerHTML = CONFIG.updates.map(function (u) {
-    return '<div class="update"><p class="dt">' + u.date + '</p><p>' + u.text + '</p></div>';
-  }).join('');
-
-  // supporters
-  document.getElementById('supporters').innerHTML = CONFIG.recentDonations.map(function (s) {
-    return '<li><div><p class="nm">' + s.name + '</p><p class="nt">“' + s.note + '”</p></div>' +
-      '<div><p class="vl">' + brl(s.amount) + '</p><p class="wh">' + s.when + '</p></div></li>';
-  }).join('');
-
-  // ticker
-  var i = 0, ticker = document.getElementById('ticker');
-  var heartSvg = '<svg class="ic-forest" viewBox="0 0 24 24" fill="currentColor" stroke="none"><path d="M12 21s-7-4.6-9.3-9A5.2 5.2 0 0 1 12 6.6 5.2 5.2 0 0 1 21.3 12c-2.3 4.4-9.3 9-9.3 9z"/></svg>';
-  function renderTicker() {
-    var s = CONFIG.recentDonations[i];
-    ticker.classList.remove('rise'); void ticker.offsetWidth; ticker.classList.add('rise');
-    ticker.innerHTML = heartSvg + '<span><strong>' + s.name + '</strong> doou ' + brl(s.amount) + ' ' + s.when + '</span>';
-  }
-  renderTicker();
-  setInterval(function () { i = (i + 1) % CONFIG.recentDonations.length; renderTicker(); }, 4000);
-
-  // toast helper
-  var toastEl = document.getElementById('toast'), toastTimer;
-  function toast(msg) {
-    clearTimeout(toastTimer);
-    toastEl.textContent = msg;
-    toastEl.classList.add('show');
-    toastTimer = setTimeout(function () { toastEl.classList.remove('show'); }, 2600);
-  }
 
   // amount selection
   var amount = 100, monthly = false;
@@ -535,40 +292,40 @@ footer a{color:var(--forest-deep);font-weight:600}
 
   function value() { return custom.value ? Number(custom.value) : amount; }
   function syncActive() {
-    document.querySelectorAll('.amt,.chip').forEach(function (x) {
+    document.querySelectorAll('.amt').forEach(function (x) {
       var isActive = !custom.value && Number(x.dataset.v) === amount;
       x.classList.toggle('active', isActive);
-      if (x.classList.contains('amt')) x.setAttribute('aria-pressed', isActive ? 'true' : 'false');
+      x.setAttribute('aria-pressed', isActive ? 'true' : 'false');
     });
   }
   function refresh() {
     var v = value();
     cta.disabled = !v;
-    cta.textContent = 'Doar ' + (v ? brl(v) : '') + ' ' + (monthly ? 'por mês' : 'agora');
-    sticky.textContent = 'Doar ' + (v ? brl(v) : 'agora') + (monthly ? '/mês' : '');
+    var label = 'Doar ' + (v ? brl(v) : '') + ' ' + (monthly ? 'por mês' : 'agora');
+    cta.textContent = label;
+    sticky.textContent = label;
     syncActive();
   }
-
   function pick(v) { amount = v; custom.value = ''; refresh(); }
-  document.querySelectorAll('.amt,.chip').forEach(function (b) {
+  document.querySelectorAll('.amt').forEach(function (b) {
     b.addEventListener('click', function () { pick(Number(b.dataset.v)); });
   });
-  custom.addEventListener('input', function () {
-    custom.value = custom.value.replace(/\D/g, '');
-    refresh();
-  });
+  custom.addEventListener('input', function () { custom.value = custom.value.replace(/\D/g, ''); refresh(); });
   document.getElementById('monthly').addEventListener('change', function (e) { monthly = e.target.checked; refresh(); });
   refresh();
 
-  // checkout: uses a real payment link when configured; otherwise sends
-  // the visitor straight to the Pix key, which needs no integration.
+  // checkout
   function copyPix(silent) {
     var key = CONFIG.pixKey;
-    var done = function () { if (!silent) toast('Chave Pix copiada — cole no app do seu banco'); };
-    if (navigator.clipboard) { navigator.clipboard.writeText(key).then(done, done); }
-    else { var t = document.createElement('textarea'); t.value = key; document.body.appendChild(t); t.select(); document.execCommand('copy'); t.remove(); done(); }
+    if (navigator.clipboard) { navigator.clipboard.writeText(key); }
+    else { var t = document.createElement('textarea'); t.value = key; document.body.appendChild(t); t.select(); document.execCommand('copy'); t.remove(); }
+    if (!silent) {
+      var btn = document.getElementById('pixToggle');
+      var old = btn.textContent;
+      btn.textContent = 'Chave copiada — cole no app do seu banco';
+      setTimeout(function () { btn.textContent = old; }, 2400);
+    }
   }
-
   function checkout() {
     var v = value();
     if (!v) return;
@@ -577,53 +334,29 @@ footer a{color:var(--forest-deep);font-weight:600}
       return;
     }
     var box = document.getElementById('pixBox');
+    box.classList.add('open');
+    document.getElementById('pixToggle').setAttribute('aria-expanded', 'true');
     box.scrollIntoView({ behavior: 'smooth', block: 'center' });
-    box.classList.add('flash');
-    setTimeout(function () { box.classList.remove('flash'); }, 1200);
     copyPix();
   }
+  cta.addEventListener('click', checkout);
+  sticky.addEventListener('click', checkout);
 
-  document.querySelectorAll('.js-donate').forEach(function (b) {
-    b.addEventListener('click', function (e) {
-      if (b.id === 'cta' || b.id === 'stickyCta') { checkout(); return; }
-      e.preventDefault();
-      document.getElementById('checkout').scrollIntoView({ behavior: 'smooth', block: 'center' });
-    });
+  var pixBox = document.getElementById('pixBox'), pixToggle = document.getElementById('pixToggle');
+  pixToggle.addEventListener('click', function () {
+    var open = pixBox.classList.toggle('open');
+    pixToggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+    if (open) pixBox.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
   });
-
   document.getElementById('copy').addEventListener('click', function () { copyPix(); });
-  document.getElementById('stickyPix').addEventListener('click', function () {
-    copyPix(true);
-    var spx = document.getElementById('stickyPix');
-    spx.textContent = 'Copiado!';
-    toast('Chave Pix copiada — cole no app do seu banco');
-    setTimeout(function () { spx.textContent = 'Pix'; }, 2200);
-  });
 
-  // heart
-  var liked = false, hearts = CONFIG.heartsCount, hEl = document.getElementById('hearts');
-  hEl.textContent = hearts.toLocaleString('pt-BR');
-  document.getElementById('like').addEventListener('click', function (e) {
-    if (liked) return;
-    liked = true; hearts++;
-    hEl.textContent = hearts.toLocaleString('pt-BR');
-    e.currentTarget.innerHTML = heartSvg.replace('ic-forest', 'ic-heart') + ' Obrigado!';
-    e.currentTarget.setAttribute('aria-pressed', 'true');
-  });
-
-  // share — tries native share, falls back to WhatsApp on desktop
-  function shareCampaign() {
+  // share
+  document.getElementById('share').addEventListener('click', function () {
     var text = 'Ajude o Ezequiel a alcançar a meta desta campanha.';
     var data = { title: 'Vamos mudar a vida do Ezequiel', text: text, url: location.href };
-    if (navigator.share) {
-      navigator.share(data).catch(function () {});
-    } else {
-      window.open('https://wa.me/?text=' + encodeURIComponent(text + ' ' + location.href), '_blank', 'noopener');
-      if (navigator.clipboard) navigator.clipboard.writeText(location.href);
-    }
-  }
-  document.getElementById('share').addEventListener('click', shareCampaign);
-  document.getElementById('closerShare').addEventListener('click', shareCampaign);
+    if (navigator.share) { navigator.share(data).catch(function () {}); }
+    else { window.open('https://wa.me/?text=' + encodeURIComponent(text + ' ' + location.href), '_blank', 'noopener'); }
+  });
 })();
 </script>
 </body>
