@@ -2,619 +2,89 @@
 <html lang="pt-BR">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Ana &amp; Rafael — Presentes de Casamento</title>
-<meta name="description" content="Faça parte da história de Ana e Rafael: presenteie o casal pelo Pix e ajude a realizar o sonho do casamento.">
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='80'%3E%F0%9F%92%8D%3C/text%3E%3C/svg%3E">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Ajude a construir um lar | Campanha de moradia</title>
+<meta name="description" content="Faça uma doação pelo Pix e ajude uma família a conquistar uma moradia digna.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,500;0,9..144,600;1,9..144,500;1,9..144,600&family=Work+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@500;600&family=Work+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
-  /* =========================================================
-     TOKENS
-     Troque estas cores/tipos se quiser uma identidade diferente
-     ========================================================= */
-  :root{
-    --ivory:        #FAF3EA;
-    --ivory-card:   #FFFDF8;
-    --wine:         #6E2337;
-    --wine-deep:    #4A1726;
-    --gold:         #B98B4E;
-    --gold-soft:    #E3C89A;
-    --ink:          #2B211E;
-    --ink-soft:     #7A6A62;
-    --error:        #A6392B;
-
-    --font-display: 'Fraunces', serif;
-    --font-body:    'Work Sans', sans-serif;
-
-    --radius-lg: 28px;
-    --radius-md: 16px;
-    --radius-sm: 10px;
-
-    --shadow-soft: 0 20px 50px -20px rgba(74, 23, 38, 0.35);
-    --shadow-card: 0 12px 34px -14px rgba(74, 23, 38, 0.25);
-
-    --ease: cubic-bezier(.22,.61,.36,1);
-  }
-
-  *{ box-sizing: border-box; }
-  html{ scroll-behavior: smooth; }
-  @media (prefers-reduced-motion: reduce){
-    html{ scroll-behavior: auto; }
-    *, *::before, *::after{ animation-duration: 0.001ms !important; animation-iteration-count: 1 !important; transition-duration: 0.001ms !important; }
-  }
-
-  body{
-    margin: 0;
-    background: var(--ivory);
-    color: var(--ink);
-    font-family: var(--font-body);
-    line-height: 1.6;
-    -webkit-font-smoothing: antialiased;
-  }
-
-  img, svg{ display:block; max-width:100%; }
-
-  a{ color: inherit; }
-
-  :focus-visible{
-    outline: 2px solid var(--wine);
-    outline-offset: 3px;
-  }
-
-  .container{
-    width: 100%;
-    max-width: 720px;
-    margin: 0 auto;
-    padding: 0 24px;
-  }
-
-  .eyebrow{
-    font-family: var(--font-body);
-    font-size: 12.5px;
-    font-weight: 600;
-    letter-spacing: 0.22em;
-    text-transform: uppercase;
-    color: var(--gold);
-  }
-
-  /* =========================================================
-     IDENTITY (nome do casal + data, sem bloco colorido)
-     ========================================================= */
-  .identity{
-    padding: 56px 24px 0;
-    text-align: center;
-  }
-
-  .identity h1{
-    font-family: var(--font-display);
-    font-weight: 500;
-    font-size: clamp(32px, 6vw, 44px);
-    color: var(--wine);
-    margin: 10px 0 0;
-    letter-spacing: 0.01em;
-  }
-
-  @keyframes seal-in{
-    from{ opacity: 0; transform: scale(0.8); }
-    to{ opacity: 1; transform: scale(1); }
-  }
-
-  /* =========================================================
-     REVEAL ON SCROLL
-     ========================================================= */
-  .reveal{
-    opacity: 0;
-    transform: translateY(22px);
-    transition: opacity 0.7s var(--ease), transform 0.7s var(--ease);
-  }
-  .reveal.is-visible{ opacity: 1; transform: translateY(0); }
-
-  /* =========================================================
-     MEDIA SLOT (troque pela foto/vídeo do casal)
-     ========================================================= */
-  .media-section{ padding: 40px 24px 0; }
-
-  .media-slot{
-    position: relative;
-    aspect-ratio: 16 / 10;
-    border-radius: var(--radius-lg);
-    overflow: hidden;
-    background:
-      radial-gradient(120% 120% at 15% 15%, rgba(185,139,78,0.35), transparent 55%),
-      radial-gradient(120% 120% at 85% 90%, rgba(110,35,55,0.35), transparent 55%),
-      linear-gradient(135deg, #F3E4D2, #EBD3C9);
-    box-shadow: var(--shadow-soft);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-
-  .media-slot .media-monogram{
-    font-family: var(--font-display);
-    font-style: italic;
-    font-weight: 500;
-    font-size: clamp(30px, 7vw, 46px);
-    letter-spacing: 0.06em;
-    color: rgba(110,35,55,0.32);
-  }
-
-  /* =========================================================
-     STORY SECTION
-     ========================================================= */
-  .story{
-    padding: 72px 24px 8px;
-    text-align: center;
-  }
-
-  .story h2{
-    font-family: var(--font-display);
-    font-weight: 500;
-    font-size: clamp(28px, 5vw, 38px);
-    color: var(--wine);
-    margin: 10px 0 18px;
-  }
-
-  .story p{
-    max-width: 46ch;
-    margin: 0 auto;
-    color: var(--ink-soft);
-    font-size: 16.5px;
-  }
-
-  /* =========================================================
-     GIFT CARD
-     ========================================================= */
-  .gift-section{ padding: 64px 24px 96px; }
-
-  .gift-card{
-    max-width: 560px;
-    margin: 0 auto;
-    background: var(--ivory-card);
-    border: 1px solid rgba(185,139,78,0.28);
-    border-radius: var(--radius-lg);
-    box-shadow: var(--shadow-card);
-    padding: 44px 36px;
-  }
-
-  .gift-card h3{
-    font-family: var(--font-display);
-    font-weight: 500;
-    font-size: clamp(22px, 4vw, 27px);
-    color: var(--wine);
-    text-align: center;
-    margin: 6px 0 32px;
-  }
-
-  .field{ margin-bottom: 24px; }
-
-  .field label{
-    display: block;
-    font-size: 13px;
-    font-weight: 600;
-    letter-spacing: 0.04em;
-    text-transform: uppercase;
-    color: var(--ink-soft);
-    margin-bottom: 9px;
-  }
-
-  .field input[type="text"]{
-    width: 100%;
-    padding: 14px 16px;
-    border: 1.5px solid #E4D6C8;
-    border-radius: var(--radius-sm);
-    background: #fff;
-    font-family: var(--font-body);
-    font-size: 16px;
-    color: var(--ink);
-    transition: border-color 0.2s var(--ease);
-  }
-  .field input[type="text"]:focus{ border-color: var(--wine); }
-  .field input[type="text"]::placeholder{ color: #B9A99C; }
-
-  .amount-grid{
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 12px;
-    margin-bottom: 16px;
-  }
-
-  .amount-btn{
-    position: relative;
-    padding: 14px 10px;
-    border-radius: var(--radius-sm);
-    border: 1.5px solid var(--wine);
-    background: transparent;
-    color: var(--wine);
-    font-family: var(--font-body);
-    font-weight: 600;
-    font-size: 15.5px;
-    cursor: pointer;
-    transition: background 0.2s var(--ease), color 0.2s var(--ease), transform 0.15s var(--ease);
-  }
-  .amount-btn:hover{ background: rgba(110,35,55,0.06); }
-  .amount-btn.is-selected{
-    background: var(--wine);
-    color: var(--ivory);
-    transform: translateY(-1px);
-  }
-
-  .amount-hint{
-    text-align: center;
-    font-size: 13px;
-    color: var(--ink-soft);
-    margin: 4px 0 0;
-  }
-
-  .divider-or{
-    text-align: center;
-    font-size: 12.5px;
-    color: var(--ink-soft);
-    letter-spacing: 0.06em;
-    text-transform: uppercase;
-    margin: 18px 0 18px;
-  }
-
-  .error-msg{
-    color: var(--error);
-    font-size: 13.5px;
-    margin-top: 8px;
-    display: none;
-  }
-  .error-msg.is-visible{ display: block; }
-
-  .submit-btn{
-    width: 100%;
-    padding: 17px 20px;
-    border: none;
-    border-radius: 999px;
-    background: linear-gradient(135deg, var(--wine), var(--wine-deep));
-    color: var(--ivory);
-    font-family: var(--font-body);
-    font-weight: 700;
-    font-size: 15px;
-    letter-spacing: 0.05em;
-    text-transform: uppercase;
-    cursor: pointer;
-    margin-top: 8px;
-    box-shadow: 0 14px 28px -12px rgba(74,23,38,0.55);
-    transition: transform 0.2s var(--ease), box-shadow 0.2s var(--ease);
-  }
-  .submit-btn:hover{ transform: translateY(-2px); box-shadow: 0 18px 32px -12px rgba(74,23,38,0.6); }
-  .submit-btn:active{ transform: translateY(0); }
-
-  .trust-note{
-    text-align: center;
-    font-size: 12.5px;
-    color: var(--ink-soft);
-    margin: 14px 0 0;
-  }
-
-  .share-row{
-    text-align: center;
-    margin-top: 22px;
-  }
-
-  .share-btn{
-    background: none;
-    border: none;
-    color: var(--wine);
-    font-family: var(--font-body);
-    font-weight: 600;
-    font-size: 14px;
-    text-decoration: underline;
-    text-underline-offset: 3px;
-    cursor: pointer;
-    padding: 6px;
-  }
-  .share-btn:hover{ color: var(--wine-deep); }
-
-  /* =========================================================
-     CONFIRMATION PANEL
-     ========================================================= */
-  .confirmation{
-    max-width: 560px;
-    margin: 20px auto 0;
-    background: var(--ivory-card);
-    border: 1.5px dashed var(--gold);
-    border-radius: var(--radius-lg);
-    padding: 34px 32px;
-    text-align: center;
-    display: none;
-  }
-  .confirmation.is-visible{ display: block; animation: seal-in 0.5s var(--ease); }
-
-  .confirmation h4{
-    font-family: var(--font-display);
-    font-size: 22px;
-    color: var(--wine);
-    margin: 0 0 10px;
-  }
-
-  .confirmation p{
-    color: var(--ink-soft);
-    font-size: 15px;
-    margin: 0 0 22px;
-  }
-
-  .confirmation .amount-line{
-    font-family: var(--font-display);
-    font-size: 30px;
-    color: var(--wine);
-    margin-bottom: 22px;
-  }
-
-  .pix-steps{
-    text-align: left;
-    max-width: 380px;
-    margin: 0 auto 20px;
-    padding-left: 20px;
-    color: var(--ink-soft);
-    font-size: 14.5px;
-  }
-  .pix-steps li{ margin-bottom: 6px; }
-
-  .pix-box{
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    background: #fff;
-    border: 1.5px solid #E4D6C8;
-    border-radius: var(--radius-sm);
-    padding: 12px 14px;
-    margin-bottom: 16px;
-  }
-
-  .pix-box code{
-    flex: 1;
-    text-align: left;
-    font-family: 'Courier New', monospace;
-    font-size: 14px;
-    color: var(--ink);
-    word-break: break-all;
-  }
-
-  .copy-btn{
-    flex-shrink: 0;
-    border: 1.5px solid var(--wine);
-    background: transparent;
-    color: var(--wine);
-    padding: 8px 14px;
-    border-radius: var(--radius-sm);
-    font-family: var(--font-body);
-    font-weight: 600;
-    font-size: 13px;
-    cursor: pointer;
-    transition: background 0.2s var(--ease), color 0.2s var(--ease);
-  }
-  .copy-btn:hover{ background: var(--wine); color: var(--ivory); }
-
-  .confirmation .note{
-    font-size: 12.5px;
-    color: var(--ink-soft);
-    opacity: 0.8;
-  }
-
-  /* =========================================================
-     FOOTER
-     ========================================================= */
-  footer{
-    padding: 48px 24px 56px;
-    text-align: center;
-  }
-
-  footer .foot-seal{
-    font-family: var(--font-display);
-    font-style: italic;
-    font-size: 20px;
-    color: var(--wine);
-    margin-bottom: 6px;
-  }
-
-  footer .foot-note{
-    font-size: 13px;
-    color: var(--ink-soft);
-  }
-
-  @media (max-width: 480px){
-    .gift-card{ padding: 34px 22px; }
-    .identity{ padding-top: 40px; }
-    .media-section{ padding-top: 28px; }
-  }
+:root{--bg:#faf3ea;--card:#fffdf8;--brand:#6e2337;--brand-dark:#4a1726;--accent:#b98b4e;--text:#2b211e;--muted:#75665e;--line:#e5d8cb;--radius:20px}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--bg);color:var(--text);font-family:'Work Sans',sans-serif;line-height:1.5;-webkit-font-smoothing:antialiased}.container{width:min(100% - 32px,680px);margin:auto}button,input{font:inherit}:focus-visible{outline:3px solid var(--accent);outline-offset:3px}
+.hero{padding:42px 0 22px;text-align:center}.eyebrow{margin:0 0 10px;color:var(--accent);font-size:12px;font-weight:700;letter-spacing:.16em;text-transform:uppercase}.hero h1{max-width:600px;margin:0 auto 14px;color:var(--brand);font-family:Fraunces,serif;font-size:clamp(34px,8vw,54px);line-height:1.08}.hero p{max-width:500px;margin:0 auto;color:var(--muted);font-size:16px}
+.donation-wrap{padding:12px 0 0}.donation-card{padding:28px 22px;background:var(--card);border:1px solid rgba(185,139,78,.3);border-radius:var(--radius);box-shadow:0 16px 40px -22px rgba(74,23,38,.45)}.donation-card h2{margin:0 0 6px;text-align:center;color:var(--brand);font-family:Fraunces,serif;font-size:28px}.card-subtitle{margin:0 0 22px;text-align:center;color:var(--muted);font-size:14px}.amount-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:10px;margin:0 0 14px}.amount-btn{min-height:62px;padding:9px;border:1.5px solid var(--brand);border-radius:12px;background:transparent;color:var(--brand);font-weight:700;cursor:pointer;transition:.18s ease}.amount-btn:hover{background:#f7e9e3}.amount-btn.selected{background:var(--brand);color:#fff}.amount-label{display:block;margin-top:2px;font-size:11px;font-weight:400;opacity:.8}.custom-label{display:block;margin:0 0 7px;color:var(--muted);font-size:13px;font-weight:600}.custom-input{width:100%;padding:14px 15px;border:1.5px solid var(--line);border-radius:12px;background:#fff;color:var(--text);font-size:18px}.custom-input:focus{border-color:var(--brand);outline:none}.error{display:none;margin:7px 0 0;color:#a6392b;font-size:13px}.error.show{display:block}.primary-btn{width:100%;margin-top:18px;padding:16px 18px;border:0;border-radius:999px;background:linear-gradient(135deg,var(--brand),var(--brand-dark));color:#fff;font-weight:700;cursor:pointer;box-shadow:0 12px 22px -12px rgba(74,23,38,.7)}.primary-btn:hover{filter:brightness(1.08);transform:translateY(-1px)}.security{margin:12px 0 0;text-align:center;color:var(--muted);font-size:12px}
+.confirmation{display:none;margin-top:14px;padding:22px 18px;border:1px dashed var(--accent);border-radius:var(--radius);background:#fffaf2;text-align:center}.confirmation.show{display:block}.confirmation h3{margin:0 0 6px;color:var(--brand);font-family:Fraunces,serif;font-size:24px}.confirmation p{margin:0 0 14px;color:var(--muted);font-size:14px}.selected-amount{margin:0 0 14px;color:var(--brand);font-family:Fraunces,serif;font-size:30px}.pix-box{display:flex;gap:8px;align-items:center;padding:10px;background:#fff;border:1px solid var(--line);border-radius:10px}.pix-key{min-width:0;flex:1;overflow-wrap:anywhere;text-align:left;font-family:monospace;font-size:13px}.copy-btn{padding:9px 11px;border:1px solid var(--brand);border-radius:8px;background:transparent;color:var(--brand);font-size:12px;font-weight:700;cursor:pointer}.pix-warning{margin:12px 0 0!important;font-size:12px!important}
+.trust{padding:28px 0 8px}.trust h2,.impact h2{margin:0 0 8px;color:var(--brand);font-family:Fraunces,serif;font-size:25px}.trust p,.impact p{margin:0;color:var(--muted);font-size:14px}.impact{padding:18px 0 28px}.impact-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:9px;margin-top:14px}.impact-item{padding:13px 10px;border:1px solid var(--line);border-radius:12px;background:rgba(255,253,248,.6);text-align:center}.impact-item strong{display:block;color:var(--brand);font-size:18px}.impact-item span{display:block;color:var(--muted);font-size:11px;line-height:1.3}footer{padding:22px 0 34px;border-top:1px solid var(--line);color:var(--muted);font-size:12px;text-align:center}
+.share{text-align:center;margin:0 0 28px}.share button{padding:8px 0;border:0;background:none;color:var(--brand);font-weight:600;text-decoration:underline;cursor:pointer}
+@media(max-width:430px){.container{width:min(100% - 24px,680px)}.hero{padding-top:28px}.donation-card{padding:24px 16px}.impact-grid{grid-template-columns:1fr}.pix-box{align-items:stretch;flex-direction:column}.copy-btn{width:100%}}
+@media(prefers-reduced-motion:reduce){*{scroll-behavior:auto!important;transition:none!important}}
 </style>
 </head>
 <body>
-
-  <!-- =========================================================
-       IDENTIDADE — troque pelo nome do casal e a data do casamento
-       ========================================================= -->
-  <header class="identity container">
-    <p class="eyebrow">27 de setembro de 2026</p>
-    <h1>Ana &amp; Rafael</h1>
+<main>
+  <header class="hero container">
+    <p class="eyebrow">Campanha de moradia digna</p>
+    <h1>Um lar começa com a sua ajuda</h1>
+    <p>Estamos arrecadando recursos para apoiar uma família na conquista de uma casa segura e adequada.</p>
   </header>
 
-  <!-- =========================================================
-       ESPAÇO PARA FOTO OU VÍDEO DO CASAL
-       Troque a div .media-slot por um <img> ou <video> real antes de publicar.
-       O conteúdo abaixo é só decorativo, para não expor texto de instrução
-       para quem visita a página caso vocês esqueçam de trocar.
-       ========================================================= -->
-  <section class="media-section container">
-    <div class="media-slot reveal" role="img" aria-label="Foto do casal">
-      <span class="media-monogram">A · R</span>
-    </div>
-  </section>
-
-  <!-- =========================================================
-       CARTÃO DE PRESENTE
-       ========================================================= -->
-  <section class="gift-section container" id="presente">
-    <form class="gift-card reveal" id="giftForm" novalidate>
-      <h3>Quanto você gostaria de nos presentear?</h3>
-
-      <div class="field">
-        <label>Escolha um valor</label>
-        <div class="amount-grid" id="amountGrid" role="group" aria-label="Valores sugeridos">
-          <button type="button" class="amount-btn" data-amount="2500" aria-pressed="false">R$ 25,00</button>
-          <button type="button" class="amount-btn" data-amount="5000" aria-pressed="false">R$ 50,00</button>
-        </div>
-
-        <div class="divider-or">ou digite outro valor</div>
-
-        <input type="text" id="customAmount" inputmode="numeric" placeholder="R$ 0,00" data-cents="0" aria-label="Outro valor, em reais">
-        <div class="error-msg" id="amountError" role="alert">Escolha ou digite um valor para presentear</div>
-        <p class="amount-hint">Qualquer valor é bem-vindo — o que importa é fazer parte desse dia.</p>
+  <section class="donation-wrap container" id="doacao" aria-labelledby="donation-title">
+    <form class="donation-card" id="donationForm" novalidate>
+      <h2 id="donation-title">Faça sua doação</h2>
+      <p class="card-subtitle">Escolha um valor e contribua pelo Pix.</p>
+      <div class="amount-grid" role="group" aria-label="Valores sugeridos">
+        <button type="button" class="amount-btn" data-cents="2500" aria-pressed="false">R$ 25,00<span class="amount-label">apoio</span></button>
+        <button type="button" class="amount-btn selected" data-cents="5000" aria-pressed="true">R$ 50,00<span class="amount-label">reforma</span></button>
+        <button type="button" class="amount-btn" data-cents="10000" aria-pressed="false">R$ 100,00<span class="amount-label">impacto ampliado</span></button>
+        <button type="button" class="amount-btn" data-cents="25000" aria-pressed="false">R$ 250,00<span class="amount-label">etapa importante</span></button>
       </div>
-
-      <button type="submit" class="submit-btn">Continuar para o Pix</button>
-      <p class="trust-note">🔒 Pagamento direto pelo Pix do seu banco. Não coletamos nem armazenamos dados de pagamento.</p>
+      <label class="custom-label" for="customAmount">Ou digite outro valor</label>
+      <input class="custom-input" id="customAmount" inputmode="numeric" autocomplete="off" placeholder="R$ 0,00" data-cents="0" aria-describedby="amountError">
+      <p class="error" id="amountError" role="alert">Escolha ou digite um valor para doar.</p>
+      <button class="primary-btn" type="submit">Continuar para o Pix</button>
+      <p class="security">Você pagará diretamente pelo aplicativo do seu banco. Confira o nome do recebedor antes de confirmar.</p>
     </form>
 
-    <div class="share-row">
-      <button type="button" class="share-btn" id="shareBtn">Compartilhar com outros convidados</button>
-    </div>
-
-    <!-- Painel de confirmação: aqui entra a chave Pix real do casal -->
-    <div class="confirmation" id="confirmation">
-      <h4>Falta só um passo! 🤍</h4>
-      <p id="confirmName">Muito obrigado pelo carinho!</p>
-      <div class="amount-line" id="confirmAmount">R$ 0,00</div>
-
-      <ol class="pix-steps">
-        <li>Copie a chave Pix abaixo</li>
-        <li>Abra o app do seu banco e escolha "Pix"</li>
-        <li>Cole a chave, confira o valor e confirme</li>
-      </ol>
-
-      <div class="pix-box">
-        <code id="pixKey">ana.e.rafael.casamento@exemplo.com</code>
-        <button type="button" class="copy-btn" id="copyPixBtn">Copiar chave</button>
-      </div>
-      <p class="note">Chave Pix de exemplo — troque pela chave real de vocês antes de publicar. A confirmação de pagamento não é automática nesta página.</p>
+    <div class="confirmation" id="confirmation" aria-live="polite">
+      <h3>Falta só um passo</h3>
+      <p>Copie a chave, abra o Pix no seu banco e confira o destinatário.</p>
+      <div class="selected-amount" id="selectedAmount">R$ 50,00</div>
+      <div class="pix-box"><code class="pix-key" id="pixKey">SUA-CHAVE-PIX-AQUI</code><button class="copy-btn" id="copyPix" type="button">Copiar chave</button></div>
+      <p class="pix-warning">Substitua a chave de exemplo pela chave oficial da campanha antes de publicar.</p>
     </div>
   </section>
 
-  <footer>
-    <div class="foot-seal">Ana &amp; Rafael</div>
-    <p class="foot-note">Feito com carinho para o nosso grande dia</p>
-    <p class="foot-note" style="opacity:0.75; margin-top:4px;">Seus dados ficam só entre a gente — nenhuma informação de pagamento é armazenada nesta página.</p>
-  </footer>
+  <section class="trust container" aria-labelledby="trust-title">
+    <h2 id="trust-title">Por que sua ajuda importa</h2>
+    <p>Cada contribuição apoia materiais, mão de obra e etapas essenciais para tornar essa moradia mais segura. Publicaremos atualizações da campanha em [canal de transparência].</p>
+  </section>
 
-  <script>
-    // ---------- Formatação de moeda (BRL) ----------
-    function formatBRL(cents){
-      const value = (cents / 100).toLocaleString('pt-BR', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
-      return 'R$ ' + value;
-    }
+  <section class="impact container" aria-labelledby="impact-title">
+    <h2 id="impact-title">Doe o que puder</h2>
+    <p>Se você não puder doar agora, compartilhar a campanha também ajuda.</p>
+    <div class="impact-grid" aria-label="Exemplos de contribuições">
+      <div class="impact-item"><strong>R$ 25</strong><span>uma contribuição inicial</span></div>
+      <div class="impact-item"><strong>R$ 50</strong><span>apoio para a reforma</span></div>
+      <div class="impact-item"><strong>R$ 100+</strong><span>uma ajuda ampliada</span></div>
+    </div>
+  </section>
 
-    // ---------- Seleção de valores pré-definidos ----------
-    const amountButtons = document.querySelectorAll('.amount-btn');
-    const customAmountInput = document.getElementById('customAmount');
-    const amountError = document.getElementById('amountError');
-
-    amountButtons.forEach(btn => {
-      btn.addEventListener('click', () => {
-        amountButtons.forEach(b => { b.classList.remove('is-selected'); b.setAttribute('aria-pressed', 'false'); });
-        btn.classList.add('is-selected');
-        btn.setAttribute('aria-pressed', 'true');
-        customAmountInput.value = '';
-        customAmountInput.dataset.cents = '0';
-        amountError.classList.remove('is-visible');
-      });
-    });
-
-    // ---------- Máscara do valor personalizado ----------
-    customAmountInput.addEventListener('input', (e) => {
-      const digits = e.target.value.replace(/\D/g, '');
-      const cents = digits ? parseInt(digits, 10) : 0;
-      e.target.dataset.cents = String(cents);
-      e.target.value = cents ? formatBRL(cents) : '';
-      if (cents > 0){
-        amountButtons.forEach(b => { b.classList.remove('is-selected'); b.setAttribute('aria-pressed', 'false'); });
-        amountError.classList.remove('is-visible');
-      }
-    });
-
-    // ---------- Envio do formulário ----------
-    const giftForm = document.getElementById('giftForm');
-    const confirmation = document.getElementById('confirmation');
-    const confirmAmount = document.getElementById('confirmAmount');
-
-    giftForm.addEventListener('submit', (e) => {
-      e.preventDefault();
-
-      const selectedBtn = document.querySelector('.amount-btn.is-selected');
-      const customCents = parseInt(customAmountInput.dataset.cents || '0', 10);
-      const amountCents = selectedBtn ? parseInt(selectedBtn.dataset.amount, 10) : customCents;
-
-      if (!amountCents){
-        amountError.classList.add('is-visible');
-        return;
-      }
-      amountError.classList.remove('is-visible');
-
-      confirmAmount.textContent = formatBRL(amountCents);
-      confirmation.classList.add('is-visible');
-      confirmation.scrollIntoView({ behavior: 'smooth', block: 'center' });
-    });
-
-    // ---------- Copiar chave Pix ----------
-    const copyPixBtn = document.getElementById('copyPixBtn');
-    const pixKey = document.getElementById('pixKey');
-
-    copyPixBtn.addEventListener('click', async () => {
-      const text = pixKey.textContent.trim();
-      try {
-        await navigator.clipboard.writeText(text);
-      } catch (err) {
-        const range = document.createRange();
-        range.selectNode(pixKey);
-        window.getSelection().removeAllRanges();
-        window.getSelection().addRange(range);
-        document.execCommand('copy');
-        window.getSelection().removeAllRanges();
-      }
-      const original = copyPixBtn.textContent;
-      copyPixBtn.textContent = 'Copiado!';
-      setTimeout(() => { copyPixBtn.textContent = original; }, 2000);
-    });
-
-    // ---------- Compartilhar com outros convidados ----------
-    const shareBtn = document.getElementById('shareBtn');
-
-    shareBtn.addEventListener('click', async () => {
-      const shareText = 'Ajude Ana & Rafael a realizar o sonho do casamento 💍';
-      const shareUrl = window.location.href;
-
-      if (navigator.share) {
-        try {
-          await navigator.share({ title: document.title, text: shareText, url: shareUrl });
-        } catch (err) {
-          // usuário cancelou o compartilhamento — nada a fazer
-        }
-      } else {
-        window.open('https://wa.me/?text=' + encodeURIComponent(shareText + ' ' + shareUrl), '_blank');
-      }
-    });
-
-    // ---------- Revelar seções ao rolar a página ----------
-    const reveals = document.querySelectorAll('.reveal');
-    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-
-    if (prefersReducedMotion || !('IntersectionObserver' in window)){
-      reveals.forEach(el => el.classList.add('is-visible'));
-    } else {
-      const io = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting){
-            entry.target.classList.add('is-visible');
-            io.unobserve(entry.target);
-          }
-        });
-      }, { threshold: 0.15 });
-      reveals.forEach(el => io.observe(el));
-    }
-  </script>
+  <div class="share container"><button id="shareBtn" type="button">Compartilhar esta campanha</button></div>
+</main>
+<footer>Juntos por um lar. Cada doação aproxima uma família de uma moradia digna.</footer>
+<script>
+const buttons=[...document.querySelectorAll('.amount-btn')];
+const input=document.getElementById('customAmount');
+const error=document.getElementById('amountError');
+const confirmation=document.getElementById('confirmation');
+const selectedAmount=document.getElementById('selectedAmount');
+function brl(cents){return 'R$ '+(cents/100).toLocaleString('pt-BR',{minimumFractionDigits:2,maximumFractionDigits:2})}
+function selectButton(button){buttons.forEach(b=>{const active=b===button;b.classList.toggle('selected',active);b.setAttribute('aria-pressed',String(active))});input.value='';input.dataset.cents='0';error.classList.remove('show')}
+buttons.forEach(button=>button.addEventListener('click',()=>selectButton(button)));
+input.addEventListener('input',event=>{const digits=event.target.value.replace(/\D/g,'');const cents=digits?parseInt(digits,10):0;event.target.dataset.cents=String(cents);event.target.value=cents?brl(cents):'';if(cents){buttons.forEach(b=>{b.classList.remove('selected');b.setAttribute('aria-pressed','false')});error.classList.remove('show')}});
+document.getElementById('donationForm').addEventListener('submit',event=>{event.preventDefault();const active=document.querySelector('.amount-btn.selected');const cents=active?Number(active.dataset.cents):Number(input.dataset.cents||0);if(!cents){error.classList.add('show');input.focus();return}selectedAmount.textContent=brl(cents);confirmation.classList.add('show');confirmation.scrollIntoView({behavior:'smooth',block:'center'})});
+document.getElementById('copyPix').addEventListener('click',async()=>{const button=document.getElementById('copyPix');try{await navigator.clipboard.writeText(document.getElementById('pixKey').textContent.trim())}catch(e){const range=document.createRange();range.selectNode(document.getElementById('pixKey'));getSelection().removeAllRanges();getSelection().addRange(range);document.execCommand('copy');getSelection().removeAllRanges()}button.textContent='Copiada';setTimeout(()=>button.textContent='Copiar chave',1800)});
+document.getElementById('shareBtn').addEventListener('click',async()=>{const text='Ajude uma família a conquistar uma moradia digna. Faça uma doação ou compartilhe esta campanha:';if(navigator.share){try{await navigator.share({title:document.title,text,url:location.href})}catch(e){}}else{window.open('https://wa.me/?text='+encodeURIComponent(text+' '+location.href),'_blank')}});
+</script>
 </body>
 </html>
